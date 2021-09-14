@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-integrador",
+  "version": "1.0.0",
+  "description": "Grupo8-Viridis",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranMon1/Grupo_8_Viridis.git"
+  },
+  "author": "Bourdillon_Gazzera_Montero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FranMon1/Grupo_8_Viridis/issues"
+  },
+  "homepage": "https://github.com/FranMon1/Grupo_8_Viridis#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
