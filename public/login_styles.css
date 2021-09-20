@@ -1,0 +1,123 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor,
+.contenedor-main,
+.contenedor-footer{
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.menu{
+    background-color: #fff;
+    padding: 9px 20px;
+}
+
+.menu .contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.search-bar {
+    width:10%;
+    height: 30px;
+    display: flex;
+    background-color: #eaeaea;
+    border: solid 0.5px black;
+    border-radius: 20px;
+    margin-left: -10%;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: 0 20px;
+}
+
+header .contenedor .fa-search{
+    font-size: 10px;
+    margin-left: -15%;
+}
+
+
+
+/* Empieza el main */
+
+
+.contenedor-main {
+    border-top: solid 2px black;
+    margin-bottom: 30%;
+    height: 5vw;
+}
+
+.contenedor-titulo{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.form{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+#nombre,
+#password{
+    border: none;
+    border-bottom: solid 1px black;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.contenedor-botones{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.registrarse, .confirmar{
+   padding: 2%;
+   font-weight: bold;
+   font-size: 15px;
+}
+
+
+
+/* Footer */
+
+.contenedor-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-footer{
+    font-weight: bold;
+}
+
+.contenedor-footer{
+    border-top: solid 2px black;
+}
+
+.fa-instagram, .fa-facebook, .fa-whatsapp{
+    font-size: 20px;
+}
