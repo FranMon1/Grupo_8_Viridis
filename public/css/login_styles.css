@@ -3,7 +3,6 @@
     padding: 0;
     font-family: 'Raleway', sans-serif;
     box-sizing: border-box;
-    background-color: rgb(82, 75, 75);
 }
 
 a {
@@ -22,19 +21,20 @@ header .contenedor {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom:  1px solid #0288d1;
+    background-color: rgb(31 31 31);
 }
 
 .menu{
     padding: 9px 20px;
+    background-color: rgb(31 31 31);
 }
 
 .buscador {
     display: flex;
     width: 240px;
-    background-color: grey;
+    background-color: white;
     padding: 5px 10px;
-    color: white;
+    color: black;
     border-radius: 20px;
     align-items: center;  
     font-weight: bold;
@@ -45,7 +45,8 @@ header .contenedor {
     font-size: 17px;
     background-color: grey;
     align-items: center;
-    color: #5eb8ff;
+    background: none;
+    color: black;
 }
 
 nav ul li{
@@ -53,6 +54,9 @@ nav ul li{
     margin: 0 20px;
 }
 
+ul{
+    background: none;
+}
 
 /* Empieza el main */
 
@@ -61,12 +65,13 @@ nav ul li{
     height: 0rem;
     margin-top: 4.8%;
     text-align: center;
+    background: grey;
 }
 
 .titulo-login{
     font-size: 25px;
     margin-bottom: 1%;
-    color: white;
+    color: rgb(31 31 31);
     letter-spacing: 5px;
 }
 
@@ -91,8 +96,12 @@ nav ul li{
     margin-top: 15px;
     margin-bottom: 25px;
     font-size: 20px;
-    color: white;
-    font-weight: bold; 
+    color: black;
+    font-weight: bolder; 
+}
+
+#nombre::placeholder, #password::placeholder{
+    color: rgb(31 31 31);
 }
 
 .botones{
@@ -103,21 +112,38 @@ nav ul li{
 .boton-registrar button, .boton-confirmar button{
     font-weight: bold;
     font-size: 20px;
-    background-color: white;
+    background: none;
     padding: 2%;
-    border: none;
+    border: solid 0.5px black;
     border-radius:10px;
     width: 250px;
+}
+.boton-registrar a{
+    color: rgb(31 31 31);
+    font-size: 20px;
+    background: none;
+    width: 100%;
+    display: block;
+    align-self: center;
+}
+
+.boton-registrar button:hover,
+.boton-confirmar button:hover,
+.boton-registrar a:hover{
+    background-color: rgb(31 31 31);
+    color: white;
 }
 
 .rememberpass{
     display: flex;
     align-items: center;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 12px;
     margin-bottom: 5%;
     justify-content: end;
+    color: black;
 }
+
 
 
 /* Footer */
@@ -126,37 +152,51 @@ footer {
 
     position: relative;
     height: 200px;
-    background-color:black;
+    background-color: rgb(31 31 31);
 }
 
 .contenedorfooter1 {
-    height: 150px;
+    height: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     position: absolute;
     top: 10%;
     left: 10%;
-    margin: auto;
-    background-color: black;
+    
+   
 
 }
 
 .contenedorfooter1 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
     
+    font-size: 10px;
+    color:white;
+    text-decoration: none;
+    margin: auto;
 
+}
+
+.redes-sociales {
+    
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 135%;
 }
 
 .titulo-footer1 {
-    font-size: 25px;
+
+  width:150px
+
 }
 
 .contenedorfooter2 {
+    
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -164,20 +204,12 @@ footer {
     align-items: center;
     position: absolute;
     top: 10%;
-    left: 40%;
+    left: 35%;
     margin: auto;
-    background-color: black;
+    color: white;
 
 }
 
-.contenedorfooter2 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
-    
-
-}
 
 .contenedorfooter3 {
 
@@ -188,20 +220,13 @@ footer {
     align-items: center;
     position: absolute;
     top: 10%;
-    left: 60%;
+    left: 55%;
     margin: auto;
-    background-color: black;
+    color: white;
+   
 
 }
 
-.contenedorfooter3 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
-    
-
-}
 
 .contenedorfooter4 {
 
@@ -212,17 +237,10 @@ footer {
     align-items: center;
     position: absolute;
     top: 10%;
-    left: 80%;
+    left: 75%;
     margin: auto;
-    background-color: black;
-
-}
-
-.contenedorfooter4 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
+    color: white;
     
 
 }
+
