@@ -23,6 +23,7 @@
     justify-content: space-evenly;
     
     
+    
 }
 
 .logo {
@@ -79,6 +80,17 @@ header a {
     
 }
 
+.iconos a {
+    display: flex;
+    width: 150px;
+    font-size: 30px;
+    align-items: center;
+    color: #5eb8ff;
+    justify-content: space-evenly;
+    
+
+}
+
 .iconos i {
     background: none;
     
@@ -87,24 +99,42 @@ header a {
 /*-------------- MAIN ---------------*/
 
 main {
-
+    margin: 0;
     display: flex;
     flex-direction: column;
-    height: 1200px
+    background-color: rgba(0, 0, 0, 0.5);
+  
 }
 
 .ContenedorMain {
-    margin-top: 5px;
+
+   
     position: relative;
     text-align: center;
-    color: white
+    color: white;
+    background: none;
+    
+  
+    height:50vw;
+
+    
 }
 
 
 .MainImg { 
 
-    margin: auto;
-    width: 100%
+
+    
+    max-height: 100%;
+    width: 100%;
+    background: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    transform: translate(0%, 0%);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    
+    
 
 }
 
@@ -126,12 +156,50 @@ main {
 }
 .texto-img a {
     font-size: 4vw;
+    color: #63a4ff;
 }
 
 .texto-img p {
+    color: white;
     width: 30vw;
     font-size: 1.5vw;
 }
+
+.ContenedorMain .arrow-left i {
+   
+    background: none;
+    font-size: 2em;
+    color:orange;
+    position: absolute;
+    top: 50%;
+    left: 5%
+
+}
+
+.ContenedorMain .arrow-right i {
+
+    background: none;
+    font-size: 2em;
+    color:orange;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    line-height: 2em;
+
+}
+
+
+.arrow-left i:hover {
+    transform: scale(1.3);
+    text-shadow: 5px 1px 5px white;
+}
+
+.arrow-right i:hover {
+    transform: scale(1.3);
+    text-shadow:  -5px 1px 5px black;
+}
+
+
 
 .center-left {
 
@@ -154,6 +222,7 @@ main {
 
 }
 
+
 .main-categorias {
 
     font-size: 24px;
@@ -163,7 +232,7 @@ main {
     flex-direction: column;
     background: none;
     color: white;
-    padding: 20px;
+    padding: 20px 20px 20px 20px;
     margin: 10px;
     border-bottom: solid #63a4ff 1px
     
@@ -190,9 +259,10 @@ main {
   
 }
 
-.main-sub-categorias selected {
+.main-sub-categorias a:hover {
     color: orange
 }
+
 
 .main-images {
     
@@ -238,6 +308,14 @@ main {
     align-items: center;
     background: none;
     color: #80d6ff;
+}
+
+.img-container01:hover,
+.img-container02:hover,
+.img-container03:hover {
+    box-shadow: 0px 0px 10px 1px #63a4ff;
+    
+    
 }
 
 .main-images i {
