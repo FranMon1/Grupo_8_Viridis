@@ -1,25 +1,29 @@
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
     box-sizing: border-box;
-    background-color: rgb(82, 75, 75);
+    background-color: rgba(0, 0, 0, 0.5);
 }
-
 
 /*-------------- HEADER ---------------*/
 
-
 .header {
-    
+
+    background: none;
     font-size: 15px;
     padding: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom:  1px solid #0288d1;
     
+    
+}
+
+.logo {
+    background: none;
 }
 
 .buscador {
@@ -38,17 +42,21 @@
 }
 
 .buscador i {
-    
+
+    background-color: grey;
     margin-right: 10px;
     font-size: 17px;
-    background-color: grey;
     align-items: center;
     color: #5eb8ff;
 
 }
 
-a {
+.nav-bar {
+    background: none;
+}
 
+header a {
+    background:none;
     text-decoration: none;
     align-items: center;
     margin-left: 30px;
@@ -58,84 +66,118 @@ a {
 }
 
 .iconos {
-
+    background: none;
     display: flex;
     width: 150px;
     font-size: 30px;
     align-items: center;
     color: #5eb8ff;
-    justify-content: space-evenly
+    justify-content: space-evenly;
     
+}
 
+.iconos i {
+    background: none;
+    
 }
 
 /*-------------- MAIN ---------------*/
 
+h2, h4 {
+    margin: 10px 10px;
+}
 
+p {
+    width: 90%;
+    text-align: left;
+    margin: 10px;
+}
 
+main {
 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    color: white;
+}
 
 .contenedor-padre1 {
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
+    width: 100%;
+    
 }
 
 .contenedor-main1 {
     box-sizing: border-box;
-    margin: 10px;
     display: flex;
     flex-direction: row;
+    width: 20%;
+    
 }
 
 .columna1 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     box-sizing: border-box;
     flex-wrap: nowrap;
-    float: left;
-    padding-right: 5px;
-}
+ }
 
 .detalles {
     margin: 10px;
     border: solid 1px black;
-    width: 200px;
-    height: 50px;
     margin-bottom: 15px;
     align-items: flex-start;
-    box-sizing: border-box;       
+    box-sizing: border-box;
+    width: 250px; 
+    height: 50px;
+    max-width: 85%;
+    overflow: hidden;
 }
 
-.contenedor-main2, .columna2 {
+.columna2 {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-self: center;
-    box-sizing: border-box;
-    margin: 0;
-    width: 50%;
+    margin: 10px;
+    border: solid 1px black;
+    margin-bottom: 15px;
+    align-items: flex-start;
+    box-sizing: border-box; 
+    
 }
 
 .i-principal {
-    display: flex;
-    width: 450px;
-    height: 450px;
-    box-sizing: border-box;
-    justify-self: center;
-    align-self: center;
     border: solid 1px black;
-    flex-direction: row;
-
+    object-fit: cover;
+    align-items: center;
+    box-sizing: border-box; 
+    width: 100%;
 }
 
-.contenedor-main3, .columna3 {
+.contenedor-main3 {
+    box-sizing: border-box;
+    margin-left: 10px;
     display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: flex-end;
+}
+
+.contenedor-padre2 p {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.columna3 {
+    display: block;
     flex-direction: row;
     box-sizing: border-box;
     align-content: flex-end;
     flex-wrap: nowrap;
-    width: 30%;
+    margin-right: 10px;
+    
+    
 }
 
 .mas-productos, .ver-mas {
@@ -148,6 +190,18 @@ a {
     flex-wrap: nowrap;
 }
 
+.relacionados {
+    margin: 10px;
+    border: solid 1px black;
+    margin-bottom: 15px;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 200px; 
+    height: 200px;
+    max-width: 85%;
+    overflow: hidden;
+}
+
 /*-------------- FOOTER ---------------*/
 
 footer {
@@ -158,33 +212,47 @@ footer {
 }
 
 .contenedorfooter1 {
-    height: 150px;
+    height: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     position: absolute;
     top: 10%;
     left: 10%;
-    margin: auto;
-    background-color: black;
+    
+   
 
 }
 
 .contenedorfooter1 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
     
+    font-size: 10px;
+    color:white;
+    text-decoration: none;
+    margin: auto;
 
+}
+
+.redes-sociales {
+    
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 135%;
 }
 
 .titulo-footer1 {
-    font-size: 25px;
+
+  width:150px
+
 }
 
 .contenedorfooter2 {
+    
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -192,20 +260,12 @@ footer {
     align-items: center;
     position: absolute;
     top: 10%;
-    left: 40%;
+    left: 35%;
     margin: auto;
-    background-color: black;
+    color: white;
 
 }
 
-.contenedorfooter2 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
-    
-
-}
 
 .contenedorfooter3 {
 
@@ -216,20 +276,13 @@ footer {
     align-items: center;
     position: absolute;
     top: 10%;
-    left: 60%;
+    left: 55%;
     margin: auto;
-    background-color: black;
+    color: white;
+   
 
 }
 
-.contenedorfooter3 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
-    
-
-}
 
 .contenedorfooter4 {
 
@@ -240,19 +293,9 @@ footer {
     align-items: center;
     position: absolute;
     top: 10%;
-    left: 80%;
+    left: 75%;
     margin: auto;
-    background-color: black;
-
-}
-
-.contenedorfooter4 a{
-
-    margin: auto;
-    align-items: center;
-    background-color: black;
+    color: white;
     
 
 }
-
-
