@@ -277,7 +277,7 @@ div .more-less-products {
     
 }
 
-.more-less-products .añadirCart .fa-shopping-cart {
+.more-less-products .anadirCart .fa-shopping-cart {
     background: none;
     display: flex;
     justify-content: center;
@@ -287,6 +287,11 @@ div .more-less-products {
     margin-right: auto;
         
 }  
+
+.anadirCart {
+    background:none;
+    }
+    
 
 .contenedor-padre2 {
     width: 100%;
