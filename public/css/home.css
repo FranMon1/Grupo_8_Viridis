@@ -102,10 +102,15 @@ header a {
     
 }
 
-.buscador h4 {
+.buscador input {
     background: none;
     font-weight: 400;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
+    border: none;
+    color: white;
+    border-style: none;
+    outline: none;
+    
 }
 
 /*-------------- MAIN ---------------*/
