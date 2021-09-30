@@ -63,22 +63,10 @@ ul{
 .contenedor-main{
     position: relative;
     text-align: center;
-    background: none;
-    height: 34vw;
+    background-image: url(/images/canva-photo-editor.png);
+    height: 35vw;
+    background-size: cover;
 }
-
-.MainImg { 
-    max-height: 100%;
-    width: 100%;
-    background: none;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
-    opacity: 0.7;
-}
-
-
 
 .titulo-login{
     font-size: 25px;
@@ -87,19 +75,15 @@ ul{
     position: relative;
     z-index: 2;
     padding-top: 5%;
+    color: whitesmoke;
 }
 
-.form-control{
-    width: 100%;
-}
 
 .form{
-    color: white;
-    width: 30%;
+    color: whitesmoke;
+    width: 40%;
     margin: auto;
     font-weight: bold;
-    position: relative;
-    z-index: 1;
 }
 
 #nombre,
@@ -108,16 +92,17 @@ ul{
     border-bottom: solid 1px black;
     padding: 2%;
     width: 100%;
+    display: flex;
     margin-top: 15px;
     margin-bottom: 25px;
     font-size: 20px;
-    color: black;
+    color: whitesmoke;
     font-weight: bolder; 
     background: none;
 }
 
 #nombre::placeholder, #password::placeholder{
-    color: rgb(31 31 31);
+    color: whitesmoke;
 }
 
 .botones{
@@ -128,14 +113,18 @@ ul{
 .boton-registrar button, .boton-confirmar button{
     font-weight: bold;
     font-size: 20px;
-    background: none;
+    background: grey;
+    opacity: 0.8;
     padding: 2%;
     border: solid 0.5px black;
     border-radius:10px;
     width: 250px;
+    color: whitesmoke;
+
+    
 }
 .boton-registrar a{
-    color: rgb(31 31 31);
+    color: whitesmoke;
     font-size: 20px;
     background: none;
     width: 100%;
@@ -147,7 +136,7 @@ ul{
 .boton-confirmar button:hover,
 .boton-registrar a:hover{
     background-color: rgb(31 31 31);
-    color: white;
+    color: whitesmoke;
 }
 
 .rememberpass{
@@ -157,18 +146,26 @@ ul{
     font-size: 12px;
     margin-bottom: 5%;
     justify-content:left;
-    color: black;
+    color: white;
     background: none;
+    position: relative;
+    left: 2%;
 }
 
 
 .forgotpass{
     margin-top: 5%;
+    display: flex;
 }
 
 .forgotpass a{
-    color: black;
-    font-size: 20px;
+    color: white;
+    font-size: 15px;
+}
+
+.forgotpass a:hover{
+    text-decoration: underline;
+    
 }
 
 
