@@ -21,21 +21,21 @@
 </head>
 <body> 
     <!--Header-->
-
     <header>
         <div class='header'>
-            <img class="logo" src='/images/Logo-blanco.png' href=''>
+            <a href="/"><img class="logo" src='/images/Logo-blanco.png' href=''></a>
         
-            <div class='buscador'><i class="fas fa-search"></i>Barra de busqueda</div>
+            <div class='buscador'><i class="fas fa-search"></i><h4>Barra de busqueda</h4></div>
             <div class="nav-bar">
-                <a href="">Home</a>
-                <a href="">Indumentaria</a>
+                <a href="/">Home</a>
+                <a href="/product">D.Producto</a>
                 <a href="">Accesorios</a>
                 <a href="">Palos</a>
             </div>
+            <div class="hamburguer-menu"><i class="fas fa-bars"></i></div>
             <div class='iconos'>
-                <i class="fas fa-shopping-cart"></i>
-                <i class="fas fa-sign-in-alt"></i>
+                <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                <a href="/login"><i class="fas fa-sign-in-alt"></i></a>
             </div>
         </div>
     </header>
@@ -55,20 +55,27 @@
         <img class="detalles" src="/images/pelota6.jpg">       
         </div>
         </section>
-        <!-- <section class="contenedor-main2"> -->
+        <section class="contenedor-main2"> 
         <div class="columna2">
         <img class="i-principal" src="/images/golf_PNG38.png">
         </div>
-        <!-- </section> -->
+        </section> 
         <section class="contenedor-main3">    
         <div class="columna3">
         <h2>Nombre del Producto</h2>            
         <h4>Precio</h4>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam perferendis facilis voluptatem quaerat debitis eos?</p>
         </div>
+        <div class="more-less-products">
+            <a class="boxminus" href=""> - </a>
+            <a class="box2" href=""> 2 </a>
+            <a class="boxplus" href=""> + </a>
+        
+        <div class="añadirCart"><a href="/cart"> <i class="fas fa-shopping-cart"></i></a></div>    
+        </div>
         </section>
     </div>
-
+ 
 <div class="contenedor-padre2">
         <h2>Más Productos</h2>
     <section class="mas-productos">
@@ -82,9 +89,7 @@
 </main>
 
     <!--FOOTER-->
-
-    
-    <footer>
+ <footer>
         <div class='contenedorfooter1'>
            <img class="titulo-footer1" src="/images/Logo-blanco.png" alt="">
             
@@ -117,9 +122,6 @@
             <a>product1</a>
             <a>product1</a>
         </div>
-    </footer>
-</body>
-</html>
-
+</footer>
 </body>
 </html>

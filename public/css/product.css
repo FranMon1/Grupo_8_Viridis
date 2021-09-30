@@ -1,4 +1,5 @@
 
+
 * {
     margin: 0;
     padding: 0;
@@ -27,18 +28,14 @@
 }
 
 .buscador {
-
-    
     display: flex;
-    width: 240px;
+    width: 20vw;
     background-color: grey;
     padding: 5px 10px;
     color: white;
     border-radius: 20px;
     align-items: center;
-
-   
-    
+    margin-left:15px
 }
 
 .buscador i {
@@ -53,6 +50,15 @@
 
 .nav-bar {
     background: none;
+}
+
+
+.nav-bar {
+    background: none;
+}
+
+.hamburguer-menu {
+    display: none
 }
 
 header a {
@@ -76,21 +82,39 @@ header a {
     
 }
 
+
+.iconos a {
+
+    display: flex;
+    width: 2em;
+    font-size: 1em;
+    align-items: center;
+    color: #5eb8ff;
+    justify-content: space-evenly;
+}
+
 .iconos i {
     background: none;
-    
+}
+
+.buscador h4 {
+    background: none;
+    font-weight: 400;
+    font-size: 1.5vw;
 }
 
 /*-------------- MAIN ---------------*/
 
 h2, h4 {
     margin: 10px 10px;
+    background: none
 }
 
 p {
     width: 90%;
     text-align: left;
     margin: 10px;
+    background: none
 }
 
 main {
@@ -100,14 +124,16 @@ main {
     box-sizing: border-box;
     width: 100%;
     color: white;
+    
 }
 
 .contenedor-padre1 {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
-    width: 100%;
-    
+    width: 100%;    
+    background: none;
+    justify-content: space-evenly;
 }
 
 .contenedor-main1 {
@@ -115,6 +141,7 @@ main {
     display: flex;
     flex-direction: row;
     width: 20%;
+    background: none
     
 }
 
@@ -123,6 +150,7 @@ main {
     flex-direction: column;
     box-sizing: border-box;
     flex-wrap: nowrap;
+    background: none;
  }
 
 .detalles {
@@ -135,6 +163,15 @@ main {
     height: 50px;
     max-width: 85%;
     overflow: hidden;
+    background: none
+}
+
+.contenedor-main2 {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background: none
+    
 }
 
 .columna2 {
@@ -144,13 +181,13 @@ main {
     margin-bottom: 15px;
     align-items: flex-start;
     box-sizing: border-box; 
-    
+    background: none;
 }
 
 .i-principal {
     border: solid 1px black;
-    object-fit: cover;
-    align-items: center;
+    object-fit: fill;
+    align-items: stretch;
     box-sizing: border-box; 
     width: 100%;
 }
@@ -162,11 +199,7 @@ main {
     flex-direction: column;
     width: 25%;
     align-items: flex-end;
-}
-
-.contenedor-padre2 p {
-    margin-left: 15px;
-    margin-right: 15px;
+    background: none
 }
 
 .columna3 {
@@ -176,18 +209,111 @@ main {
     align-content: flex-end;
     flex-wrap: nowrap;
     margin-right: 10px;
+    background: none;
+    overflow: hidden;
+}
+
+div .more-less-products {
+    display: block;
+    box-sizing: border-box;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 95%;
+    background: none
+}
+.columna3 .more-less-products {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: none;
+    position: absolute;
+    bottom: 60%;
+    left: 20%;
+    color: white;
+    font-size: 0.8em;
+    background: none
+    
+}
+
+.columna3 .more-less-products a {
+    font-size: 1.5em;
+    color:white;
+    text-decoration: none;
+    background: none;
+    margin-bottom: 15px;
     
     
 }
 
+.boxminus
+{   padding: 10px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    border: orange 1px solid;
+    margin-right: 10px;
+    color: white;
+    background: none
+    
+}
+
+.box2 {
+    padding: 10px 20px 10px 20px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    border: orange 1px solid; 
+    color:white;
+    background: none
+    
+}
+
+.boxplus {
+    padding: 10px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    border: orange 1px solid;
+    margin-left: 10px; 
+    color:white;
+    background: none
+    
+}
+
+.more-less-products .añadirCart .fa-shopping-cart {
+    background: none;
+    display: flex;
+    justify-content: center;
+    color: #5eb8ff;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+        
+}  
+
+.contenedor-padre2 {
+    width: 100%;
+    background: none;
+    justify-content: space-evenly;
+}
+
+.contenedor-padre2 p {
+    margin-left: 15px;
+    margin-right: 15px;
+    background: none
+}
+
+
+
+
+
 .mas-productos, .ver-mas {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     border: solid 1px black;
     height: 200px;
     display: flex;
     flex-wrap: nowrap;
+    background: none
+    
 }
 
 .relacionados {
@@ -199,7 +325,11 @@ main {
     width: 200px; 
     height: 200px;
     max-width: 85%;
-    overflow: hidden;
+    justify-content: space-evenly;
+    background: none;
+    overflow: scroll;
+    
+    
 }
 
 /*-------------- FOOTER ---------------*/
@@ -298,4 +428,110 @@ footer {
     color: white;
     
 
+}
+
+@media (max-width: 500px) {
+
+    /* header*/ 
+.header {
+    flex-direction: column;
+    }
+
+    .header a {
+        margin: auto
+    }
+.nav-bar {
+    display: none
+}
+
+.buscador {
+    display: none
+}
+
+.hamburguer-menu {
+
+    display: block;
+    background: none;
+    color: white;
+    font-size: 40px;
+    margin: 15px
+}
+
+.hamburguer-menu i {
+    background: none;
+}
+.iconos {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.iconos a {
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%
+}
+
+/* Main */
+
+
+/* footer */
+
+.footer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorfooter1 {
+    
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 0%;
+    
+}
+
+
+
+.redes-sociales {
+    width: 100%;
+    position: absolute;
+    align-items: center
+}
+
+.contenedorfooter2,
+.contenedorfooter3,
+.contenedorfooter4 {
+    display: none
+}
+
+}
+
+@media (max-width: 800px) {
+
+    .nav-bar {
+        display: none
+    }
+    .hamburguer-menu {
+    
+        display: block;
+        background: none;
+        color: white;
+        font-size: 40px;
+        margin: 15px
+    }
+    
+    .hamburguer-menu i {
+        background: none;
+    }
+   
+    .img-container03 {
+        display: none
+    }
 }
