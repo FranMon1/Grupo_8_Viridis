@@ -24,6 +24,29 @@ header .contenedor {
     background-color: rgb(31 31 31);
 }
 
+.fa-shopping-cart, .fa-sign-out-alt {
+    background: none;
+    display: flex;
+    width: 50px;
+    font-size: 30px;
+    align-items: center;
+    color: #5eb8ff;
+    justify-content: space-evenly;
+   
+}
+
+.fa-shopping-cart a, .fa-sign-out-alt a {
+
+    display: flex;
+    width: 2em;
+    font-size: 1em;
+    align-items: center;
+    color: #5eb8ff;
+    justify-content: space-evenly;
+    
+
+}
+
 .menu{
     padding: 9px 20px;
     background-color: rgb(31 31 31);
@@ -121,13 +144,12 @@ nav ul li{
     font-weight: bold;
     font-size: 20px;
     background: grey;
-    opacity: 0.8;
     padding: 1%;
     border: solid 0.5px black;
     border-radius:10px;
     width: 250px;
     color: white;
-    margin-top: 2%;
+    margin-top: 10%;
     opacity: 0.8;
 
 }

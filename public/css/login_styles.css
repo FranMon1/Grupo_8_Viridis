@@ -24,6 +24,29 @@ header .contenedor {
     background-color: rgb(31 31 31);
 }
 
+.fa-shopping-cart, .fa-sign-out-alt {
+    background: none;
+    display: flex;
+    width: 50px;
+    font-size: 30px;
+    align-items: center;
+    color: #5eb8ff;
+    justify-content: space-evenly;
+   
+}
+
+.fa-shopping-cart a, .fa-sign-out-alt a {
+
+    display: flex;
+    width: 2em;
+    font-size: 1em;
+    align-items: center;
+    color: #5eb8ff;
+    justify-content: space-evenly;
+    
+
+}
+
 .menu{
     padding: 9px 20px;
     background-color: rgb(31 31 31);
@@ -32,30 +55,28 @@ header .contenedor {
 .buscador {
     display: flex;
     width: 240px;
-    background-color: white;
+    background: white;
     padding: 5px 10px;
     color: black;
     border-radius: 20px;
     align-items: center;  
     font-weight: bold;
+
 }
 
 .buscador i {
     margin-right: 10px;
-    font-size: 17px;
-    background-color: grey;
-    align-items: center;
     background: none;
+    font-size: 17px;
+    align-items: center;
     color: black;
+    background: none;
 }
+
 
 nav ul li{
     display: inline-block;
     margin: 0 20px;
-}
-
-ul{
-    background: none;
 }
 
 /* Empieza el main */
