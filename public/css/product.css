@@ -214,11 +214,9 @@ main {
 }
 
 div .more-less-products {
-    display: block;
+    display: flex;
     box-sizing: border-box;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    justify-content: center;
+    justify-content: stretch;
     margin-top: 30px;
     margin-bottom: 20px;
     width: 95%;
@@ -290,8 +288,12 @@ div .more-less-products {
 
 .anadirCart {
     background:none;
-    }
-    
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .contenedor-padre2 {
     width: 100%;
