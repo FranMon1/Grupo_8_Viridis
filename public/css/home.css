@@ -187,12 +187,13 @@ main {
 .ContenedorMain .arrow-left i {
    
     background: none;
-    font-size: 2em;
+    font-size: 3vw;
    -webkit-text-stroke: 1px black;
     color:white;
     position: absolute;
     top: 50%;
     left: 1rem;
+    z-index: 4;
    
     
 
@@ -201,10 +202,11 @@ main {
 .ContenedorMain .arrow-right i {
 
     background: none;
-    font-size: 2rem;
+    font-size: 3vw;
     color:white;
     position: absolute;
     -webkit-text-stroke: 1px black;
+    z-index: 4;
     top: 50%;
     right: 1rem;
     
