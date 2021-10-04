@@ -24,6 +24,12 @@ header .contenedor {
     background-color: rgb(31 31 31);
 }
 
+.menu .contenedor a img {
+    background: none;
+    width: 10rem;
+    margin-right: 20px
+}
+
 .fa-shopping-cart, .fa-sign-out-alt {
     background: none;
     display: flex;
