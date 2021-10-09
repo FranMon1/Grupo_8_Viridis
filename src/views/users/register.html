@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/css/login_styles.css">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register_styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
                         <li><a href="">Accesorios</a></li>
                         <li><a href="">Palos</a></li>
                         <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
-                        <li><a href="/register"><i class="fas fa-sign-out-alt"></i></a></li>
+                        <li><a href="/users/login"><i class="fas fa-sign-out-alt"></i></li></a>
                     </ul>
                 </nav>
             </div>
@@ -38,44 +38,49 @@
     <main>
         <section>
             <div class="contenedor-main">
-                <div class="titulo-login">
-                    <h1>Inicia Sesión</h1>
-                </div>
-                <div class="form">
-                    <form action="/register.html" method="post">
-                        <label for="nombre"> </label>
-                        <input type="text" name="nombre" id="nombre" placeholder="Usuario" required>
-                        <label for="password"></label>
-                        <input type="password" name="password" id="password" placeholder="Contraseña" required>
-                        <label class="rememberpass">
-                            <input type="checkbox" name="recordarpass" value="ok" class="checkbox">Recordar mi
-                            Contraseña
-                        </label>
-
-                        <div class="botones">
-                            <div class="boton-registrar">
-                                <button type="reset"><a href="/register">Registrarse</a></button id="submit"></button>
+                <div class="contenedor-titulo">
+                    <div class="titulo-login">
+                        <h1>Formulario de Registro</h1>
+                    </div>
+                    <div class="form">
+                        <form action="/registro" method="POST">
+                            <div>
+                                <label for="nombre"> </label>
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
                             </div>
-                            <div class="boton-confirmar">
-                                <button type="submit">Confirmar</button id="submit"></button>
+                            <div>
+                                <label for="nombre"> </label>
+                                <input type="text" name="nombre" id="nombre" placeholder="Usuario" required>
+                            </div>
+                            <div>
+                                <label for="password"></label>
+                                <input type="password" name="password" id="password" placeholder="Contraseña"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="email"></label>
+                                <input type="email" name="Email" id="email" placeholder="Email"  required>
                             </div>
 
-                        </div>
-                        <div class="forgotpass">
-                            <a href="#">¿Olvidaste tu contraseña?</a>
-                        </div>
-                    </form>
+                            <div class="botones">
+                                <div class="boton-registrar">
+                                    <button type="button"><a href="/users/login">Iniciar Sesión</a></button id="submit"></button>
+                                </div>
+                                <div class="boton-confirmar">
+                                    <button type="submit">Confirmar</button id="submit"></button>
+                                </div>
+                            </div>
 
 
 
+                        </form>
+                    </div>
                 </div>
-
             </div>
         </section>
     </main>
 
 
-    <!--------FOOTER-->
     <footer>
         <div class='contenedorfooter1'>
             <img class="titulo-footer1" src="/images/Logo-blanco.png" alt="">

@@ -1,8 +1,8 @@
 {
   "name": "proyecto-integrador",
   "version": "1.0.0",
-  "description": "Grupo8-Viridis",
-  "main": "app.js",
+  "description": "_Trello: https://trello.com/b/Y81DpC0W/proyectointegrador_",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/FranMon1/Grupo_8_Viridis.git"
   },
-  "author": "Bourdillon_Gazzera_Montero",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FranMon1/Grupo_8_Viridis/issues"
