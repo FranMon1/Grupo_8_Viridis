@@ -1,6 +1,6 @@
 const controller = {
     index: (req, res) =>{
-        res.send("src/index");
+        res.render("index");
     }
 };
 

@@ -1,14 +1,12 @@
 const usersController = {
     login: (req, res) =>{
-        res.send("src/login");
+       return res.render("login");
     },
 
     register: (req, res) =>{
-        res.send("src/register");
+       return res.render("register");
     }
 };
-
-
 
 
 module.exports = usersController;
