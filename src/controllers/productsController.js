@@ -1,22 +1,22 @@
-const productsController = {
+let productsController = {
     product: (req, res) =>{
-        res.send("src/product");
+      return res.render("products/product");
     },
 
     cart: (req, res) =>{
-        res.send("src/cart");
+       return res.render("products/cart");
     },
 
     detail: (req, res) =>{
-        res.send('src/detail');
+        return res.render('products/cart');
     },
 
     create: (req, res) =>{
-        res.send('src/create');
+        return res.send('products/create');
     },
 
     edit: (req, res) =>{
-        res.send('src/edit');
+        return res.send('products/edit');
     }
 };
 

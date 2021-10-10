@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
+
 const path= require('path');
-app.use(express.static(path.join(__dirname,'/../public')));
-app.set('view engine', 'ejs');
+
 const mainRouter = require('./routes/index.js');
 const usersRouter = require('./routes/users.js');
 const productRouter = require('./routes/products.js');
+
+app.use(express.static(path.join(__dirname,'/../public')));
+app.set('view engine', 'ejs');
+
 
 app.use('/', mainRouter );
 app.use('/users', usersRouter );
