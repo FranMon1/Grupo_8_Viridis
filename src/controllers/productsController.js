@@ -8,7 +8,7 @@ let productsController = {
     },
 
     detail: (req, res) =>{
-        return res.render('products/cart');
+        return res.render('products/detail');
     },
 
     create: (req, res) =>{
