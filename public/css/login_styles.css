@@ -9,82 +9,9 @@ a {
     text-decoration: none;
     align-items: center;
     font-size: 15px;
-    font-weight: bold;
     color: white;
     letter-spacing: 1px;
 }
-
-header .contenedor {
-    font-size: 15px;
-    padding: 15px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: rgb(31 31 31);
-}
-
-.menu .contenedor a img {
-    background: none;
-    width: 10rem;
-    margin-right: 20px
-}
-
-.fa-shopping-cart, .fa-sign-out-alt {
-    background: none;
-    display: flex;
-    width: 50px;
-    font-size: 30px;
-    align-items: center;
-    color: #5eb8ff;
-    justify-content: space-evenly;
-   
-}
-
-.fa-shopping-cart a, .fa-sign-out-alt a {
-
-    display: flex;
-    width: 2em;
-    font-size: 1em;
-    align-items: center;
-    color: #5eb8ff;
-    justify-content: space-evenly;
-    
-
-}
-
-.menu{
-    padding: 9px 20px;
-    background-color: rgb(31 31 31);
-}
-
-.buscador {
-    display: flex;
-    width: 240px;
-    background: white;
-    padding: 5px 10px;
-    color: black;
-    border-radius: 20px;
-    align-items: center;  
-    font-weight: bold;
-
-}
-
-.buscador i {
-    margin-right: 10px;
-    background: none;
-    font-size: 17px;
-    align-items: center;
-    color: black;
-    background: none;
-}
-
-
-nav ul li{
-    display: inline-block;
-    margin: 0 20px;
-}
-
 /* Empieza el main */
 
 .contenedor-main{
@@ -102,15 +29,14 @@ nav ul li{
     position: relative;
     z-index: 2;
     padding-top: 5%;
-    color: whitesmoke;
+    color:white;
 }
 
 
 .form{
-    color: whitesmoke;
+    color: white;
     width: 40%;
     margin: auto;
-    font-weight: bold;
 }
 
 #nombre,
@@ -123,13 +49,12 @@ nav ul li{
     margin-top: 15px;
     margin-bottom: 25px;
     font-size: 20px;
-    color: whitesmoke;
-    font-weight: bolder; 
+    color: white;
     background: none;
 }
 
 #nombre::placeholder, #password::placeholder{
-    color: whitesmoke;
+    color: white;
 }
 
 .botones{
@@ -138,7 +63,6 @@ nav ul li{
 }
 
 .boton-registrar button, .boton-confirmar button{
-    font-weight: bold;
     font-size: 20px;
     background: grey;
     opacity: 0.8;
@@ -146,30 +70,29 @@ nav ul li{
     border: solid 0.5px black;
     border-radius:10px;
     width: 250px;
-    color: whitesmoke;
+    color: white;
 
-    
 }
+
 .boton-registrar a{
-    color: whitesmoke;
+    color: white;
     font-size: 20px;
     background: none;
     width: 100%;
     display: block;
-    align-self: center;
+    align-self: center
 }
 
 .boton-registrar button:hover,
 .boton-confirmar button:hover,
 .boton-registrar a:hover{
     background-color: rgb(31 31 31);
-    color: whitesmoke;
+    color: white;
 }
 
 .rememberpass{
     display: flex;
     align-items: center;
-    font-weight: bolder;
     font-size: 12px;
     margin-bottom: 5%;
     justify-content:left;

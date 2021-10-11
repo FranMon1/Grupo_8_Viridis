@@ -35,7 +35,6 @@
     color: black;
     width: 38%;
     margin: auto;
-    font-weight: bold;
 }
 
 #nombre,
@@ -49,7 +48,6 @@
     margin-bottom: 20px;
     font-size: 20px;
     color: white;
-    font-weight: bold; 
     background: none;
 
 }
@@ -58,7 +56,6 @@
 #password::placeholder,
 #email::placeholder{
     color:white;
-    font-weight: bolder;
 }
 
 .botones{
@@ -67,7 +64,6 @@
 }
 
 .boton-registrar button, .boton-confirmar button{
-    font-weight: bold;
     font-size: 20px;
     background: grey;
     padding: 1%;
