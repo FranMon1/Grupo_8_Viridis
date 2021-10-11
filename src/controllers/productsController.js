@@ -12,11 +12,11 @@ let productsController = {
     },
 
     create: (req, res) =>{
-        return res.send('products/create');
+        return res.render('products/create');
     },
 
     edit: (req, res) =>{
-        return res.send('products/edit');
+        return res.render('products/edit');
     }
 };
 
