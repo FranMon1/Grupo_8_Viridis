@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <%- include('../partials/head.ejs') %>
- <link rel="stylesheet" href="/css/home.css">
+ <link rel="stylesheet" href="/css/header.css">
  <link rel="stylesheet" href="/css/create.css">
 
     <title>Document</title>
@@ -19,7 +19,7 @@
 
         <div class="select-category-txt">Selecciona la categoria correspondiente
         </div>
-
+        <form action="/src/views/products/create.ejs" method="post" enctype="multipart/form-data">
             <div class="icon-category">
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golf-ball-with-dents.png" alt=""></a>
@@ -44,7 +44,7 @@
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golf-sets.png" alt=""></a>
                     <p>Sets</p>
-                <input type="radio" name="category-selection" value="sets">
+                <input type="radio" name="category-selection" value="sets" required>
                 </div>
                 
               
@@ -55,15 +55,47 @@
     </section>
     <section>
         <div class="detailed-description">
-            <p>Descripción y detalles del producto</p>
-            <form action="" method="post">
+            <p class="description-title">Descripción y detalles del producto</p>
+            
                 <div class="item-name">
-                <p>Nombre del producto</p>
-                <input type="text" name="name" placeholder="nombre">
+                <p>Nombre del producto <span> * </span></p>  
+                <input type="text" name="name" placeholder="Nombre" required>
+                <p>Descripción<span> * </span></p>
+                <textarea class="description"  name="description" placeholder="Agregue una descripción" required></textarea>
+                <p>Precio<span> * </span></p>
+                <input type="number" name="price" placeholder="Ej. $ 1,500" required >
+                <p>Cantidad<span> * </span></p>
+                <input type="number" name="quantity" placeholder="Ej. 500" required >
+                <p>Talle</p>
+                <input type="text" name="size" placeholder="" >
+                <p>Color</p>
+                <input type="text" name="color" placeholder="" >
+                <p>Marca</p>
+                <input type="text" name="color" placeholder="" >
                 </div>
 
-            </form>
+           
+        
         </div>
+
+    </section>
+    <section>
+        
+        <div class="img-section">
+            <h2> Agrega la imagen del producto</h2>
+           
+                <input type="file" required>
+           
+        </div>
+        <div class="buttons">
+        <button class="erase-button" type="reset">
+            Borrar
+        </button>
+        <button class="confirm-button" type="submit">
+            Confirmar
+        </button>
+        </div>
+    </form>
     </section>
 </main>
     <!--Footer-->

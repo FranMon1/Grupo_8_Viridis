@@ -1,7 +1,17 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5);
+}
+
 
 main {
+    
     background: none;
-    height: 100vw;
+    height: 170vw;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -18,10 +28,22 @@ main section {
     justify-content: left;
 }
 
+/* ---------------First Section-------------------*/
+
+.select-category-txt {
+
+    position: absolute;
+    background: none;
+    font-weight: 300;
+    font-size: 1.5rem;
+    top: 8%
+    
+}
+
 main .top-half {
     display: flex;
     flex-direction: column;
-    height: 30%;
+    height: 27vw;
     width: 100%;
     background-color: #9ccc65;
     position:absolute;
@@ -48,10 +70,12 @@ main .top-half {
     justify-content: space-evenly;
     align-items: center;
     position: absolute;
-    top: 25%;
+    top: 12%;
     left: 0;
     background: none;
     width: 100%;
+    padding-bottom: 2vw;
+    border-bottom: 1px #9ccc65 solid;
 
 }
 .icon-properties {
@@ -64,14 +88,7 @@ main .top-half {
   
 }
 
-.select-category-txt {
-    position: absolute;
-    background: none;
-    font-weight: 300;
-    font-size: 1.5rem;
-    top: 20%
-    
-}
+
 
 .icon-category a img {
     background: none;
@@ -112,16 +129,23 @@ main .top-half {
     background: none;
 }
 
+/* ---------------Middle Section-------------------*/
+
 .detailed-description {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    top: 50%;
+    
+    align-items: center;
+    top: 25%;
     background: none;
+    width: 100%;
+    flex-wrap: wrap;
+    border-bottom: 1px #9ccc65 solid;
 }
 
-.detailed-description p {
+.description-title {
+    margin:0vw 0 4vw 0;
     background: none;
     font-weight: 300;
     font-size: 1.5rem;
@@ -133,23 +157,159 @@ main .top-half {
  {
     background: none;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: white;
+    outline: none;
 }
 
 .item-name {
-    margin: 2vw 0 2vw 0;
+    margin: 1vw 0 1vw 0;
     display: flex;
     flex-direction: column;
+    
     background: none;
     font-size: 1vw;
-    width: 100%
+    width: 45vw
 }
 
-.detailed-description form {
+
+
+.item-name input {
+    padding-left: 1vw;
+    margin: 3vw 0 3vw 0;
+    height: 30px;
+    outline: none;
+    text-indent: 10px;
+    border: none;
+    background: rgba(255,255,255, 0.8);
+    border-radius: 10px;
+    width: 100%;
+    text-align: start;
+    color: black
+   
+}
+
+.item-name input::placeholder  {
+
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+    font-style: italic;
+}
+
+.item-name span {
+    color: red;
+    background: none;
+    margin-bottom: 1vw;
+    font-size: 2rem;
+
+}
+
+.item-name .description {
+    margin: 3vw 0 3vw 0;
+    height: 20vw;
+    outline: none;
+    text-indent: 10px;
+    border: none;
+    background: rgba(255,255,255, 0.8);
+    border-radius: 10px;
+    width: 100%;
+    text-align: start;
+    box-sizing: border-box;
+    padding: 10px
+  
+    
+}
+
+.description textarea {
+    padding: 10%
+}
+
+.description::placeholder {
+    font-weight: 300;
+    font-size: 1rem;
+    margin-top: 10vw;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* ---------------Final Section-------------------*/
+
+.img-section {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-section h2 {
+    position: absolute;
+    top: 82%;
+    margin: 0vw 0 4vw 0;
+    background: none;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: white;
+    
+    
+}
+
+.img-section input {
+    position: absolute;
+    top: 87%;
+    background: none;
+    color:rgba(255,255,255, 0.8);
+    left: 40%
+}
+
+.buttons {
+    position: absolute;
+    top:90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
     background: none;
 }
 
+.buttons button {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    outline: none;
+    border: none;
+    margin: 3vw;
+    padding: 1vw;
+    border-radius: 1vw;
 
+}
 
+.erase-button {
+    font-size: 1rem;
+    background-color: rgba(255,255,255, 0.8);
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+    width: 30%;
+}
 
+.confirm-button {
+    background-color: #9ccc65;
+    width: 30%;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.confirm-button:hover {
+    background-color: #689f38
+}
+
+.erase-button:hover {
+
+    background-color: rgba(255,255,255, 1)
+
+}
