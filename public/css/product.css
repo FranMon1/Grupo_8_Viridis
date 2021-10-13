@@ -384,46 +384,20 @@ footer {
     align-items: center;
     justify-content: center;
     
-    width: 100%
+    width: 100%;
 }
-
+}
 /* Main */
 
 
 /* footer */
 
-.footer {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenedorfooter1 {
-    
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    left: 0%;
-    
-}
 
 
 
-.redes-sociales {
-    width: 100%;
-    position: absolute;
-    align-items: center
-}
 
-.contenedorfooter2,
-.contenedorfooter3,
-.contenedorfooter4 {
-    display: none
-}
 
-}
+
 
 @media (max-width: 800px) {
 
