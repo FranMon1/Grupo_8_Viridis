@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/edit.css">
+    <title>Edición de producto</title>
+</head>
+<body>
+    <!--Header-->
+    <%- include('../partials/header.ejs') %>
+    <!--Main-->
+    <main>
+       <section class="edit-page-section">
+           <div class="bgeditpanel01">
+               <p class="edit-title"> Edición del producto</p>
+           </div>
+           <div class="product-edit-section">
+                <div class="edit-img-section"><img src="/images/G425Iron_7cavityRender.png" alt="">
+                </div>
+                <button class="edit-image">Cambiar Imagen</button>
+                <div class="item-edit-properties">
+                    <p style="color:rgba(255, 137, 58, 0.815)">ID 2851</p> 
+                    <p>Nombre del producto</p>  
+                    <input type="text" name="name" placeholder="Nombre" >
+                    <p>Descripción</p>
+                    <textarea class="edit-description"  name="description" placeholder="Agregue una descripción" ></textarea>
+                    <p>Precio</p>
+                    <input type="number" name="price" placeholder="Ej. $ 1,500">
+                    <p>Cantidad</p>
+                    <input type="number" name="quantity" placeholder="Ej. 500">
+                    <p>Talle</p>
+                    <input type="text" name="size" placeholder="" >
+                    <p>Color</p>
+                    <input type="text" name="color" placeholder="" >
+                    <p>Marca</p>
+                    <input type="text" name="color" placeholder="" >
+                </div>
+            </div>
+            <button class="save-changes-button">Guardar Cambios</button>
+       </section>
+    </main>
+
+    <!--footer-->
+
+    <%-include('../partials/footer.ejs') %>
+</body>
+</html>

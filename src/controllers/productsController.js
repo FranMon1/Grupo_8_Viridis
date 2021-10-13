@@ -17,6 +17,9 @@ let productsController = {
 
     edit: (req, res) =>{
         return res.render('products/edit');
+    },
+    inventory: function (req,res) {
+        return res.render('products/inventory')
     }
 };
 
