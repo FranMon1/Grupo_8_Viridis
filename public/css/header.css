@@ -4,6 +4,7 @@
     padding: 0;
     font-family: 'Raleway', sans-serif;
     box-sizing: border-box;
+
     
 }
 
@@ -17,6 +18,8 @@
     align-items: center;
     justify-content: space-between;
     height: 5rem;
+    background-color: rgba(31,31,31,255);
+
     
 
     
@@ -254,52 +257,6 @@ header a {
       width: 100%
   }
   
-  
-  /* Main */
-  
-  .main-sub-categorias {
-      display: none
-  }
-  
-  .img-container02,
-  .img-container03 {
-      display: none
-  
-  }
-  
-  
-  /* footer */
-  
-  .footer {
-      display:flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
-  
-  .contenedorfooter1 {
-      
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      left: 0%;
-      
-  }
-  
-  
-  
-  .redes-sociales {
-      width: 100%;
-      position: absolute;
-      align-items: center
-  }
-  
-  .contenedorfooter2,
-  .contenedorfooter3,
-  .contenedorfooter4 {
-      display: none
-  }
   
   }
   
