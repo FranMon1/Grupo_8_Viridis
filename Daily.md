@@ -29,8 +29,8 @@
 ```diff
 + Fran
 ```
-
-#### - 9/10 : Ordené un poco más las rutas y controladores que arrancamos en la reunión grupal. No estaría andando el /cart.
+#### - 8/10 : Arranco con los controladores y rutas.
+#### - 9/10 : Ordené un poco más las rutas y controladores. No estaría andando el /cart.
 #### - 11/10 : Arreglé partials porque se desconfiguraban los headers. Cambié los links para que redireccionen bien. Queda confirmar en clase si está bien hecho.
 #### - 12/10 : Ajusté los media queries de los css de footer, header, register y login
 
