@@ -5,12 +5,7 @@
     box-sizing: border-box; 
 }
 
-a {
-    text-decoration: none;
-    align-items: center;
-    color: white;
-    letter-spacing: 1px;
-}
+
 /* Empieza el main */
 
 .contenedor-main{
@@ -33,7 +28,7 @@ a {
 }
 
 
-.form{
+.form-login{
     color: white;
     width: 40%;
     margin: auto;
@@ -120,6 +115,7 @@ a {
     color: rgba(0, 0, 0, 0.5);
     font-size: 15px;
     font-weight: 800;
+    text-decoration: none;
 
 }
 

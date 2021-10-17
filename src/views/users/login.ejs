@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
      <%- include("../partials/head.ejs") %>
-    <link rel="stylesheet" href="/css/login_styles.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-
-    <title>Login</title>
-
-</head>
 
 <body>
     <%- include("../partials/header.ejs")  %>
@@ -20,7 +10,7 @@
                 <div class="titulo-login">
                     <p>Inicia Sesión</p>
                 </div>
-                <div class="form">
+                <div class="form-login">
                     <form action="/users/register.html" method="post">
                         <label for="nombre"> </label>
                         <input type="text" name="nombre" id="nombre" placeholder="Usuario" required>
@@ -59,4 +49,3 @@
 
 </body>
 
-</html>
