@@ -13,7 +13,7 @@
 
         <div class="select-category-txt">Selecciona la categoria correspondiente
         </div>
-        <form action="/src/views/products/create.ejs" method="post" enctype="multipart/form-data">
+        <form action="/products/create" method="post" enctype="multipart/form-data">
             <div class="icon-category">
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golf-ball-with-dents.png" alt=""></a>
@@ -65,7 +65,7 @@
                 <p>Color</p>
                 <input type="text" name="color" placeholder="" >
                 <p>Marca</p>
-                <input type="text" name="color" placeholder="" >
+                <input type="text" name="brand" placeholder="" >
                 </div>
 
            
@@ -78,7 +78,7 @@
         <div class="img-section">
             <h2> Agrega la imagen del producto</h2>
            
-                <input type="file" required>
+                <input type="file" required name="productimg">
            
         </div>
         <div class="buttons">
