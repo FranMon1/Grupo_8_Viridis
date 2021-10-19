@@ -35,7 +35,10 @@ let productsController = {
     },
 
     edit: (req, res) =>{
-        return res.render('products/edit');
+        let productoEditar = productos.find(product => {
+            return product.id == req.params.id;
+        })
+      res.render('products/edit', {product: productoEditar})
     },
     inventory: function (req,res) {
 
@@ -65,7 +68,31 @@ let productsController = {
             return
         }
         res.redirect('/')
-    }
+    },
+    update: function (req, res) {
+      
+      productos.forEach(product => {
+          if(product.id == req.params.id){
+           
+            
+              product.category = req.body.category
+              product.name = req.body.name
+              product.description = req.body.description
+              product.price = req.body.price
+              product.quantity = req.body.quantity
+              product.size = req.body.size
+              product.color = req.body.color
+              product.brand = req.body.brand
+              product.productimg = req.body.productimg
+              
+          }
+      })
+      
+        let jsonDeProducts = JSON.stringify(productos, null, 4);
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), jsonDeProducts)
+
+        res.redirect('/')
+    },
 };
 
 module.exports = productsController;

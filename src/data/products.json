@@ -230,7 +230,7 @@
     {
         "id": 20,
         "category": "DB9",
-        "name": "Cohen & Steers MLP Income and Energy Opportunity Fund, Inc.",
+        "name": "asdasd",
         "description": "Unspecified fracture of right talus",
         "price": "$2627.54",
         "quantity": "90-157-3637",
@@ -241,8 +241,8 @@
     },
     {
         "id": 21,
-        "category-selection": "bags",
-        "name": "asdasd",
+        "category": "bags",
+        "name": "2323",
         "description": "123123",
         "price": "123212",
         "quantity": "23",
@@ -250,5 +250,17 @@
         "color": "blue",
         "brand": "golf",
         "productimg": "product-1634590281137.png"
+    },
+    {
+        "id": 22,
+        "category": "clubs",
+        "name": "asdsad",
+        "description": "asd",
+        "price": "2323",
+        "quantity": "1211",
+        "size": "s",
+        "color": "sdcx",
+        "brand": "cxzcas",
+        "productimg": "product-1634680006739.jpg"
     }
 ]
