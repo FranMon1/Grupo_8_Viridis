@@ -11,7 +11,7 @@
         
             <a href="/products/create"><button class="create-button"> Agregar producto</button></a>
         
-            
+           
             <div class="category-section"> 
                 <div style="color:rgba(255, 137, 58, 0.815)">ID</div>
                 <div>Nombre</div>
@@ -25,10 +25,20 @@
                 <div>Edit / Delete</div>
                
             </div>
-           
+            <% product.forEach(product => { %>
             <div class="productItems">
-             
+             <%=product.id%>
+             <%=product.name%>
+             <%=product.category%>
+             <%=product.price%>
+             <%=product.quantity%>
+             <%=product.id%>
+             <%=product.size%>
+             <%=product.color%>
+             <%=product.brand%>
+
             </div>
+            <% }) %>
     
      
     </section>

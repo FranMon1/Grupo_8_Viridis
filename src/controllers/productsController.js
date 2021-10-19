@@ -42,9 +42,9 @@ let productsController = {
     },
     inventory: function (req,res) {
 
+     
 
-
-        return res.render('products/inventory',)
+        return res.render('products/inventory', {product: productos})
     },
     store: function (req, res, next) {
 
