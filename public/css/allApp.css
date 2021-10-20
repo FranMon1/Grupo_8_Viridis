@@ -22,16 +22,33 @@
   
 }
 
-.ContenedorMain {
+.contenedormain {
 
-    position: relative;
-    text-align: center;
-    color: white;
-    background: none;
     height:50vw;
+    overflow: hidden;
+    width: 100%;
+    margin:auto
     
 }
 
+
+.contenedormain ul {
+   
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: change 20s infinite;
+    animation-direction: alternate;
+}
+
+.contenedormain li {
+    width: 100%;
+    list-style: none;
+}
+
+.contenedormain img {
+    width: 100%
+}
 
 .MainImg { 
 
@@ -212,6 +229,21 @@
 .main-buttons:hover
 {
     transform: scale(1.1)
+}
+
+
+@keyframes change {
+    0% {margin-left:0;}
+    20% {margin-left:0;}
+
+    25% {margin-left:-100%;}
+    45% {margin-left:-100%;}
+
+    50% {margin-left:-200%;}
+    70% {margin-left:-200%;}
+
+    75% {margin-left:-300%;}
+    100% {margin-left:-300%;}
 }
 
 /* ----- Middle Section -----*/
@@ -1711,7 +1743,7 @@ footer {
 /* ------------------------ INVENTORY ------------------------*/
 
 .inventory-section {
-    height: 70vw;
+    height: 1000vw;
     background: none;
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -1766,18 +1798,28 @@ footer {
    
 }
 
-.inventory-item {
-    display: grid;
-    grid-template-rows: 4vw;
-    grid-template-columns: 5vw 10vw 5vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+.productItems{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: 0px 10px 0 10px;
     text-align: center;
     line-height: 4vw;
     background: none;
     color: white;
     
-  
 }
+
+.inventory-productid {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background: none;
+    
+
+}
+
+
 
 .inventory-item div {
     border: 1px rgba(255,255,255, 0.8) solid;
