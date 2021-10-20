@@ -48,8 +48,6 @@ let productsController = {
     },
     store: function (req, res, next) {
 
-        
-
         if (req.file !== undefined) {
 
             let newProduct = {
