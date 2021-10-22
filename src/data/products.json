@@ -250,17 +250,5 @@
         "color": "blue",
         "brand": "golf",
         "productimg": "product-1634590281137.png"
-    },
-    {
-        "id": 22,
-        "category": "clubs",
-        "name": "asdsad",
-        "description": "asd",
-        "price": "2323",
-        "quantity": "1211",
-        "size": "s",
-        "color": "sdcx",
-        "brand": "cxzcas",
-        "productimg": "product-1634680006739.jpg"
     }
 ]

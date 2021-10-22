@@ -34,7 +34,10 @@
                     <p>Color</p>
                     <input type="text" name="color" id="color" value="<%= product.color%>" placeholder="" >
                     <p>Marca</p>
-                    <input type="text" name="color" id="brand" value="<%= product.brand%>"placeholder="" >
+                    <input type="text" name="brand" id="brand" value="<%= product.brand%>"placeholder="" >
+                    <p>Image</p>
+                    <img src="/images/products/<%=product.productimg%>" alt="">
+                    <input type="file" name="productimg">
 
                     <button class="save-changes-button">Guardar Cambios</button>
                     <button class="edit-image-button">Cambiar Imagen</button>

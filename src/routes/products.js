@@ -21,19 +21,26 @@ const storage = multer.diskStorage({
 const uploadProductImg = multer({ storage });
 
 
-// Rutas
+//-------------------------- Rutas
 
 
 router.get('/product', productsController.product);
 router.get('/cart', productsController.cart);
 router.get('/detail', productsController.detail);
 
+// Creación 
 router.get('/create', productsController.create);
 router.post('/create',uploadProductImg.single('productimg'), productsController.store);
 
-router.get ('/inventory', productsController.inventory);
+
+// Edición
 router.get ('/edit/:id', productsController.edit);
 router.put ('/edit/:id', productsController.update);
+
+
+// Inventario
+router.get ('/inventory', productsController.inventory);
+router.delete ('/inventory/:id', productsController.delete);
 
 
 
