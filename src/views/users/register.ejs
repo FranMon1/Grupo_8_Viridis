@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
     <%- include("../partials/head.ejs") %>
-    <link rel="stylesheet" href="/css/register_styles.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <title>Register</title>
-</head>
 
 <body>
     <%- include("../partials/header.ejs")  %>
 
-    <main>
+    <main class="main-register">
         <section>
-            <div class="contenedor-main">
+            <div class="contenedor-main-register">
                 <div class="contenedor-titulo">
-                    <div class="titulo-login">
-                        <h1>Formulario de Registro</h1>
+                    <div class="titulo-register">
+                        <p>Formulario de Registro</p>
                     </div>
-                    <div class="form">
+                    <div class="form-register">
                         <form action="/users/registro" method="POST">
                             <div>
                                 <label for="nombre"> </label>
@@ -60,4 +54,3 @@
 <%- include("../partials/footer.ejs")  %>  
 </body>
 
-</html>

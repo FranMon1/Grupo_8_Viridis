@@ -1,0 +1,290 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+
+    
+}
+
+
+.header {
+
+    font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    background-color: rgba(31,31,31,255);
+
+    
+
+    
+}
+
+.left-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    margin-left: 10px
+}
+
+.right-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    margin-right: 20px
+
+}
+
+.left-box .logo img{
+    background: none;
+    width: 10rem;
+    margin-right: 20px
+   
+}
+
+
+
+.buscador {
+    margin-left: 20px;
+    width: 12rem;
+    background-color: grey;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+   
+   
+}
+
+.buscador i {
+    border-right: 1px white solid;
+    background-color: grey;
+    padding-right: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+    align-items: center;
+    color: white;
+
+}
+
+.left-box .buscador input {
+    font-size: 0.8rem;
+    font-weight: 300;
+    
+
+}
+
+.nav-bar {
+    background: none;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-right: 50px
+}
+
+.hamburguer-menu {
+    display: none
+}
+
+header a {
+    background:none;
+    text-decoration: none;
+    align-items: center;
+    margin-left: 30px;
+    font-size: 15px;
+    color: white
+
+}
+
+.iconos {
+    background: none;
+    display: flex;
+    width: 150px;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 20px
+    
+}
+
+.iconos a {
+
+    display: flex;
+    width: 2em;
+    font-size: 1.5rem;
+    align-items: center;
+    color: white;
+    justify-content: space-evenly;
+    
+
+}
+
+.iconos i {
+    background: none;
+    
+}
+
+.buscador input {
+    background: none;
+    font-weight: 400;
+    font-size: 1.2vw;
+    border: none;
+    color: white;
+    border-style: none;
+    outline: none;
+    
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 420px) {
+
+    .header {
+        
+        flex-direction: column;
+        
+        align-content: space-around;
+        flex-wrap: nowrap;
+        height: 9rem
+    }
+  
+    
+  .header a {
+      margin: 0
+  }
+  
+  .left-box {
+      margin:1rem;
+  }
+  .left-box .logo img {
+      margin: 1rem;
+      
+  }
+  
+    .right-box {
+        margin: 0;
+        align-content: space-between;
+    }
+  
+    .right-box i {
+      margin: 1rem;
+      align-content: space-between;
+  }
+   
+  
+    .right-box .iconos {
+        margin: 0;
+        width: 100%;
+        padding: 0
+    }
+    .left-box {
+        margin: 0;
+        
+    }
+    .right-box .hamburguer-menu {
+        margin: 0
+    }
+  
+  }
+  
+  
+  
+  
+  @media (max-width: 675px) {
+  
+      /* header*/ 
+  
+  .header {
+    
+      justify-content: space-between;
+      align-items: center;
+      }
+  
+  .left-box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0
+      }
+  
+  .left-box a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .right-box .nav-bar {
+      display: none
+  }
+  
+  .left-box .buscador {
+      display: none
+  }
+  
+  .hamburguer-menu {
+  
+      display: block;
+      background: none;
+      color: white;
+      font-size: 40px;
+      margin: 15px
+  }
+  
+  .hamburguer-menu i {
+      background: none;
+  }
+  .iconos {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      
+  }
+  
+  .iconos a {
+      align-items: center;
+      justify-content: center;
+      
+      width: 100%
+  }
+  
+  
+  }
+  
+  @media (max-width: 1100px) {
+  
+  .left-box {
+      align-items: center;
+  }
+  
+      .nav-bar {
+          display: none
+      }
+  
+      
+      .hamburguer-menu {
+      
+          display: block;
+          background: none;
+          color: white;
+          font-size: 1.5rem;
+          margin: 15px
+      }
+      
+      .hamburguer-menu i {
+          background: none;
+      }
+     
+      .img-container03 {
+          display: none
+      }
+  }

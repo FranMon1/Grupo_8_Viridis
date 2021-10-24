@@ -1,0 +1,53 @@
+
+    <%- include('../partials/head.ejs') %>
+
+<body>
+   <!--Header-->
+   <%- include('../partials/header.ejs') %>
+   <!--Main-->
+<main>
+    <section class="inventory-section">
+        <div class="title"> Inventory</div>
+        
+            <a href="/products/create"><button class="create-button"> Agregar producto</button></a>
+        
+           
+            <div class="category-section"> 
+                <div style="color:rgba(255, 137, 58, 0.815)">ID</div>
+                <div>Nombre</div>
+                <div>Categoria</div>
+                <div>Precio</div>
+                <div>Cantidad</div>
+                <div>Disponibilidad</div>
+                <div>Medida</div>
+                <div>Color</div>
+                <div>Marca</div>
+                <div>Edit / Delete</div>
+               
+            </div>
+            <% product.forEach(product => { %>
+            
+               
+                <div class="inventory-productid"><%=product.id%></div>
+                <div class="inventory-productid"><%=product.name%></div>
+                <div class="inventory-productid"><%=product.category%></div>
+                <div class="inventory-productid"><%=product.price%></div>
+                <div class="inventory-productid"><%=product.quantity%></div>
+                <div class="inventory-productid"><%=product.id%></div>
+                <div class="inventory-productid"><%=product.size%></div>
+                <div class="inventory-productid"><%=product.color%></div>
+                <div class="inventory-productid"><%=product.brand%></div>
+                <form action="/products/inventory/<%=product.id%>?_method=DELETE" class="productItems" method="POST">
+                <div class="inventory-buttons">
+                    <button type="submit">Del</button>
+                </div>
+            </form>
+            <% }) %>
+    
+     
+    </section>
+</main>
+   <!--Footer-->
+   <%- include('../partials/footer.ejs') %>
+</body>
+</html>

@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<%- include("./partials/head.ejs") %>
-<link rel="stylesheet" href="/css/home.css">
-<title>Home</title>
 
-</head> 
+<%- include("./partials/head.ejs") %>
+
 <body>
     <!--Header-->
     <head></head>
     <%- include("./partials/header.ejs")  %> 
 
     <!--MAIN-->
-    <main>
-        <div class='ContenedorMain'>
-            <img class='MainImg' src="/images/main-image-todo2.png" alt="">
-            
-                <div class="interactive-logo"> 
-                    <img src="/images/Logo-sin-fondo.png" alt="">
-                    <a class="text-logo">We Are Viridis</a>
-                
-                  
-
-
-                </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam culpa iusto, cupiditate sunt quos expedita amet tempore magni cum, dolorem fugit quam dignissimos nostrum hic ut nobis deleniti saepe et. Lorem!</p>
+    <main class="main-index">
+        <div class='contenedormain'>
            
+                <ul>
+                    <li><img src="/images/main-image-todo2.png" alt=""></li>
+                    <li><img src="/images/different_types_of_golf_clubs.jpeg" alt=""></li>
+                    <li><img src="/images/PXGW-3258-HP-POVs-GEN4-2100x1500.jpg" alt=""></li>
+                    <li><img src="/images/Muscle-Back-Vs-Cavity-Irons-1030x627.jpg" alt=""></li>
+                </ul>
+
                
-                <a class="arrow-left" href=""><i class="fas fa-chevron-left"></i></a>
-                <a class="arrow-right" href=""><i class="fas fa-chevron-right"></i></a>
                 <div class="main-buttons">
                     <div class="buy-now-button">    
                    <a href="/products/product" class="shop-now">Shop Now</a>
@@ -44,46 +33,46 @@
            
         </div>
         <p>Where your green is our home</p>
-        <a class="navigate" href=""> Navigate our sections full of discounts and low prices</a>
+       
         <div class="bg-panel1"></div>
         <div class="main-section-buttons">
-            <div class="icon-primary">
-                <i class="fas fa-golf-ball"></i>
-            </div>
+            <a class="section-description">Sections</a>
+
             <div class="button-clubs">
                     <a href="#"><img src="/images/golfing.png"></a>
+                    <a class="section-clubs"> Clubs </a>
+                   
             </div>
             <div class="button-bags">
                 <a href="#"><img src="/images/caddy.png" alt=""></a>
+                <a class="section-bags"> Bags </a>
 
             </div>
             <div class="button-shoes">
                 <a href="#"><img src="/images/smart-shoe.png" alt=""></a>
+                <a class="section-shoes"> Shoes </a>
 
             </div>
             <div class="button-golfballs">
                 <a href="#"><img src="/images/golf-ball-with-dents.png" alt=""></a>
+                <a class="section-golfballs"> Accesories </a>
 
             </div>
             <div class="button-sets">
                 <a href="#"><img src="/images/golf-sets.png" alt=""></a>
+                <a class="section-sets"> Sets </a>
 
             </div>
             
 
             </div>
 
-        </div>
+        
 
         <div class="membership-discounts"> 
             <a class="membership-txt" href=""> Take a look at our membership discounts for this selected clubs</a>
             <a class="membership-icon"><i class="fas fa-id-card"></i></a>
         </div>
-        <div class="bg-panel02"></div>
-        
-        <img class="balls-img" src="/images/pngkey.com-golf-ball-png-54999.png" alt="">
-
-        <a class="offer-txt" href="">Up to 30% Off in Accesories</a>
         
         
 
@@ -114,33 +103,26 @@
             <a>Sets</a>
 
         </div>
+       
         <div class="main-images">
+            <% product.forEach(product => { %>
             <a href="/products/detail" class="arrow-left-main" href=""><i class="fas fa-chevron-left"></i></a>
-            <a href="/products/product" class='img-container01'>
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <p>G425 Iron</p>
-                <p>7 Cavity Rennnder</p>
-                <p>$ 4,500</p>
-                <p>Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
+            <section class='img-container'>
+            <a href="/products/product" >
+                <img src="<%= product.productimg%>" alt="">
+
+                    <div class="img-container-data">
+                    <h4><%=product.name%></h4>
+                    <span><%= product.price%></span>
+                    <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
+                    </div>       
             </a>
-            <a href="/products/product" class='img-container02'>
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <p>G425 Iron</p>
-                <p>7 Cavity Rennnder</p>
-                <p>$ 4,500</p>
-                <p>Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
-                
-            </a>
-            <a href="/products/product" class='img-container03'>
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <p>G425 Iron</p>
-                <p>7 Cavity Rennnder</p>
-                <p>$ 4,500</p>
-                <p>Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
-            </a>
-            <a class="arrow-right-main" href=""><i class="fas fa-chevron-right"></i></a>
-        </div>
+            </section>
         
+            <a class="arrow-right-main" href=""><i class="fas fa-chevron-right"></i></a>
+            <% } ) %>
+        </div>
+       
     </section>
        
     </main>
@@ -149,4 +131,3 @@
 <%- include("./partials/footer.ejs")  %>    
     
 </body>
-</html>

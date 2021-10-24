@@ -1,5 +1,48 @@
 # RETRO 
 
+## SPRINT 3
+
+```diff
++ Comenzar a hacer: 
+```
+
+#### - Mejor seguimiento de Trello. 
+#### - Tenerlo más presente cuando se programen las actividades. 
+#### - Añadir los avances del proyecto a medida que pusheamos o que tenemos algún problema para adelantar.
+#### - Ajustar diseños de páginas.
+
+
+
+```diff
++ Hacer mas:
+```
+
+#### - Resolución de problemas entre todos. 
+#### - Organizar detalladamente la semana y qué hace cada uno de los integrantes.
+#### - Foco en la teoría, encarar el proyecto con todo al día
+
+
+```diff
++ Continuar haciendo:
+```
+
+#### - Dos reuniones semanales son suficientes para el intercambio de ideas. 
+#### - No dejar de lado el diseño de la página.
+#### - Todos los días dedicarle un tiempo al proyecto y ver en donde estamos acorde al calendario y las entregas.
+
+
+```diff
++ Hacer menos:
+```
+
+#### - Menos push chiquitos y más push grandes para no generar merge.
+
+```diff
++ Dejar de hacer: 
+```
+
+
+
 ## SPRINT 2
 
 ```diff

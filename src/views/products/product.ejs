@@ -1,65 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
     <%- include("../partials/head.ejs") %>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/product.css">
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Productos</title>
-</head>
-<body> 
+
+<body>
     <!--Header-->
-        <!--Header-->
-        <%- include("../partials/header.ejs")  %>
+    <%- include("../partials/header.ejs") %>
+    
     <!--MAIN-->
+        <main class="main-productejs">
 
-<main>
+            <div class="contenedor-padre1">
+                <section class="contenedor-main-product1">
+                    <div class="columna1">
+                        <img class="detalles" src="/images/pelota1.jpg">
+                        <img class="detalles" src="/images/pelota2.jpg">
+                        <img class="detalles" src="/images/pelota3.jpg">
+                        <img class="detalles" src="/images/pelota4.jpg">
+                        <img class="detalles" src="/images/pelota5.jpg">
+                        <img class="detalles" src="/images/pelota6.jpg">
+                    </div>
+                </section>
+                <section class="contenedor-main-product2">
+                    <div class="columna2">
+                        <img class="i-principal" src="/images/golf_PNG38.png">
+                    </div>
+                </section>
+                <section class="contenedor-main-product3">
+                    <div class="columna3">
+                        <h2>Nombre del Producto</h2>
+                        <h4>Precio</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde
+                            totam perferendis facilis voluptatem quaerat debitis eos?</p>
+                    </div>
+                    <div class="more-less-products">
+                        <a class="boxminus" href=""> - </a>
+                        <a class="box2" href=""> 2 </a>
+                        <a class="boxplus" href=""> + </a>
+                    </div>
+                    <div class="anadirCart"><a href="/products/cart"> <i class="fas fa-shopping-cart"></i></a></div>
+                </section>
+            </div>
 
-    <div class="contenedor-padre1">
-        <section class="contenedor-main1">
-        <div class="columna1">
-        <img class="detalles" src="/images/pelota1.jpg">
-        <img class="detalles" src="/images/pelota2.jpg">
-        <img class="detalles" src="/images/pelota3.jpg">
-        <img class="detalles" src="/images/pelota4.jpg">
-        <img class="detalles" src="/images/pelota5.jpg">
-        <img class="detalles" src="/images/pelota6.jpg">       
-        </div>
-        </section>
-        <section class="contenedor-main2"> 
-        <div class="columna2">
-        <img class="i-principal" src="/images/golf_PNG38.png">
-        </div>
-        </section> 
-        <section class="contenedor-main3">    
-        <div class="columna3">
-        <h2>Nombre del Producto</h2>            
-        <h4>Precio</h4>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam perferendis facilis voluptatem quaerat debitis eos?</p>
-        </div>
-        <div class="more-less-products">
-            <a class="boxminus" href=""> - </a>
-            <a class="box2" href=""> 2 </a>
-            <a class="boxplus" href=""> + </a>
-        </div>
-        <div class="anadirCart"><a href="/products/cart"> <i class="fas fa-shopping-cart"></i></a></div>    
-        </section>
-    </div>
- 
-<div class="contenedor-padre2">
-        <h2>Más Productos</h2>
-    <section class="mas-productos">
-        <img class="relacionados" src="/images/carrito1.jpg">
-        <img class="relacionados" src="/images/carrito2.jpg">
-        <img class="relacionados" src="/images/carrito3.jpg">
-        <img class="relacionados" src="/images/carrito4.jpg">
-    </section>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam perferendis facilis voluptatem quaerat debitis eos? Magni pariatur dolor vitae ratione similique sint facere voluptate temporibus?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam perferendis facilis voluptatem quaerat debitis eos? Magni pariatur dolor vitae ratione similique sint facere voluptate temporibus?</p>
-    </div>    
-</main>
+            <div class="contenedor-padre2">
+                <h2>Más Productos</h2>
+                <section class="mas-productos">
+                    <img class="relacionados" src="/images/carrito1.jpg">
+                    <img class="relacionados" src="/images/carrito2.jpg">
+                    <img class="relacionados" src="/images/carrito3.jpg">
+                    <img class="relacionados" src="/images/carrito4.jpg">
+                </section>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam
+                    perferendis facilis voluptatem quaerat debitis eos? Magni pariatur dolor vitae ratione similique
+                    sint facere voluptate temporibus?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in
+                    molestiae officia unde totam perferendis facilis voluptatem quaerat debitis eos? Magni pariatur
+                    dolor vitae ratione similique sint facere voluptate temporibus?</p>
+            </div>
+        </main>
 
 
-    <!--Footer-->
-    <%- include("../partials/footer.ejs")  %>  
+        <!--Footer-->
+        <%- include("../partials/footer.ejs") %>
 </body>
+
 </html>

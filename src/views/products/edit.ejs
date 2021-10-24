@@ -1,0 +1,55 @@
+
+    <%- include('../partials/head.ejs') %>
+
+<body>
+    <!--Header-->
+    <%- include('../partials/header.ejs') %>
+    <!--Main-->
+    <main>
+       <section class="edit-page-section">
+           <div class="bgeditpanel01">
+               <p class="edit-title"> Edición del producto</p>
+           </div>
+           <div class="product-edit-section">
+                <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST" class="item-edit-properties">
+                   
+                    <p name="id"style="color:rgba(255, 137, 58, 0.815); font-size: 2rem">ID:<%= product.id%></p> 
+                    <select class="categories" name="category" id="category"id="">
+                        <option value="">Accesories</option>
+                        <option value="">Bags</option>
+                        <option value="">Clubs</option>
+                        <option value="">Shoes</option>
+                        <option value="">Sets</option>
+                    </select>
+                    <p>Nombre del producto</p>  
+                    <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name %>">
+                    <p>Descripción</p>
+                    <textarea class="edit-description"  id="description" name="description" placeholder="Agregue una descripción" value=""><%= product.description%></textarea>
+                    <p>Precio</p>
+                    <input type="text" name="price" id="price" value="<%= product.price%>" placeholder="Ej. $ 1,500">
+                    <p>Cantidad</p>
+                    <input type="text" name="quantity" id="quantity" value="<%= product.quantity%>" placeholder="Ej. 500">
+                    <p>Talle</p>
+                    <input type="text" name="size" id="size" value="<%= product.size%>" placeholder="" >
+                    <p>Color</p>
+                    <input type="text" name="color" id="color" value="<%= product.color%>" placeholder="" >
+                    <p>Marca</p>
+                    <input type="text" name="brand" id="brand" value="<%= product.brand%>"placeholder="" >
+                    <p>Image</p>
+                    <img src="/images/products/<%=product.productimg%>" alt="">
+                    <input type="file" name="productimg">
+
+                    <button class="save-changes-button">Guardar Cambios</button>
+                    <button class="edit-image-button">Cambiar Imagen</button>
+                </form>
+            </div>
+            
+           
+       </section>
+      
+    </main>
+
+    <!--footer-->
+
+    <%-include('../partials/footer.ejs') %>
+</body>
