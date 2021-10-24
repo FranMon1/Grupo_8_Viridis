@@ -36,8 +36,6 @@
 + Dejar de hacer: 
 ```
 
-
-
 ___
 ___
 ___
@@ -72,7 +70,3 @@ Dejar de desaprovechar el tiempo en las reuniones
 
 ```diff
 + Dejar de hacer: 
-
-
-
-
