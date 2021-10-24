@@ -736,7 +736,8 @@
 
 .main-bottom-section {
     background: none;
-    padding-bottom: 10vw;
+    padding-bottom: 40px;
+    height: 800px
 }
 
 
@@ -789,57 +790,93 @@
     
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     background: none;
-    padding: 5px 0px;
-    margin: 10px;
-    height: 400px;
-    position: relative
+    transition: 0.5s;
+    overflow: hidden
+
 }
 
 
-.img-container01,
-.img-container02,
-.img-container03 {
-
-    padding: 5px 15px;
-    background:  rgba(255,255,255, 0.8);
+.img-container{
+    
+   
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-evenly;
+    padding:0 10px;
+    background:  rgba(255,255,255, 0.8);
     margin: 15px;
     text-decoration: none;
-    border-radius: 2vw
-    
-
+    border-radius: 0.5vw;
+    transition: 0.5s;
+    overflow: hidden;
+  
 }
 
-.img-container01 img,
-.img-container02 img,
-.img-container03 img {
+.img-container a{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+}
 
+.img-container-data {
+    
+    background: none;
+    text-decoration: none;
+}
+
+
+.img-container p {
+    color: rgba(0, 0, 0, 0.8);
+    background: none;
+    margin: 4px;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 300;
+    background: none;
+    text-decoration: none;
+    height: 0%;
+    padding: 0;
+    width: 100%;
+    float: right;
+    transition: 0.5s;
+    text-decoration: none;
+  
+}
+
+.img-container img{
     align-items: center;
     width: 200px;
     height: 200px;
     background: none;
-
 }
 
-.img-container01 p,
-.img-container02 p,
-.img-container03 p {
-
-    align-items: center;
-    background: none;
+.img-container h4 {
     color: rgba(0, 0, 0, 0.8);
+    background: none;
+    margin: 4px;
+    text-decoration: none;
+    overflow: hidden;
+    max-width: 15vw;
+    max-height: 3vw;
+ 
 }
 
-.img-container01:hover,
-.img-container02:hover,
-.img-container03:hover {
-    box-shadow: 0px 0px 10px 1px #63a4ff;
-    
-    
+.img-container span {
+    color: rgba(0, 0, 0, 0.8);
+    background: none;
+    margin: 4px;
+    overflow: hidden;
+}
+.img-container:hover p {
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+    line-height: 20px;
+    padding: 0 0 3vw 0;
 }
 
 .main-images i {
@@ -859,7 +896,7 @@
     color:orange;
     position: absolute;
     top: 50%;
-    left: 3%
+    left: 1%
 
 }
 
@@ -870,7 +907,7 @@
     color:orange;
     position:absolute;
     top: 50%;
-    right: 3%
+    right: 1%
     
 
 }

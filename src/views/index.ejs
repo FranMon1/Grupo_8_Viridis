@@ -103,33 +103,26 @@
             <a>Sets</a>
 
         </div>
+       
         <div class="main-images">
+            <% product.forEach(product => { %>
             <a href="/products/detail" class="arrow-left-main" href=""><i class="fas fa-chevron-left"></i></a>
-            <a href="/products/product" class='img-container01'>
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <p>G425 Iron</p>
-                <p>7 Cavity Rennnder</p>
-                <p>$ 4,500</p>
-                <p>Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
+            <section class='img-container'>
+            <a href="/products/product" >
+                <img src="<%= product.productimg%>" alt="">
+
+                    <div class="img-container-data">
+                    <h4><%=product.name%></h4>
+                    <span><%= product.price%></span>
+                    <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
+                    </div>       
             </a>
-            <a href="/products/product" class='img-container02'>
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <p>G425 Iron</p>
-                <p>7 Cavity Rennnder</p>
-                <p>$ 4,500</p>
-                <p>Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
-                
-            </a>
-            <a href="/products/product" class='img-container03'>
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <p>G425 Iron</p>
-                <p>7 Cavity Rennnder</p>
-                <p>$ 4,500</p>
-                <p>Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
-            </a>
-            <a class="arrow-right-main" href=""><i class="fas fa-chevron-right"></i></a>
-        </div>
+            </section>
         
+            <a class="arrow-right-main" href=""><i class="fas fa-chevron-right"></i></a>
+            <% } ) %>
+        </div>
+       
     </section>
        
     </main>
