@@ -23,7 +23,7 @@ const uploadProductImg = multer({ storage });
 
 //-------------------------- Rutas
 
-
+router.get('/', productsController.index)
 router.get('/product', productsController.product);
 router.get('/cart', productsController.cart);
 router.get('/detail', productsController.detail);

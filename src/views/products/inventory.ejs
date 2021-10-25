@@ -27,7 +27,7 @@
             </div>
             <% product.forEach(product => { %>
             
-               
+              <div class="productItems">
                 <div class="inventory-productid"><%=product.id%></div>
                 <div class="inventory-productid"><%=product.name%></div>
                 <div class="inventory-productid"><%=product.category%></div>
@@ -37,11 +37,12 @@
                 <div class="inventory-productid"><%=product.size%></div>
                 <div class="inventory-productid"><%=product.color%></div>
                 <div class="inventory-productid"><%=product.brand%></div>
-                <form action="/products/inventory/<%=product.id%>?_method=DELETE" class="productItems" method="POST">
+                <form action="/products/inventory/<%=product.id%>?_method=DELETE" method="POST">
                 <div class="inventory-buttons">
                     <button type="submit">Del</button>
                 </div>
             </form>
+        </div>
             <% }) %>
     
      

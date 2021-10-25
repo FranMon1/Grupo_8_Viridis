@@ -1,0 +1,41 @@
+
+    <%- include('../partials/head.ejs') %>
+<body>
+       <!--Header-->
+       <%- include('../partials/header.ejs') %>
+       <!--Main-->
+    <main class="products-listing">
+        <div class="sidebar-sections">
+            <div class="most-searched-sections">
+                <a href="">Más vendidos</a>
+                <a href="">Ofertas</a>
+                <a href="">Nuevos</a>
+            </div>
+            <div class="products-categorysection">
+                <p>Categorías</p>
+                <a href="">Clubs</a>
+                <a href="">Bags</a>
+                <a href="">Shoes</a>
+                <a href="">Accesories</a>
+                <a href="">Sets</a>
+            </div>
+        </div>
+        <div class='selectedproducts-showing'>
+        <% product.forEach(product => { %>
+        
+          <section class="img-container">
+                <a href="/products/product/<%=product.id%>" >
+                    <img src="<%= product.productimg%>" alt="">
+                        <h4><%=product.name%></h4>
+                        <span><%= product.price%></span>
+                        <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>      
+                </a>
+            </section>
+        <% } ) %>
+    </div>
+    </main>
+  <!--Footer-->
+  <%- include('../partials/footer.ejs') %>
+    
+</body>
+</html>

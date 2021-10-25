@@ -18,6 +18,16 @@ return ultimo + 1;
 
 
 let productsController = {
+    index: function (req, res){
+        let mostStocked = [];
+        productos.forEach( product => {
+            
+            if(product.quantity >= 1000){
+                return mostStocked.push(product)
+            }
+        })
+        return res.render('products/products', {product: mostStocked})
+    },
     product: (req, res) =>{
       return res.render("products/product");
     },
