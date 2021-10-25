@@ -791,6 +791,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-evenly;
     background: none;
     transition: 0.5s;
@@ -804,15 +805,16 @@
    
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding:0 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding:0 10px 0 10px;
     background:  rgba(255,255,255, 0.8);
-    margin: 15px;
+    margin:0;
     text-decoration: none;
     border-radius: 0.5vw;
     transition: 0.5s;
     overflow: hidden;
+    width: 15vw
    
   
 }
@@ -822,25 +824,30 @@
     flex-direction: column;
     align-items: center;
     background: none;
+    text-decoration: none;
 }
 
 .img-container-data {
     
     background: none;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 
-.img-container p {
+.img-container-data p {
+
     color: rgba(0, 0, 0, 0.8);
     background: none;
-    margin: 4px;
+    margin: 10px;
     overflow: hidden;
     font-size: 1rem;
     font-weight: 300;
     background: none;
     text-decoration: none;
-    height: 0%;
+    height: 0;
     padding: 0;
     width: 100%;
     float: right;
@@ -856,28 +863,30 @@
     background: none;
 }
 
-.img-container h4 {
+.img-container-data h4 {
     color: rgba(0, 0, 0, 0.8);
     background: none;
-    margin: 4px;
-    text-decoration: none;
+    margin: 10px;
     overflow: hidden;
+    text-overflow: elipsis;
+    line-height: 2rem;
+    max-height: 2em;
+    -webkit-box-orient: vertical;
     max-width: 15vw;
-    max-height: 3vw;
+    text-decoration: none;
  
 }
 
-.img-container span {
+.img-container-data span {
     color: rgba(0, 0, 0, 0.8);
     background: none;
-    margin: 4px;
+    margin: 10px;
     overflow: hidden;
+    text-decoration: none;
 }
-.img-container:hover p {
-    color: rgba(0, 0, 0, 0.8);
-    margin-top: 10px;
-    line-height: 20px;
-    padding: 0 0 3vw 0;
+.img-container:hover .img-container-data p {
+   
+    padding: 1vw 0 2vw 0;
 }
 
 .main-images i {
@@ -1304,10 +1313,15 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-evenly;
     background: none;
     transition: 0.5s;
-    overflow: hidden
+    overflow: hidden;
+    width: 80%
+}
+.selectedproducts-showing i {
+    background: none;
 }
 
 

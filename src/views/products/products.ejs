@@ -26,9 +26,11 @@
           <section class="img-container">
                 <a href="/products/product/<%=product.id%>" >
                     <img src="<%= product.productimg%>" alt="">
+                    <div class="img-container-data">
                         <h4><%=product.name%></h4>
                         <span><%= product.price%></span>
-                        <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>      
+                        <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p> 
+                    </div>     
                 </a>
             </section>
         <% } ) %>
