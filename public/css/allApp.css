@@ -791,6 +791,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-evenly;
     background: none;
     transition: 0.5s;
@@ -804,15 +805,17 @@
    
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding:0 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding:0 10px 0 10px;
     background:  rgba(255,255,255, 0.8);
-    margin: 15px;
+    margin:0;
     text-decoration: none;
     border-radius: 0.5vw;
     transition: 0.5s;
     overflow: hidden;
+    width: 15vw
+   
   
 }
 
@@ -821,25 +824,30 @@
     flex-direction: column;
     align-items: center;
     background: none;
+    text-decoration: none;
 }
 
 .img-container-data {
     
     background: none;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 
-.img-container p {
+.img-container-data p {
+
     color: rgba(0, 0, 0, 0.8);
     background: none;
-    margin: 4px;
+    margin: 10px;
     overflow: hidden;
     font-size: 1rem;
     font-weight: 300;
     background: none;
     text-decoration: none;
-    height: 0%;
+    height: 0;
     padding: 0;
     width: 100%;
     float: right;
@@ -855,28 +863,30 @@
     background: none;
 }
 
-.img-container h4 {
+.img-container-data h4 {
     color: rgba(0, 0, 0, 0.8);
     background: none;
-    margin: 4px;
-    text-decoration: none;
+    margin: 10px;
     overflow: hidden;
+    text-overflow: elipsis;
+    line-height: 2rem;
+    max-height: 2em;
+    -webkit-box-orient: vertical;
     max-width: 15vw;
-    max-height: 3vw;
+    text-decoration: none;
  
 }
 
-.img-container span {
+.img-container-data span {
     color: rgba(0, 0, 0, 0.8);
     background: none;
-    margin: 4px;
+    margin: 10px;
     overflow: hidden;
+    text-decoration: none;
 }
-.img-container:hover p {
-    color: rgba(0, 0, 0, 0.8);
-    margin-top: 10px;
-    line-height: 20px;
-    padding: 0 0 3vw 0;
+.img-container:hover .img-container-data p {
+   
+    padding: 1vw 0 2vw 0;
 }
 
 .main-images i {
@@ -1226,6 +1236,96 @@ footer {
     }
 }
 
+/* ----------------------Listado de Productos -------------------*/
+
+.products-listing {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 100vw;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-sections {
+    width: 15vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    background: none;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.most-searched-sections {
+    display: flex;
+    flex-direction: column;
+    margin: 2vw 0 0 1vw;
+    background: none;
+    width: 50%
+
+}
+
+.most-searched-sections a {
+    margin-bottom: 0.5vw;
+    background: none;
+    text-decoration: none;
+    color: rgba(100, 255, 100, 0.863);
+    font-weight: 250;
+    font-size: 1vw;
+    letter-spacing: 0.1ch;
+}
+
+.products-categorysection {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border-top: 1px rgba(255, 255, 255, 0.5) solid;
+    background: none;
+    margin-top: 10px;
+    padding-top: 1vw;
+
+}
+
+.products-categorysection a {
+    background: none;
+    margin: 0.5vw 0 0 1vw;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    font-size: 1vw;
+    letter-spacing: 0.1ch;
+}
+
+.products-categorysection p {
+    background: none;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.5vw 1vw;
+    font-size: 1.2rem;
+}
+
+.selectedproducts-showing {
+    position: absolute;
+    left: 19%;
+    top: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background: none;
+    transition: 0.5s;
+    overflow: hidden;
+    width: 80%
+}
+.selectedproducts-showing i {
+    background: none;
+}
+
+
+
 /* ----------------- CART -------------------*/
 
 
@@ -1241,7 +1341,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     background: none;
     
 }
@@ -1852,6 +1952,11 @@ footer {
     
 }
 
+.productItems form{
+    background: none;
+
+}
+
 .inventory-productid {
 
    margin: 0vw 10px 0px 10px;
@@ -1898,14 +2003,6 @@ footer {
 
 }
 
-.inventory-delete-button button {
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white
-
-}
 
 
 /* --------------------------- LOGIN --------------------------*/
