@@ -268,7 +268,14 @@
     overflow: hidden;
     
 }
-.middle-section-img img {
+.middle-section-img ul,
+.middle-section-img li {
+    background: none;
+}
+.middle_section_main_img{
+    background: none;
+}
+.middle_section_main_img img{
 
     background: none;
     width: 70vw;
@@ -276,7 +283,25 @@
     
 }
 
-.middle-section p {
+.selected-images {
+    margin-top: 5vw;
+    background: none;
+    overflow: hidden;
+
+}
+.main_section_img1,
+.main_section_img2,
+.main_section_img3,
+.main_section_img4,
+.main_section_img5 {
+    visibility: hidden;
+    z-index: 4;
+    position: absolute;
+    top: -5%;
+    right: 0%;
+}
+
+.middle-section h2 {
 
     font-weight: 100;
     font-size: 3vw;
@@ -306,15 +331,15 @@
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: wrap;
+    background: none;
     justify-content: space-evenly;
-    background:rgba(255,255,255, 0.8);
     height: 50vw;
-    position: absolute;
-    left: 0;
-    top: 15%;
+    margin-top: 10vw;
     padding: 0 2vw 0 0vw;
     border-radius: 20;
     z-index: 1;
+    background: rgba(255, 255, 255);
+    position:relative;
    
 
 }
@@ -333,12 +358,12 @@
 }
 
 .button-clubs {
-
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: none;
+    background: rgba(255, 255, 255);
     width: 8vw;
     padding: 1.8vw;
     border-right: 0.5px solid rgba(0, 0, 0, 0.8);
@@ -347,6 +372,7 @@
     z-index: 2;
     transition: 0.5s;
     translate: (50%, 0%);
+   
    
   
 
@@ -357,16 +383,35 @@
 .section-shoes,
 .section-golfballs,
 .section-sets {
-   
+
+ 
+    position: absolute;
+    top: 0%;
+    left: 130%;
     color: transparent;
     width: 0;
     position: absolute;
-    background: rgba(255,255,255, 0.8);
-    transition: 0.5s;
-    text-indent: -1500px;
+    height:10vw;
+    transition: 0.3s;
     font-weight: 200;
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+ 
+   
     
+}
+
+.section-clubs p,
+.section-bags p,
+.section-shoes p,
+.section-golfballs p,
+.section-sets p {
+    background: none;
+    transition: 0.5s
 }
 
 .button-clubs a {
@@ -388,11 +433,12 @@
 }
 
 .button-bags {
+   
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: none;
+    background: rgba(255, 255, 255);
     width: 8vw;
     padding: 1.8vw;
     border-right: 1px solid rgba(0, 0, 0, 0.8);
@@ -419,11 +465,12 @@
 }
 
 .button-shoes {
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: none;
+    background: rgba(255, 255, 255);
     width: 8vw;
     padding: 1.8vw;
     border-right: 1px solid rgba(0, 0, 0, 0.8);
@@ -450,11 +497,12 @@
 }
 
 .button-golfballs {
+   
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: none;
+    background: rgba(255, 255, 255);
     width: 8vw;
     padding: 1.8vw;
     float: left;
@@ -482,11 +530,12 @@
 }
 
 .button-sets {
+   
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: none;
+    background: rgba(255, 255, 255);
     width: 8vw;
     padding: 1.8vw;
     border-right: 1px solid rgba(0, 0, 0, 0.8);
@@ -521,32 +570,49 @@
     background-color: orange
 }
 
-.button-clubs:hover  > .section-clubs {
-    background: rgba(255, 255, 255, 0.8);
-    height: 10vw;
-    text-indent: 30vw;
-    width: 50vw;
-    color: white;
+
+.button-clubs:hover  >  .section-clubs{
+    opacity: 1;
+    visibility: visible;
+    background-color:rgba(255, 255, 255);
+    width:30vw;
+    color: black;
+}
+
+.button-clubs:hover  > .main_section_img1{
+    opacity: 1;
+    visibility: visible;
 }
 .button-bags:hover  > .section-bags {
-    text-indent: 30vw;
-    width: 50vw;
-    color: white;
+    opacity: 1;
+    visibility: visible;
+    background-color:rgba(255, 255, 255);
+    width:30vw;
+    color: black;
 }
 .button-shoes:hover  > .section-shoes {
-    text-indent: 30vw;
-    width: 50vw;
-    color: white;
+    opacity: 1;
+    visibility: visible;
+    
+    background-color:rgba(255, 255, 255);
+    width:30vw;
+    color: black;
 }
-.button-golfballs:hover  > .section-golfballs {
-    text-indent: 30vw;
-    width: 50vw;
-    color: white;
+.button-golfballs:hover > .section-golfballs {
+
+    opacity: 1;
+    visibility: visible;
+    background-color:rgba(255, 255, 255);
+    width:30vw;
+    color: black;
 }
 .button-sets:hover  > .section-sets {
-    text-indent: 30vw;
-    width: 50vw;
-    color: white;
+    opacity: 1;
+    visibility: visible;
+ 
+    background-color:rgba(255, 255, 255);
+    width:30vw;
+    color: black;
 }
 
 
@@ -1597,16 +1663,17 @@ footer {
 /* ---------------Middle Section-------------------*/
 
 .detailed-description {
+
     position: absolute;
     display: flex;
     flex-direction: column;
-    
     align-items: center;
     top: 25%;
     background: none;
     width: 100%;
     flex-wrap: wrap;
     border-bottom: 1px #9ccc65 solid;
+
 }
 
 .description-title {
