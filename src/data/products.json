@@ -1,27 +1,25 @@
 [
     {
         "id": 1,
-        "category": "Express",
-        "name": "Senior Housing Properties Trust",
+        "category": "",
+        "name": "Nombre",
         "description": "Type 1 diabetes w oth diabetic neurological complication",
         "price": "$1441.35",
         "quantity": "999",
         "size": "L",
         "color": "Green",
-        "brand": "Browsezoom",
-        "productimg": "http://dummyimage.com/215x100.png/dddddd/000000"
+        "brand": "Browsezoom"
     },
     {
         "id": 2,
-        "category": "Sorento",
+        "category": "",
         "name": "Chatham Lodging Trust (REIT)",
         "description": "Maternal care for intrauterine death, fetus 4",
         "price": "$2773.12",
         "quantity": "1001",
         "size": "XS",
         "color": "Blue",
-        "brand": "Flipstorm",
-        "productimg": "http://dummyimage.com/116x100.png/dddddd/000000"
+        "brand": "Flipstorm"
     },
     {
         "id": 3,
@@ -241,14 +239,13 @@
     },
     {
         "id": 21,
-        "category": "bags",
+        "category": "",
         "name": "2323",
         "description": "123123",
         "price": "123212",
         "quantity": "23",
         "size": "2",
         "color": "blue",
-        "brand": "golf",
-        "productimg": "product-1634590281137.png"
+        "brand": "golf"
     }
 ]
