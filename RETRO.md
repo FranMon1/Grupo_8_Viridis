@@ -9,8 +9,6 @@
 #### - Mejor seguimiento de Trello. 
 #### - Tenerlo más presente cuando se programen las actividades. 
 #### - Añadir los avances del proyecto a medida que pusheamos o que tenemos algún problema para adelantar.
-#### - Ajustar diseños de páginas.
-
 
 
 ```diff
@@ -19,7 +17,7 @@
 
 #### - Resolución de problemas entre todos. 
 #### - Organizar detalladamente la semana y qué hace cada uno de los integrantes.
-#### - Foco en la teoría, encarar el proyecto con todo al día
+#### - Foco en la teoría, encarar el proyecto con todas las clases al día
 
 
 ```diff
