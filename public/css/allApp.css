@@ -261,7 +261,7 @@
     background: none;
     display: flex;
     position: absolute;
-    top: -5%;
+    top: 0%;
     right: 0%;
     z-index: 4;
     margin-top: 5vw;
@@ -278,7 +278,7 @@
 .middle_section_main_img img{
 
     background: none;
-    width: 70vw;
+    width: 60vw;
     transition: 0.5s;
     
 }
@@ -1542,7 +1542,7 @@ footer {
 .main-create {
     
     background: none;
-    height: 180vw;
+    height: 120vw;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -1567,7 +1567,7 @@ footer {
     background: none;
     font-weight: 300;
     font-size: 1.5rem;
-    top: 8%
+    top: 10%
     
 }
 
@@ -1601,7 +1601,7 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     position: absolute;
-    top: 12%;
+    top: 15%;
     left: 0;
     background: none;
     width: 100%;
@@ -1668,16 +1668,17 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 25%;
+    top: 35%;
     background: none;
     width: 100%;
     flex-wrap: wrap;
+    padding-bottom: 3vw;
     border-bottom: 1px #9ccc65 solid;
 
 }
 
 .description-title {
-    margin:0vw 0 4vw 0;
+   
     background: none;
     font-weight: 300;
     font-size: 1.5rem;
@@ -1695,7 +1696,7 @@ footer {
 }
 
 .item-name {
-    margin: 1vw 0 1vw 0;
+   
     display: flex;
     flex-direction: column;
     
@@ -1708,7 +1709,7 @@ footer {
 
 .item-name input {
     padding-left: 1vw;
-    margin: 3vw 0 3vw 0;
+    margin: 1vw 0 1vw 0;
     height: 30px;
     outline: none;
     text-indent: 10px;
@@ -1737,8 +1738,8 @@ footer {
 }
 
 .item-name .description {
-    margin: 3vw 0 3vw 0;
-    height: 20vw;
+    margin: 1vw 0 1vw 0;
+    height: 10vw;
     outline: none;
     text-indent: 10px;
     border: none;
@@ -1768,8 +1769,8 @@ footer {
 /* ---------------Final Section-------------------*/
 
 .img-section {
-    width: 100%;
     
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1851,14 +1852,14 @@ footer {
 
 
 .edit-page-section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
+ 
     background: none;
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
     height: 80vw;
     position: relative;
+}
+.edit-page-section form {
+    background: none;
 }
 
 .bgeditpanel01 {
@@ -1879,6 +1880,16 @@ footer {
    
 
 }
+
+.edit_contents {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background: none;
+}
+
+
 .categories{
     background: rgba(255, 255, 255, 0.5);
     font-size: 1rem;
@@ -1888,18 +1899,16 @@ footer {
 
 .item-edit-properties {
     background: none;
-    position: absolute;
-    top: 25%;
-    left: 5%;
     display: flex;
     flex-direction: column;
 }
 
 .item-edit-properties p {
     background: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 1vw 0 1vw 0;
-    color: white
+    color: white;
+    font-weight: 300;
 }
 
 .item-edit-properties input,
@@ -1933,7 +1942,6 @@ footer {
 
 .save-changes-button {
 
-    
     width: 20vw;
     height: 3vw;
     margin-top: 20px;
@@ -1945,6 +1953,27 @@ footer {
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 300;
+}
+
+.second_panel_img_edit {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    height: 100%;
+    background: none;
+    }
+
+.second_panel_img_edit p {
+
+    background: none;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: white;
+    }
+
+.second_panel_img_edit img {
+    background: none;
+    width:30vw
 }
 
 /* ------------------------ INVENTORY ------------------------*/
@@ -2005,16 +2034,19 @@ footer {
 }
 
 .productItems{
+
     display: grid;
     grid-template-rows: 1;
-    grid-template-columns: 5vw 10vw 5vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+    grid-template-columns: 5vw 10vw 5vw 10vw 10vw 10vw 10vw 10vw 10vw 5vw 5vw;
     flex-wrap: wrap;
     margin: 0px 10px 0 10px;
     text-align: center;
     line-height: 4vw;
     background: none;
     color: white;
-    border: 1px white solid
+    border: 1px white solid;
+    align-items: center;
+    justify-content: center;
     
     
 }
@@ -2068,6 +2100,28 @@ footer {
     color: white;
     cursor: pointer;
 
+}
+
+.edit_button_inventory {
+    width: 2vw;
+    height: 2vw;
+    background-color: #1eb9ac;
+    border-radius: 5px;
+    border: 3px rgba(255, 255, 255) solid;
+    outline: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+
+.edit_button_inventory a{
+    background: none;
+    color: white;
+    text-decoration: none;
 }
 
 

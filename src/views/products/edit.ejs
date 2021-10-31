@@ -10,11 +10,12 @@
            <div class="bgeditpanel01">
                <p class="edit-title"> Edición del producto</p>
            </div>
-           <div class="product-edit-section">
-                <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST" class="item-edit-properties">
-                   
+           <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST">
+           <div class="edit_contents">
+                   <div class="item-edit-properties">
                     <p name="id"style="color:rgba(255, 137, 58, 0.815); font-size: 2rem">ID:<%= product.id%></p> 
-                    <select class="categories" name="category" id="category"id="">
+                    <p>Categorias</p>
+                    <select class="categories" name="category" id="category" id="" value="<%=product.category%>">
                         <option value="">Accesories</option>
                         <option value="">Bags</option>
                         <option value="">Clubs</option>
@@ -35,14 +36,20 @@
                     <input type="text" name="color" id="color" value="<%= product.color%>" placeholder="" >
                     <p>Marca</p>
                     <input type="text" name="brand" id="brand" value="<%= product.brand%>"placeholder="" >
+                </div>
+                  
+
+                  
+               
+                <div class="second_panel_img_edit">
                     <p>Image</p>
                     <img src="/images/products/<%=product.productimg%>" alt="">
-                    <input type="file" name="productimg">
-
-                    <button class="save-changes-button">Guardar Cambios</button>
+                    
                     <button class="edit-image-button">Cambiar Imagen</button>
-                </form>
+                    <button type="submit" class="save-changes-button">Guardar Cambios</button>
+                </div>
             </div>
+        </form>
             
            
        </section>

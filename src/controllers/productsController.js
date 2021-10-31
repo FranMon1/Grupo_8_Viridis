@@ -94,7 +94,9 @@ let productsController = {
               product.productimg = req.body.productimg
               
           }
+         
       })
+       
       
         let jsonDeProducts = JSON.stringify(productos, null, 4);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), jsonDeProducts)
