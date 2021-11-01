@@ -100,7 +100,7 @@ let productsController = {
               product.size = req.body.size
               product.color = req.body.color
               product.brand = req.body.brand
-              product.productimg = (req.file.filename, product.productimg)  
+              product.productimg = req.file.filename 
 
               
           }
