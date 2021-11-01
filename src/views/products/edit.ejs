@@ -10,17 +10,17 @@
            <div class="bgeditpanel01">
                <p class="edit-title"> Edición del producto</p>
            </div>
-           <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST">
+           <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
            <div class="edit_contents">
                    <div class="item-edit-properties">
                     <p name="id"style="color:rgba(255, 137, 58, 0.815); font-size: 2rem">ID:<%= product.id%></p> 
                     <p>Categorias</p>
                     <select class="categories" name="category" id="category" id="" value="<%=product.category%>">
-                        <option value="">Accesories</option>
-                        <option value="">Bags</option>
-                        <option value="">Clubs</option>
-                        <option value="">Shoes</option>
-                        <option value="">Sets</option>
+                        <option value="accesories" <%= product.category == 'accesories'? 'selected': null %>>Accesories</option>
+                        <option value="bags" <%= product.category == 'bags'? 'selected': null %>>Bags</option>
+                        <option value="clubs" <%= product.category == 'clubs'? 'selected': null %>>Clubs</option>
+                        <option value="shoes" <%= product.category == 'shoes'? 'selected': null %>>Shoes</option>
+                        <option value="sets" <%= product.category == 'sets'? 'selected': null %>>Sets</option>
                     </select>
                     <p>Nombre del producto</p>  
                     <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name %>">
@@ -42,12 +42,11 @@
                   
                
                 <div class="second_panel_img_edit">
-                    <p>Image</p>
-                    <img src="<%=product.productimg%>" alt="">
+                    
+                    <img src="/images/products/<%=product.productimg%>" alt="">
                     <label for="">Insertar la imagen nueva</label>
                     <input type="file" name="productimg" value="<%=product.productimg%>">
                     
-                    <button class="edit-image-button">Cambiar Imagen</button>
                     <button type="submit" class="save-changes-button">Guardar Cambios</button>
                 </div>
             </div>

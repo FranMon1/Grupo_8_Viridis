@@ -40,7 +40,7 @@ router.post('/create',uploadProductImg.single('productimg'), productsController.
 
 // Edición
 router.get ('/edit/:id', productsController.edit);
-router.put ('/edit/:id', productsController.update);
+router.put ('/edit/:id',uploadProductImg.single('productimg'), productsController.update);
 
 
 // Inventario

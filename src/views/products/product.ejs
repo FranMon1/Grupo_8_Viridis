@@ -20,7 +20,7 @@
                 </section>
                 <section class="contenedor-main-product2">
                     <div class="columna2">
-                        <img class="i-principal" src="<%=product.productimg%>">
+                        <img class="i-principal" src="/images/products/<%=product.productimg%>">
                     </div>
                 </section>
                 <section class="contenedor-main-product3">
@@ -55,8 +55,9 @@
                 <h2>Más Productos</h2>
                 <section class="mas-productos">
                     <% for (let i = 0; i < 5; i++) {%> 
-                    <img class="relacionados" src="<%=product.productimg%>">
-                   
+                        <div class="relacionados">
+                    <img src="/images/products/<%=product.productimg%>">
+                </div>
                     <% }%> 
                 </section>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam
