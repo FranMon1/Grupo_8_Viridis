@@ -11,12 +11,11 @@
             <div class="contenedor-padre1">
                 <section class="contenedor-main-product1">
                     <div class="columna1">
-                        <img class="detalles" src="/images/pelota1.jpg">
-                        <img class="detalles" src="/images/pelota2.jpg">
-                        <img class="detalles" src="/images/pelota3.jpg">
-                        <img class="detalles" src="/images/pelota4.jpg">
-                        <img class="detalles" src="/images/pelota5.jpg">
-                        <img class="detalles" src="/images/pelota6.jpg">
+                        <img class="detalles" src="/images/default-placeholder.png">
+                        <img class="detalles" src="/images/default-placeholder.png">
+                        <img class="detalles" src="/images/default-placeholder.png">
+                      
+                      
                     </div>
                 </section>
                 <section class="contenedor-main-product2">
@@ -40,13 +39,15 @@
                         <a class="boxplus" href=""> + </a>
                     </div>
                     <div class="anadirCart"><a href="/products/cart"> <i class="fas fa-shopping-cart"></i></a></div>
+                    <div class="buttons_detail_product">
                     <form method="POST" action="/products/product/<%=product.id%>?_method=DELETE" style="margin:10px"class="inventory-buttons">
                     <button  type="submit">
-                        Delete
+                        Del
                     </button></form>
                     <a href="/products/edit/<%=product.id%>" class="edit_button_inventory" style="margin:10px">
                             Edit
                     </a>
+                </div>
                 </section>
             </div>
 

@@ -110,7 +110,7 @@ let productsController = {
         let jsonDeProducts = JSON.stringify(productos, null, 4);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), jsonDeProducts)
 
-        res.redirect(`products/product/${req.params.id}`)
+        res.redirect(`/`)
     },
     delete: function(req, res) {
         let productosQueQuedan = productos.filter(product => {

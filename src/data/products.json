@@ -31,11 +31,12 @@
         "quantity": "1001",
         "size": "S",
         "color": "Mauv",
-        "brand": "Yata"
+        "brand": "Yata",
+        "productimg": "http://dummyimage.com/125x100.png/cc0000/ffffff"
     },
     {
         "id": 4,
-        "category": "H1",
+        "category": "",
         "name": "Liberty Broadband Corporation",
         "description": "Incomplete lesion of unsp level of lumbar spinal cord, subs",
         "price": "$555.90",
@@ -43,7 +44,7 @@
         "size": "XS",
         "color": "Green",
         "brand": "Gigashots",
-        "productimg": "http://dummyimage.com/172x100.png/cc0000/ffffff"
+        "productimg": "http://dummyimage.com/125x100.png/cc0000/ffffff"
     },
     {
         "id": 5,
