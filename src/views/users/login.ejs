@@ -11,11 +11,17 @@
                     <p>Inicia Sesión</p>
                 </div>
                 <div class="form-login">
-                    <form action="/users/register.html" method="post">
+                    <form action="/users/login" method="post">
                         <label for="nombre"> </label>
-                        <input type="text" name="email" id="email" placeholder="Email" required>
+                        <input type="text" name="email" id="email" value="<%=locals.oldData ? oldData.email : null %>" placeholder="Email" required>
+                        <% if (locals.errors && errors.email) { %>
+                            <span class="error-msg"><%=errors.email.msg%></span>
+                        <% } %>
                         <label for="password"></label>
                         <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                        <% if (locals.errors && errors.password) { %>
+                            <span class="error-msg"><%=errors.password.msg%></span>
+                        <% } %>
                         <label class="rememberpass">
                             <input type="checkbox" name="recordarpass" value="ok" class="checkbox">Recordar mi
                             Contraseña

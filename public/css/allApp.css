@@ -2334,6 +2334,11 @@ footer {
     }
 }
 
+.error-msg {
+    font-size: 2rem;
+    color: red;
+}
+
 
 /* ------------------------- PRODUCT DETAIL -----------------------*/
 

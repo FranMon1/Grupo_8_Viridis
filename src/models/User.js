@@ -10,15 +10,15 @@ let User = {
     findByMail: function(email){
         let usuarioEncontrado = [];
         usuarios.forEach(user => {
-           
             if (email == user.email){
             usuarioEncontrado.push(user)
             }
-          
         })
         return usuarioEncontrado;
     }
 }
+
+module.exports = User;
 
 
 
