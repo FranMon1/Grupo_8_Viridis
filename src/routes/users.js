@@ -8,12 +8,12 @@ const validationsMw = require('../middlewares/validationsMw.js')
 
 
 router.get('/login', usersController.login);
-router.post('/login', usersController.inside)
+router.post('/login',validationsMw, usersController.inside)
 
 
 // Registro
 
-router.get('/register',validationsMw, usersController.register);
+router.get('/register', usersController.register);
 
 
 
