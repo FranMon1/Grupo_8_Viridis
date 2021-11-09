@@ -22,9 +22,10 @@ let usersController = {
       
       let usuarioAIngresar = User.findByMail(req.body.email)
       if(usuarioAIngresar){
-         let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
+         let usuarioIsOk = (req.body.password, usuarioAIngresar.password)
          if(usuarioIsOk){
-            res.redirect('users/profile');
+            req.session.usuarioLogeado = usuarioAIngresar;
+            res.redirect('profile');
        }
       } else {
          let validations = validationResult(req);
@@ -37,7 +38,7 @@ let usersController = {
     }
    },
     profile: function (req, res){
-       return res.render("users/profile");
+       return res.render("users/profile", {usuario: req.session.usuarioLogeado});
     }
 };
 

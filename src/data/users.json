@@ -161,7 +161,7 @@
     },
     {
         "id": 21,
-        "first_name": "123",
+        "nombre": "123",
         "last_name": "123",
         "email": "123@gmail.com",
         "password": "123",

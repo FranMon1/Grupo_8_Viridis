@@ -2,11 +2,17 @@ const express = require('express');
 const app = express();
 const methodOverride = require('method-override')
 const path= require('path');
-
+const session = require('express-session');
 const mainRouter = require('./routes/index.js');
 const usersRouter = require('./routes/users.js');
 const productRouter = require('./routes/products.js');
 
+// Session
+app.use(session({
+    secret: 'Secreto',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(methodOverride('_method'))
 

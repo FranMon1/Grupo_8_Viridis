@@ -2335,8 +2335,9 @@ footer {
 }
 
 .error-msg {
-    font-size: 2rem;
+    font-size: 1rem;
     color: red;
+    background: none;
 }
 
 
