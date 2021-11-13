@@ -766,7 +766,7 @@
     color: #ff8f00;
     text-decoration: none;
     float: right;
-    width: 6vw;
+    width: 7vw;
     border-radius: 50%;
     background: none;
     display: flex;
@@ -871,7 +871,7 @@
    
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     padding:0 10px 0 10px;
     background:  rgba(255,255,255, 0.8);
@@ -880,7 +880,8 @@
     border-radius: 0.5vw;
     transition: 0.5s;
     overflow: hidden;
-    width: 15vw
+    min-width: 12vw;
+    max-width: 12vw
    
   
 }
@@ -899,6 +900,7 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
 }
 
@@ -1976,6 +1978,16 @@ footer {
     width:30vw
 }
 
+.second_panel_img_edit label,
+.second_panel_img_edit input {
+    margin-top: 20px;
+    color:white;
+    background: none;
+    font-size: 1.1rem;
+    font-weight: 300;
+
+}
+
 /* ------------------------ INVENTORY ------------------------*/
 
 .inventory-section {
@@ -2322,6 +2334,12 @@ footer {
     }
 }
 
+.error-msg {
+    font-size: 1rem;
+    color: red;
+    background: none;
+}
+
 
 /* ------------------------- PRODUCT DETAIL -----------------------*/
 
@@ -2379,8 +2397,7 @@ footer {
     margin-bottom: 15px;
     align-items: flex-start;
     box-sizing: border-box;
-    width: 250px; 
-    height: 50px;
+    width: 8vw; 
     max-width: 85%;
     overflow: hidden;
     background: none
@@ -2396,20 +2413,15 @@ footer {
 
 .columna2 {
     display: flex;
-    margin: 10px;
-    border: solid 1px black;
     margin-bottom: 15px;
-    align-items: flex-start;
-    box-sizing: border-box; 
+    justify-content: center;
+    align-items: center;
     background: none;
 }
 
 .i-principal {
-    border: solid 1px black;
-    object-fit: fill;
-    align-items: stretch;
-    box-sizing: border-box; 
-    width: 100%;
+    
+    width: 30vw;
 }
 
 .contenedor-main-product3 {
@@ -2424,6 +2436,9 @@ footer {
 
 .columna3 {
     display: block;
+    position: absolute;
+    top: 12%;
+    left: 65%;
     flex-direction: row;
     box-sizing: border-box;
     align-content: flex-end;
@@ -2447,13 +2462,28 @@ footer {
     flex-direction: row;
     justify-content: center;
     background: none;
-    position: absolute;
-    bottom: 60%;
-    left: 20%;
     color: white;
     font-size: 0.8em;
     background: none
     
+}
+
+.buttons_detail_product a{
+    text-decoration: none;
+}
+
+.buttons_detail_product {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    background: none;
+}
+.buttons_detail_product form {
+    background: none;
 }
 
 .columna3 .more-less-products a {
@@ -2495,6 +2525,12 @@ footer {
     
 }
 
+.more-less-products {
+    position: absolute;
+    top: 40%;
+    right: 20%
+}
+
 .more-less-products .anadirCart .fa-shopping-cart {
     background: none;
     display: flex;
@@ -2508,11 +2544,25 @@ footer {
 
 .anadirCart {
     background:none;
+    position: absolute;
+    top: 41%;
+    right: 15%;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
+}
+
+.anadirCart a {
+    background: none;
+}
+
+.anadirCart i {
+    background: none;
+    color: white;
+    font-size: 2rem;
+
 }
 
 .contenedor-padre2 {
@@ -2532,7 +2582,6 @@ footer {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    border: solid 1px black;
     height: 200px;
     display: flex;
     flex-wrap: nowrap;
@@ -2542,19 +2591,19 @@ footer {
 
 .relacionados {
     margin: 10px;
-    border: solid 1px black;
     margin-bottom: 15px;
     align-items: flex-start;
-    box-sizing: border-box;
     width: 200px; 
     height: 200px;
-    max-width: 85%;
     justify-content: space-evenly;
     background: none;
-    overflow: scroll;
     
     
 }
+.relacionados img{
+    width: 100%
+}
+
 
 /* ----------------------------- REGISTER ---------------------------*/
 

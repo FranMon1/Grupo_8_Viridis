@@ -24,7 +24,12 @@ const uploadProductImg = multer({ storage });
 //-------------------------- Rutas
 
 router.get('/', productsController.index)
-router.get('/product', productsController.product);
+
+
+// Detalle de producto
+router.get('/product/:id', productsController.product);
+router.delete('/product/:id', productsController.delete);
+
 router.get('/cart', productsController.cart);
 router.get('/detail', productsController.detail);
 
@@ -35,7 +40,7 @@ router.post('/create',uploadProductImg.single('productimg'), productsController.
 
 // Edición
 router.get ('/edit/:id', productsController.edit);
-router.put ('/edit/:id', productsController.update);
+router.put ('/edit/:id',uploadProductImg.single('productimg'), productsController.update);
 
 
 // Inventario

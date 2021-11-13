@@ -29,7 +29,16 @@ let productsController = {
         return res.render('products/products', {product: mostStocked})
     },
     product: (req, res) =>{
-      return res.render("products/product");
+        
+        let productDetail = productos.find(product => {
+            return product.id == req.params.id
+        })
+       productos;
+      return res.render("products/product", {
+
+          product: productDetail
+          
+        },);
     },
 
     cart: (req, res) =>{
@@ -91,7 +100,8 @@ let productsController = {
               product.size = req.body.size
               product.color = req.body.color
               product.brand = req.body.brand
-              product.productimg = req.body.productimg
+              product.productimg = req.file.filename 
+
               
           }
          
@@ -101,15 +111,14 @@ let productsController = {
         let jsonDeProducts = JSON.stringify(productos, null, 4);
         fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), jsonDeProducts)
 
-        res.redirect('/')
+        res.redirect(`/`)
     },
     delete: function(req, res) {
         let productosQueQuedan = productos.filter(product => {
             return product.id != req.params.id;
 
         })
-        console.log(req.params.id)
-        console.log(productosQueQuedan)
+      
         jsonDeProductos = JSON.stringify(productosQueQuedan,null, 4);
         fs.writeFileSync(path.resolve(__dirname, "../data/products.json"), jsonDeProductos)
         res.redirect('/')

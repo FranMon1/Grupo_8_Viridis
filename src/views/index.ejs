@@ -97,8 +97,8 @@
             <% product.forEach(product => { %>
             
             <section class='img-container'>
-            <a href="/products/product" >
-                <img src="<%= product.productimg%>" alt="">
+            <a href="/products/product/<%=product.id%>" >
+                <img src="/images/products/<%=product.productimg%>" alt="">
 
                     <div class="img-container-data">
                     <h4><%=product.name%></h4>
@@ -109,7 +109,7 @@
             </section>
         
             
-            <% } ) %>
+            <% }) %>
         </div>
        
     </section>
