@@ -12,6 +12,16 @@ let User = {
             user.email === email
         )
         return usuarioEncontrado;
+    },
+    newUser: function(){
+        let ultimo = 0;
+        usuarios.forEach( user => {
+            if(user.id > ultimo){
+                ultimo = user.id
+            }
+            
+        })
+        return ultimo + 1
     }
 }
 

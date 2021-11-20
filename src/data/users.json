@@ -150,8 +150,6 @@
         "email": "gkesoni@cnet.com",
         "password": "F2DDurh",
         "image": "InterdumVenenatisTurpis.mp3"
-<<<<<<< HEAD
-=======
     },
     {
         "id": 20,
@@ -168,6 +166,13 @@
         "email": "123@gmail.com",
         "password": "123",
         "image": "Elementum.avi"
->>>>>>> 3e18626dbdd0780ff4ee532da088bd3263c71a5a
+    },
+    {
+        "id": 22,
+        "nombre": "Aver",
+        "usuario": "Si",
+        "password": "funciona",
+        "email": "123@gmail.com",
+        "imagenUsuario": "img-aire-acondicionado.jpg"
     }
 ]
