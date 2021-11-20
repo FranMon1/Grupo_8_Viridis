@@ -18,11 +18,16 @@
             <a href="/products/cart">Carrito</a>
             <a href="/products/create">Crear Producto</a>
         </div>
+        
         <div class="hamburguer-menu"><i class="fas fa-bars"></i></div>
+        <% if (locals.isLogged) { %>
+        <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
+            <% } else { %>
         <div class='iconos'>
-            <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
+            
             <a href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
         </div>
+        <% }%>
     </div>
     </div>
 </header>

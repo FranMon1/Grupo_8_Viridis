@@ -6,6 +6,7 @@ const session = require('express-session');
 const mainRouter = require('./routes/index.js');
 const usersRouter = require('./routes/users.js');
 const productRouter = require('./routes/products.js');
+// const userLoggedMw = require("./middlewares/userLogged.js")
 
 // Session
 app.use(session({
@@ -13,6 +14,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+// app.use(userLoggedMw());
 
 app.use(methodOverride('_method'))
 
