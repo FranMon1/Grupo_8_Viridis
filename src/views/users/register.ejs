@@ -12,14 +12,14 @@
                         <p>Formulario de Registro</p>
                     </div>
                     <div class="form-register">
-                        <form action="/users/registro" method="POST">
+                        <form action="/users/register" method="POST">
                             <div>
                                 <label for="nombre"> </label>
                                 <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
                             </div>
                             <div>
-                                <label for="nombre"> </label>
-                                <input type="text" name="nombre" id="nombre" placeholder="Usuario" required>
+                                <label for="usuario"> </label>
+                                <input type="text" name="usuario" id="nombre" placeholder="Usuario" required>
                             </div>
                             <div>
                                 <label for="password"></label>
@@ -27,18 +27,13 @@
                                     required>
                             </div>
                             <div>
-                                <label for="password"></label>
-                                <input type="password" name="password" id="password" placeholder="Repetir Contraseña"
-                                    required>
-                            </div>
-                            <div>
                                 <label for="email"></label>
-                                <input type="email" name="Email" id="email" placeholder="Email"  required>
+                                <input type="email" name="email" id="email" placeholder="Email"  required>
                             </div>
                             <div class="avatarImage">
                                 <p>Selecciona tu imagen de perfil</p>
                                 <label for="Image"></label>
-                                <input type="file" required name="avatarimg">
+                                <input type="file" name="imagenUsuario">
                             </div>
 
                             <div class="botones">
