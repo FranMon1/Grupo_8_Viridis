@@ -150,5 +150,24 @@
         "email": "gkesoni@cnet.com",
         "password": "F2DDurh",
         "image": "InterdumVenenatisTurpis.mp3"
+<<<<<<< HEAD
+=======
+    },
+    {
+        "id": 20,
+        "first_name": "Brittany",
+        "last_name": "Taffie",
+        "email": "btaffiej@w3.org",
+        "password": "WRTjC5Xn5",
+        "image": "Elementum.avi"
+    },
+    {
+        "id": 21,
+        "nombre": "Nombre Prueba",
+        "last_name": "123",
+        "email": "123@gmail.com",
+        "password": "123",
+        "image": "Elementum.avi"
+>>>>>>> 3e18626dbdd0780ff4ee532da088bd3263c71a5a
     }
 ]

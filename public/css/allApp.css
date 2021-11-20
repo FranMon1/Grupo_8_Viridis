@@ -333,9 +333,10 @@
     flex-wrap: wrap;
     background: none;
     justify-content: space-evenly;
-    height: 50vw;
+    height: 60vw;
+    width: 140px;
     margin-top: 10vw;
-    padding: 0 2vw 0 0vw;
+    padding: 2vw 2vw 2vw 0vw;
     border-radius: 20;
     z-index: 1;
     background: rgba(255, 255, 255);
@@ -621,19 +622,15 @@
 
 
 .membership-discounts {
-    background: rgba(255,255,255, 0.8);
-    position: absolute;
-    bottom: 5%;
-    left: 0;
+    background: rgba(255,255,255);
     transform: (-50%, -50%);
     height: 8vw;
-    border-top-right-radius: 5vw;
-    border-bottom-right-radius: 5vw;
     padding: 2vw;
     display: flex;
     align-items: center;
     cursor:pointer;
     transition: 0.5s;
+    border-right: 1px solid rgba(0, 0, 0, 0.8);
     
   
 }
@@ -641,16 +638,15 @@
 .membership-discounts:hover > .membership-txt
  {
   
-    width: 400px;
-    padding: 0 6px;
+    width: 600px;
+    padding: 0 15px;
     color:rgba(0, 0, 0, 0.8);
     text-indent: 0px;
+    margin-left: 10px;
     
 }
 
-.membership-discounts:hover {
-    background: #ffab40;
-}
+
 
 .membership-discounts:hover > .membership-icon {
     animation-duration: 0s;
@@ -675,7 +671,7 @@
 .membership-icon {
     background: none;
     color: rgba(0, 0, 0, 0.8);
-    font-size: 5vw;
+    font-size: 3.5vw;
     float: right;
     border-radius: 50%;
     animation: rotation 3s cubic-bezier(.36,.07,.19,.97) both;
@@ -809,9 +805,8 @@
 
 .main-categorias {
 
-    font-size: 3vw;
+    font-size: 4vw;
     font-weight: 100;
-    letter-spacing: 2px;
     display: flex;
     flex-direction: column;
     background: none;
@@ -819,8 +814,8 @@
     padding: 20px 20px 20px 20px;
     margin: 100px 10px 10px 10px;
     border-bottom: solid #63a4ff 1px;
-    letter-spacing: 0.5ch;
     padding-bottom: 2vw;
+    letter-spacing: 0.1ch;
     
 
 }
@@ -839,11 +834,12 @@
 
 .main-sub-categorias a {
     
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 200;
     letter-spacing: 2px;
     background: none;
     color: white;
+    cursor: pointer;
   
 }
 
@@ -868,11 +864,10 @@
 
 .img-container{
     
-   
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: left;
+    justify-content: left;
     padding:0 10px 0 10px;
     background:  rgba(255,255,255, 0.8);
     margin:0;
@@ -880,8 +875,8 @@
     border-radius: 0.5vw;
     transition: 0.5s;
     overflow: hidden;
-    min-width: 12vw;
-    max-width: 12vw
+    width: 220px;
+    margin: 10px
    
   
 }
@@ -900,8 +895,9 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: left;
+    justify-content: left;
+    width: 100%
 }
 
 
@@ -929,6 +925,8 @@
     width: 200px;
     height: 200px;
     background: none;
+    margin-top: 10px;
+    border-radius: 0.5vw;
 }
 
 .img-container-data h4 {
@@ -1382,11 +1380,11 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     background: none;
     transition: 0.5s;
     overflow: hidden;
-    width: 80%
+    width: 80%;
 }
 .selectedproducts-showing i {
     background: none;
@@ -2340,6 +2338,62 @@ footer {
     background: none;
 }
 
+/* ------------------------- PROFILE -----------------------*/
+
+.profile_page {
+    
+    background: none;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    height: 100vw
+
+}
+
+.profile_section {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    width: 30vw;
+    background: none;
+    padding: 3vw;
+    height: 100%;
+    
+}
+
+.profile_data {
+    display: flex;
+    flex-direction: column;
+    align-items:left;
+    background: none;
+    width: 100%;
+    margin: 20px
+}
+
+.profile_image {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    border: white 1px solid;
+}
+
+.profile_user_id {
+    font-size: 1rem;
+    color: rgba(255, 255, 255);
+    background: none;
+}
+
+.profile_user_name {
+    font-size: 1rem;
+    color: rgba(255, 255, 255);
+    background: none;
+
+}
+
+.profile_user_email {
+    font-size: 1rem;
+    color: rgba(255, 255, 255);
+    background: none;
+
+}
 
 /* ------------------------- PRODUCT DETAIL -----------------------*/
 
@@ -2833,8 +2887,8 @@ footer {
 
 
 .buscador {
-    margin-left: 20px;
-    width: 12rem;
+    margin-left: 2vw;
+    width: 17.5vw;
     background-color: grey;
     padding: 5px;
     color: white;
@@ -2983,6 +3037,7 @@ header a {
   
       /* header*/ 
   
+   
   .header {
     
       justify-content: space-between;
@@ -3041,6 +3096,10 @@ header a {
   
   @media (max-width: 1100px) {
   
+
+    .buscador {
+        width: 200px
+    }
   .left-box {
       align-items: center;
   }
