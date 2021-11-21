@@ -21,13 +21,13 @@
         
         <div class="hamburguer-menu"><i class="fas fa-bars"></i></div>
         <% if (locals.isLogged) { %>
+            <h2 class="userLogged">Bienvenido <%=locals.userLogged.nombre %> ! </h2>
         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
             <% } else { %>
         <div class='iconos'>
-            
             <a href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
         </div>
-        <% }%>
+        <% } %>
     </div>
     </div>
 </header>

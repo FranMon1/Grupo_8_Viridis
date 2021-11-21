@@ -32,7 +32,7 @@ let usersController = {
     },   
       create : function (req, res) {
          let usuario = {
-            id: newUserId(),
+            id: User.newUser(),
             nombre: req.body.nombre,
             ...req.body,
          }
@@ -52,7 +52,11 @@ let usersController = {
       if(usuarioAIngresar){
          let usuarioIsOk = (req.body.password, usuarioAIngresar.password)
          if(usuarioIsOk){
-            req.session.usuarioLogeado = usuarioAIngresar;
+            delete usuarioAIngresar.passwordl;
+            req.session.userLogged = usuarioAIngresar;
+            if(req.body.remember_user){
+                res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 2})
+                }
             res.redirect('profile');
        }
       } else {
@@ -66,7 +70,7 @@ let usersController = {
     }
    },
     profile: function (req, res){
-       return res.render("users/profile", {usuario: req.session.usuarioLogeado});
+       return res.render("users/profile", {usuario: req.session.userLogged});
     }
 };
 
