@@ -10,7 +10,7 @@ const multer = require('multer');
 /* Configuración de Multer  */
 const storageUsers = multer.diskStorage({
     destination: function(req, file, cb) {
-        let userImg = path.join(__dirname, '../../public/images/user')
+        let userImg = path.join(__dirname, '../../public/images/users')
             cb(null, userImg)
     },
     filename: (req, file, cb) => {
@@ -30,7 +30,7 @@ router.post('/login', validationsLoginMw, usersController.loginProcess)
 
 router.get('/register', usersController.register);
 //proceso de registro
-router.post('/register',registerValidationMw , uploadUserImg.single ("imagenUsuario"), usersController.create);
+router.post('/register',registerValidationMw, uploadUserImg.single ("imagenUsuario"), usersController.create);
 
 
 

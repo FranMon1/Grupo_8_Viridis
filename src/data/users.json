@@ -146,5 +146,19 @@
         "password": "funciona",
         "email": "123@gmail.com",
         "imagenUsuario": "img-aire-acondicionado.jpg"
+    },
+    {
+        "id": 23,
+        "nombre": "Bruno",
+        "usuario": "Bruno",
+        "password": "123",
+        "email": "123@gmail.com"
+    },
+    {
+        "id": 24,
+        "nombre": "Bruno",
+        "usuario": "Bruno",
+        "password": "123",
+        "email": "123@gmail.com"
     }
 ]
