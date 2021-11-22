@@ -4,7 +4,7 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
-const { create } = require('domain');
+
 
 // Base de datos
 const jsonDeUsuarios = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), 'utf-8')
@@ -31,25 +31,23 @@ let usersController = {
        return res.render("users/register");
     },   
       create : function (req, res) {
-         const registerErrors = validationResult(req);
+         let registerErrors = validationResult(req);
          
          if (registerErrors.errors.length > 0) {
-            return res.redirect('/users/register', {
+            res.render('users/register', {
                errors: registerErrors.mapped(),
                oldData: req.body
             });
-         }else{                 
-            let usuario = {
+         }else{ 
+             let usuario = {
                id: newUserId(),
-               nombre: req.body.nombre,
                ...req.body,
-            }
-   
+            }                
             usuarios.push(usuario);
            let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
    
            fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), nuevoUsuarioJson)
-         } res.redirect("/users/profile");
+         } res.redirect("/users/login");
       },
 
     loginProcess: function(req, res){
