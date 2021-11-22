@@ -23,6 +23,7 @@
         <% if (locals.isLogged) { %>
             <h2 class="userLogged">Bienvenido <%=locals.userLogged.nombre %> ! </h2>
         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
             <% } else { %>
         <div class='iconos'>
             <a href="/users/login"><i class="fas fa-sign-in-alt"></i></a>

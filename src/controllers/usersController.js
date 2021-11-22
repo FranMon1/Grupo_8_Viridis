@@ -10,16 +10,16 @@ const bcrypt = require('bcryptjs');
 const jsonDeUsuarios = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), 'utf-8')
 const usuarios = JSON.parse(jsonDeUsuarios);
 
-const newUserId = function (){
-   let ultimo = 0;
-   usuarios.forEach(usuario => {
-   if (usuario.id > ultimo) {
-       ultimo = usuario.id
-   }
-})
-return ultimo + 1;
+// const newUserId = function (){
+//    let ultimo = 0;
+//    usuarios.forEach(usuario => {
+//    if (usuario.id > ultimo) {
+//        ultimo = usuario.id
+//    }
+// })
+// return ultimo + 1;
 
-}
+// }
 
 
 let usersController = {
@@ -31,17 +31,19 @@ let usersController = {
        return res.render("users/register");
     },   
       create : function (req, res) {
-         let registerErrors = validationResult(req);
+         var registerErrors = validationResult(req);
          
          if (registerErrors.errors.length > 0) {
-            res.render('users/register', {
+            return res.render('users/register', {
                errors: registerErrors.mapped(),
                oldData: req.body
             });
          }else{ 
              let usuario = {
-               id: newUserId(),
+               id: User.newUser(),
                ...req.body,
+                password: bcrypt.hashSync(req.body.password, 10)
+               
             }                
             usuarios.push(usuario);
            let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
@@ -54,15 +56,25 @@ let usersController = {
       
       let usuarioAIngresar = User.findByMail(req.body.email)
       if(usuarioAIngresar){
-         let usuarioIsOk = (req.body.password, usuarioAIngresar.password)
+         let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
          if(usuarioIsOk){
-            delete usuarioAIngresar.passwordl;
+
+            delete usuarioAIngresar.password;
             req.session.userLogged = usuarioAIngresar;
+
             if(req.body.remember_user){
                 res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 2})
-                }
-            res.redirect('profile');
-       }
+                } else {}
+            return res.redirect('profile');
+
+       } res.render('users/login',{
+            errors: {
+               password: {
+                  msg: "Contraseña inválida"
+               }
+            },
+            oldData: req.body
+         });
       } else {
          let validations = validationResult(req);
       if(validations.errors.length > 0){
@@ -74,8 +86,14 @@ let usersController = {
     }
    },
     profile: function (req, res){
+       console.log(req.cookies.userEmail)
        return res.render("users/profile", {usuario: req.session.userLogged});
-    }
+    },
+    logout: function (req,res) {
+         res.clearCookie('userEmail')
+         req.session.destroy();
+         res.redirect('/')
+     }
 };
 
 

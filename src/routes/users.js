@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/usersController');
-const validationsLoginMw = require('../middlewares/validationsMw.js');
+const validationsLoginMw = require('../middlewares/validationsLoginMw.js');
 const registerValidationMw = require ('../middlewares/registerMw.js')
 const path = require ('path');
 const multer = require('multer');
@@ -37,6 +37,7 @@ router.post('/register',registerValidationMw, uploadUserImg.single ("imagenUsuar
 // Perfil
 
 router.get('/profile', usersController.profile);
+router.get('/logout', usersController.logout)
 
 
 module.exports = router;
