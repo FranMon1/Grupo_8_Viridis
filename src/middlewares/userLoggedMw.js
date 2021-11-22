@@ -1,7 +1,13 @@
 const User = require("../models/User.js");
 
-function userLogged (req, res, next){
+function userLoggedMw (req, res, next){
+    res.locals.isLogged = false
+    let emailInCookie = req.cookies.userEmail
+    let userFromCookie = User.findByMail(emailInCookie)
 
+    if(userFromCookie){
+        req.session.userLogged = userFromCookie
+    }
     if(req.session && req.session.userLogged) {
         res.locals.isLogged = true
         res.locals.userLogged = req.session.userLogged
@@ -10,4 +16,4 @@ function userLogged (req, res, next){
 
 }
 
-module.exports = userLogged
+module.exports = userLoggedMw
