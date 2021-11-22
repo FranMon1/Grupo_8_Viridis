@@ -49,7 +49,7 @@ let usersController = {
            let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
    
            fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), nuevoUsuarioJson)
-         } res.redirect("/users/profile");
+         } res.redirect("/users/login");
       },
 
     loginProcess: function(req, res){

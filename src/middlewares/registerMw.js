@@ -9,7 +9,8 @@ const registerValidationMw = [
         .notEmpty().withMessage('Debes completar con una contraseña').bail()
         .isLength({min:10}).withMessage('La contraseña debe tener un mínimo de diez caracteres'),
     check('email')
-        .notEmpty().isEmail().withMessage('Email Inválido'),
+        .notEmpty().bail()
+        .isEmail().withMessage('Email Inválido'),
 ]
 
 module.exports = registerValidationMw;
