@@ -31,19 +31,25 @@ let usersController = {
        return res.render("users/register");
     },   
       create : function (req, res) {
-         let usuario = {
-            id: newUserId(),
-            nombre: req.body.nombre,
-            ...req.body,
-         }
-
-         usuarios.push(usuario);
-        let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
-
-        fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), nuevoUsuarioJson)
-        res.redirect("/users/login");
-
+         const registerErrors = validationResult(req);
          
+         if (registerErrors.errors.length > 0) {
+            return res.redirect('/users/register', {
+               errors: registerErrors.mapped(),
+               oldData: req.body
+            });
+         }else{                 
+            let usuario = {
+               id: newUserId(),
+               nombre: req.body.nombre,
+               ...req.body,
+            }
+   
+            usuarios.push(usuario);
+           let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
+   
+           fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), nuevoUsuarioJson)
+         } res.redirect("/users/profile");
       },
 
     loginProcess: function(req, res){

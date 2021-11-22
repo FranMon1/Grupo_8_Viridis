@@ -15,20 +15,31 @@
                         <form action="/users/register" method="POST" enctype="multipart/form-data">
                             <div>
                                 <label for="nombre"> </label>
-                                <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" value="<%=locals.oldData ? oldData.email : null %>" required>
+                                <% if (locals.errors && errors.nombre) { %>
+                                    <span class="error-msg"><%=errors.nombre.msg%></span>
+                                <% } %>
                             </div>
                             <div>
                                 <label for="usuario"> </label>
-                                <input type="text" name="usuario" id="nombre" placeholder="Usuario" required>
+                                <input type="text" name="usuario" id="nombre" placeholder="Usuario" value="<%=locals.oldData ? oldData.usuario : null %>" required>
+                                <% if (locals.errors && errors.usuario) { %>
+                                    <span class="error-msg"><%=errors.usuario.msg%></span>
+                                <% } %>
                             </div>
                             <div>
                                 <label for="password"></label>
-                                <input type="password" name="password" id="password" placeholder="Contraseña"
-                                    required>
+                                <input type="password" name="password" id="password" placeholder="Contraseña" value="<%=locals.oldData ? oldData.password : null %>" required>
+                                <% if (locals.errors && errors.password) { %>
+                                    <span class="error-msg"><%=errors.password.msg%></span>
+                                <% } %>
                             </div>
                             <div>
-                                <label for="email"></label>
-                                <input type="email" name="email" id="email" placeholder="Email"  required>
+                                <label for="email"> </label>
+                                <input type="text" name="email" id="email" placeholder="Email" value="<%=locals.oldData ? oldData.email : null %>" required>
+                                <% if (locals.errors && errors.email) { %>
+                                    <span class="error-msg"><%=errors.email.msg%></span>
+                                <% } %>
                             </div>
                             <div class="avatarImage">
                                 <p>Selecciona tu imagen de perfil</p>
