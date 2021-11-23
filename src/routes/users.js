@@ -30,7 +30,7 @@ router.post('/login', validationsLoginMw, usersController.loginProcess)
 
 router.get('/register', usersController.register);
 //proceso de registro
-router.post('/register',registerValidationMw, uploadUserImg.single ("imagenUsuario"), usersController.create);
+router.post('/register', uploadUserImg.single ("imagenUsuario"), registerValidationMw, usersController.create);
 
 
 

@@ -13,7 +13,7 @@ let User = {
         )
         return usuarioEncontrado;
     },
-    newUser: function(){
+    newId: function(){
         let ultimo = 0;
         usuarios.forEach( user => {
             if(user.id > ultimo){

@@ -32,7 +32,8 @@ let usersController = {
     },   
       create : function (req, res) {
          var registerErrors = validationResult(req);
-         
+         console.log(registerErrors)
+
          if (registerErrors.errors.length > 0) {
             return res.render('users/register', {
                errors: registerErrors.mapped(),
@@ -40,7 +41,7 @@ let usersController = {
             });
          }else{ 
              let usuario = {
-               id: User.newUser(),
+               id: User.newId(),
                ...req.body,
                 password: bcrypt.hashSync(req.body.password, 10)
                

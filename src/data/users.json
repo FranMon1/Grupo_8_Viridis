@@ -6,5 +6,12 @@
         "password": "$2a$10$OhZSwSnWnzVbI/y9q9jrc.QdSmTmB9L6/70imLpa8Zi8wyWyvvE.W",
         "email": "123@gmail.com",
         "imagenUsuario": "user1637607680042.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Bruno",
+        "usuario": "Bruno",
+        "password": "$2a$10$S6W/EP1dWHaFLDwJrO/dBuphdlvg0WqCcChtpgVEDrOGj8DSYpZ4i",
+        "email": "123@gmail.com"
     }
 ]
