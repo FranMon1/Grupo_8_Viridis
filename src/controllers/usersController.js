@@ -10,16 +10,16 @@ const bcrypt = require('bcryptjs');
 const jsonDeUsuarios = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), 'utf-8')
 const usuarios = JSON.parse(jsonDeUsuarios);
 
-// const newUserId = function (){
-//    let ultimo = 0;
-//    usuarios.forEach(usuario => {
-//    if (usuario.id > ultimo) {
-//        ultimo = usuario.id
-//    }
-// })
-// return ultimo + 1;
+ /* const newId = function (){
+    let ultimo = 0;
+    usuarios.forEach(usuario => {
+    if (usuario.id > ultimo) {
+        ultimo = usuario.id
+    }
+ })
+ return ultimo + 1;
 
-// }
+ } */
 
 
 let usersController = {
@@ -32,7 +32,6 @@ let usersController = {
     },   
       create : function (req, res) {
          var registerErrors = validationResult(req);
-         console.log(registerErrors)
 
          if (registerErrors.errors.length > 0) {
             return res.render('users/register', {
@@ -87,7 +86,7 @@ let usersController = {
     }
    },
     profile: function (req, res){
-       console.log(req.cookies.userEmail)
+      // console.log(req.cookies.userEmail)
        return res.render("users/profile", {usuario: req.session.userLogged});
     },
     logout: function (req,res) {

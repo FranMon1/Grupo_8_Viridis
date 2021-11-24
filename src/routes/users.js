@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/usersController');
 const validationsLoginMw = require('../middlewares/validationsLoginMw.js');
-const registerValidationMw = require ('../middlewares/registerMw.js')
+const registerValidationMw = require ('../middlewares/registerMw.js');
+const guestMw = require('../middlewares/guestMw');
+const authMw = require('../middlewares/authMW');
 const path = require ('path');
 const multer = require('multer');
 
@@ -19,24 +21,23 @@ const storageUsers = multer.diskStorage({
     }
 })
 const uploadUserImg = multer({ storage : storageUsers });
+
 // Login
 
-
-router.get('/login', usersController.login);
+router.get('/login', guestMw, usersController.login);
 router.post('/login', validationsLoginMw, usersController.loginProcess)
 
 
 // Registro
 
-router.get('/register', usersController.register);
-//proceso de registro
+router.get('/register',  guestMw, usersController.register);
 router.post('/register', uploadUserImg.single ("imagenUsuario"), registerValidationMw, usersController.create);
 
 
 
 // Perfil
 
-router.get('/profile', usersController.profile);
+router.get('/profile', authMw, usersController.profile);
 router.get('/logout', usersController.logout)
 
 

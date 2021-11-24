@@ -13,5 +13,19 @@
         "usuario": "Bruno",
         "password": "$2a$10$S6W/EP1dWHaFLDwJrO/dBuphdlvg0WqCcChtpgVEDrOGj8DSYpZ4i",
         "email": "123@gmail.com"
+    },
+    {
+        "id": 3,
+        "nombre": "Probando",
+        "usuario": "probando",
+        "password": "$2a$10$TgIWp2zPFmyI4JBTl25LI.a9NgOrUWiRDL76p./7u29IsQ7ApD5xO",
+        "email": "probando@probando.com"
+    },
+    {
+        "id": 4,
+        "nombre": "ultima",
+        "usuario": "fran",
+        "password": "$2a$10$SAAx8d/giBzThnU1CsiEf.mqD.iWqDZ8L2f8cuomUkp48O3LzyfUS",
+        "email": "fran@fran.com"
     }
 ]
