@@ -10,18 +10,6 @@ const bcrypt = require('bcryptjs');
 const jsonDeUsuarios = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), 'utf-8')
 const usuarios = JSON.parse(jsonDeUsuarios);
 
- /* const newId = function (){
-    let ultimo = 0;
-    usuarios.forEach(usuario => {
-    if (usuario.id > ultimo) {
-        ultimo = usuario.id
-    }
- })
- return ultimo + 1;
-
- } */
-
-
 let usersController = {
     login: (req, res) =>{
        return res.render("users/login");
