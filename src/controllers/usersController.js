@@ -42,8 +42,9 @@ let usersController = {
              let usuario = {
                id: User.newId(),
                ...req.body,
-                password: bcrypt.hashSync(req.body.password, 10),
+                password: bcrypt.hashSync(req.body.password, 10), 
                 imagenUsuario: req.file.filename
+                
                
             }                
             usuarios.push(usuario);
@@ -65,7 +66,7 @@ let usersController = {
 
             if(req.body.remember_user){
                 res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 2})
-                } else {}
+                } 
             return res.redirect('profile');
 
        } res.render('users/login',{
