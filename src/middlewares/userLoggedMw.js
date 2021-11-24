@@ -3,6 +3,7 @@ const User = require("../models/User.js");
 function userLoggedMw (req, res, next){
     
     res.locals.isLogged = false
+    
     let emailInCookie = req.cookies.userEmail
     let userFromCookie = User.findByMail(emailInCookie)
 

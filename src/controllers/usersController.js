@@ -42,7 +42,8 @@ let usersController = {
              let usuario = {
                id: User.newId(),
                ...req.body,
-                password: bcrypt.hashSync(req.body.password, 10)
+                password: bcrypt.hashSync(req.body.password, 10),
+                imagenUsuario: req.file.filename
                
             }                
             usuarios.push(usuario);

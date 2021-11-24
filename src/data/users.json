@@ -5,7 +5,7 @@
         "usuario": "1234",
         "password": "$2a$10$OhZSwSnWnzVbI/y9q9jrc.QdSmTmB9L6/70imLpa8Zi8wyWyvvE.W",
         "email": "123@gmail.com",
-        "imagenUsuario": "user1637607680042.jpg"
+        "imagenUsuario": "user1637724986730.jpg"
     },
     {
         "id": 2,
@@ -20,12 +20,30 @@
         "usuario": "probando",
         "password": "$2a$10$TgIWp2zPFmyI4JBTl25LI.a9NgOrUWiRDL76p./7u29IsQ7ApD5xO",
         "email": "probando@probando.com"
+
     },
     {
         "id": 4,
         "nombre": "ultima",
         "usuario": "fran",
         "password": "$2a$10$SAAx8d/giBzThnU1CsiEf.mqD.iWqDZ8L2f8cuomUkp48O3LzyfUS",
-        "email": "fran@fran.com"
+        "email": "fran@fran.com",
+        "imagenUsuario": "user1637725530323.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "buenas",
+        "usuario": "buenastardes",
+        "password": "$2a$10$oqCmITX8SSOa8t8E6ddhhO4qmEiP2xNsP2VyNwB79ow0oZD8pIPZ.",
+        "email": "buenas@hola.com",
+        "imagenUsuario": "user1637724986730.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Probando Imagen",
+        "usuario": "probando123",
+        "password": "$2a$10$A5xSn85x6VEzpZpYjA1OuucsPy2aGgaW31T4NHC8wTfNr2q5tVzcy",
+        "email": "probando@hola.com",
+        "imagenUsuario": "user1637725530323.jpg"
     }
 ]
