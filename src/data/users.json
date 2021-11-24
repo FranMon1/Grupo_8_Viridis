@@ -47,10 +47,17 @@
     },
     {
         "id": 7,
-        "nombre": "admin",
-        "usuario": "admin",
-        "password": "$2a$10$MpKe7QuWs7peLj/CIa6zOeEFiSu9avgYr5ScnEnKmv.6L2kFTBx52",
-        "email": "admin@admin.com",
-        "imagenUsuario": "user1637791729592.png"
+        "nombre": "Admin",
+        "usuario": "Admin",
+        "password": "$2a$10$Lp7I/oqn.UmEuImj7BSYOuO2ue/K.nkL8T1znoQB5RWgEPRKU581S",
+        "email": "admin@admin.com"
+    },
+    {
+        "id": 8,
+        "nombre": "asd",
+        "usuario": "asdasd",
+        "password": "$2a$10$qj8GupsSbOJJmmAcs2myauyhmFI.v2kmDd/hmxy3U/uiG/e7AjlPa",
+        "email": "asd@gmail.com",
+        "imagenUsuario": "user1637777965961.jpg"
     }
 ]

@@ -16,8 +16,8 @@ const storageUsers = multer.diskStorage({
             cb(null, userImg)
     },
     filename: (req, file, cb) => {
-        let newUserImg = 'user' + Date.now() + path.extname(file.originalname)
-        cb(null, newUserImg)
+        let newUserImg = 'user' + Date.now() + path.extname(file.originalname);
+        cb(null, newUserImg )
     }
 })
 const uploadUserImg = multer({ storage : storageUsers });
@@ -32,7 +32,6 @@ router.post('/login', validationsLoginMw, usersController.loginProcess)
 
 router.get('/register',  guestMw, usersController.register);
 router.post('/register', uploadUserImg.single ("imagenUsuario"), registerValidationMw, usersController.create);
-
 
 
 // Perfil
