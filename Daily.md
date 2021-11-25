@@ -1,5 +1,31 @@
 # Daily 
 
+## SPRINT 5
+
+```diff
++ Bruno:
+```
+#### -  21/10 - Implementar el login de usuarios
+#### -  23/11 - Arreglo de detalles en el Front
+
+```diff
++ Fran:
+```
+#### -  21/11: Implementar el registro de usuarios
+#### -  31/10 Modificación en el register
+
+```diff
++ Ceci:
+```
+#### - 23/11 Ordenamiento del tablero de Trello y re escribir la daily al md de GitHub
+#### - 24/11 Implementar la función de recordar al usuario
+
+```diff
++ Todos:
+```
+#### - 22/11 - Creado usuario Admin con validaciones para Inventario, edición y creación de productos
+#### - 24/11 - Implementar rutas de huéspedes y de usuarios
+
 ## SPRINT 4
 
 ```diff
