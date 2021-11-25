@@ -31,7 +31,7 @@ let usersController = {
                id: User.newId(),
                ...req.body,
                 password: bcrypt.hashSync(req.body.password, 10), 
-                imagenUsuario: req.file.filename
+                imagenUsuario: req.file ? req.file.filename : "default-placeholder.png"
                 
                
             }                
@@ -46,6 +46,7 @@ let usersController = {
       
       let usuarioAIngresar = User.findByMail(req.body.email)
       if(usuarioAIngresar){
+         
          let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
          if(usuarioIsOk){
 

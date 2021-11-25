@@ -59,5 +59,13 @@
         "password": "$2a$10$qj8GupsSbOJJmmAcs2myauyhmFI.v2kmDd/hmxy3U/uiG/e7AjlPa",
         "email": "asd@gmail.com",
         "imagenUsuario": "user1637777965961.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Bruno",
+        "usuario": "Bruno",
+        "password": "$2a$10$JxwqciO/sMVFA0GpTxLlnuS7NQsaL9Rpk1YFfvG1BgO.iKUyuCgOC",
+        "email": "bruno@gmail.com",
+        "imagenUsuario": "default-placeholder.png"
     }
 ]
