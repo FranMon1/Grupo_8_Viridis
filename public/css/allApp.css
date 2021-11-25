@@ -2110,15 +2110,22 @@ footer {
 .profile_data {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   background: none;
   width: 100%;
   margin: 20px;
 }
 
+.profile_data p {
+  font-size: 2rem;
+  background: none;
+  margin: 10px
+
+}
+
 .profile_image {
-  width: 10vw;
-  height: 10vw;
+  width: 20vw;
+  height: 20vw;
   border-radius: 50%;
   border: black 3px solid;
 }
@@ -2126,8 +2133,8 @@ footer {
 .profile_image img {
   border-radius: 50%;
   border: white 1px solid;
-  width: 10vw;
-  height: 10vw
+  width: 20vw;
+  height: 20vw
 }
 
 .profile_user_id {
@@ -2146,6 +2153,18 @@ footer {
   font-size: 1rem;
   color: rgba(255, 255, 255);
   background: none;
+}
+
+.edit_profile_button {
+  width: 20vw;
+  height: 2vw;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1vw;
+  outline: none;
+}
+.edit_profile_button:hover {
+  background: rgba(255, 255, 255, 1);
+  cursor: pointer;
 }
 
 /* ------------------------- PRODUCT DETAIL -----------------------*/
@@ -2689,6 +2708,37 @@ header a {
 .userLogged {
   background: none;
   color: white;
+}
+
+.header_profile {
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+  background: none;
+  width: 20vw
+}
+
+.profile_access {
+  display: flex;
+  flex-direction: row;
+}
+.profile_access a {
+  background: none;
+  
+}
+.profile_access h3 {
+  background: none;
+  margin-left: 1vw;
+}
+
+.header_profile a {
+  background: none;
+}
+
+.header_profile i {
+  font-size: 1.5rem;
+  background: none;
 }
 
 /* MEDIA QUERIES */

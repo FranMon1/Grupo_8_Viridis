@@ -21,9 +21,13 @@
         
         <div class="hamburguer-menu"><i class="fas fa-bars"></i></div>
         <% if (locals.isLogged) { %>
-            <h2 class="userLogged">Bienvenido <%=locals.userLogged.nombre %> ! </h2>
+            <div class="header_profile">
+            <a class="profile_access"href="/users/profile"><i class="fas fa-user-circle"></i>
+            <h3>Hola <%=locals.userLogged.nombre %>!</h3></a>
         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
         <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+       
             <% } else { %>
         <div class='iconos'>
             <a href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
