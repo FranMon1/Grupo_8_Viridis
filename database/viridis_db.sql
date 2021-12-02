@@ -16,39 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cart_products`
+-- Table structure for table `brands`
 --
 
-DROP TABLE IF EXISTS `cart_products`;
+DROP TABLE IF EXISTS `brands`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cart_products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_users` int(11) NOT NULL,
-  `id_products` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_users_UNIQUE` (`id_users`),
-  UNIQUE KEY `id_products_UNIQUE` (`id_products`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cart_products`
---
-
-LOCK TABLES `cart_products` WRITE;
-/*!40000 ALTER TABLE `cart_products` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cart_products` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `product_brands`
---
-
-DROP TABLE IF EXISTS `product_brands`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `product_brands` (
+CREATE TABLE `brands` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
@@ -56,35 +30,86 @@ CREATE TABLE `product_brands` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `product_brands`
+-- Dumping data for table `brands`
 --
 
-LOCK TABLES `product_brands` WRITE;
-/*!40000 ALTER TABLE `product_brands` DISABLE KEYS */;
-/*!40000 ALTER TABLE `product_brands` ENABLE KEYS */;
+LOCK TABLES `brands` WRITE;
+/*!40000 ALTER TABLE `brands` DISABLE KEYS */;
+/*!40000 ALTER TABLE `brands` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `product_category`
+-- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `product_category`;
+DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `product_category` (
+CREATE TABLE `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category` varchar(45) NOT NULL,
+  `users_id` int(11) DEFAULT NULL,
+  `products_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `users_id_idx` (`users_id`),
+  KEY `products_id_idx` (`products_id`),
+  CONSTRAINT `products_id` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `users_id` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `product_category`
+-- Dumping data for table `categories`
 --
 
-LOCK TABLES `product_category` WRITE;
-/*!40000 ALTER TABLE `product_category` DISABLE KEYS */;
-/*!40000 ALTER TABLE `product_category` ENABLE KEYS */;
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `images`
+--
+
+LOCK TABLES `images` WRITE;
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -96,12 +121,13 @@ DROP TABLE IF EXISTS `product_images`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `product_images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `image_1` varchar(45) NOT NULL,
-  `image_2` varchar(45) DEFAULT NULL,
-  `image_3` varchar(45) DEFAULT NULL,
-  `image_4` varchar(45) DEFAULT NULL,
-  `image_5` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `products_id` int(11) DEFAULT NULL,
+  `images_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `products_id_idx` (`products_id`),
+  KEY `images_id_idx` (`images_id`),
+  CONSTRAINT `images_id` FOREIGN KEY (`images_id`) REFERENCES `images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `products_id2` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -129,10 +155,13 @@ CREATE TABLE `products` (
   `quantity` int(11) NOT NULL,
   `color` varchar(45) DEFAULT NULL,
   `sizes` varchar(45) DEFAULT NULL,
-  `id_category` int(11) NOT NULL,
-  `id_brand` varchar(45) DEFAULT NULL,
-  `id_product_images` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  `brand_id` int(11) DEFAULT NULL,
+  `categories_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `brand_id_idx` (`brand_id`),
+  KEY `category_id_idx` (`categories_id`),
+  CONSTRAINT `brand_id` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `categories_id` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -181,10 +210,11 @@ CREATE TABLE `users` (
   `usuario` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `id_roles` int(11) NOT NULL,
-  `imagenUsuario` varchar(45) DEFAULT NULL,
+  `imagen_usuario` varchar(45) DEFAULT NULL,
+  `roles_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_roles_UNIQUE` (`id_roles`)
+  KEY `roles_id_idx` (`roles_id`),
+  CONSTRAINT `roles_id` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -206,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-30 23:52:36
+-- Dump completed on 2021-12-02 14:51:18
