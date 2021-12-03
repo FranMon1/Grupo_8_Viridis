@@ -1,6 +1,3 @@
-const sequelize = require('sequelize')
-const db = require('.')
-const { Op } = require('sequelize')
 
 module.exports = (sequelize, dataTypes) => {
 let alias = "Product";
@@ -45,6 +42,20 @@ let config = {
 }
 
     const Product = sequelize.define(alias, cols, config)
+
+    Product.associate = function (models) {
+        Product.belongsToMany(models.Image, {
+            as: "products",
+            through: "product_images",
+            foreignKey: "products_id",
+            otherKey: "image_id",
+            timestamps: false
+        });
+        Product.belongsTo(models.Brand, {
+            as: "brands",
+            foreignKey: "brand_id"
+        })
+    }
 
     return Product
 }
