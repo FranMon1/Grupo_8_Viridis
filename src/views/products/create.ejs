@@ -18,27 +18,27 @@
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golf-ball-with-dents.png" alt=""></a>
                     <p>Accesories</p>
-                <input type="radio" name="category" value="accesories">
+                <input type="radio" name="category" value="accesories" value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/caddy.png" alt=""></a>
                     <p>Bags</p>
-                <input type="radio" name="category" value="bags">
+                <input type="radio" name="category" value="bags" value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golfing.png" alt=""></a>
                     <p>Clubs</p>
-                <input type="radio" name="category" value="clubs">
+                <input type="radio" name="category" value="clubs" value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/smart-shoe.png" alt=""></a>
                     <p>Shoes</p>
-                <input type="radio" name="category" value="shoes">
+                <input type="radio" name="category" value="shoes" value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golf-sets.png" alt=""></a>
                     <p>Sets</p>
-                <input type="radio" name="category" value="sets" required>
+                <input type="radio" name="category" value="sets" value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 
               
@@ -52,20 +52,29 @@
             <p class="description-title">Descripción y detalles del producto</p>
             
                 <div class="item-name">
-                <p>Nombre del producto <span> * </span></p>  
-                <input type="text" name="name" placeholder="Nombre" required>
-                <p>Descripción<span> * </span></p>
-                <textarea class="description"  name="description" placeholder="Agregue una descripción" required></textarea>
-                <p>Precio<span> * </span></p>
-                <input type="number" name="price" placeholder="Ej. $ 1,500" required >
-                <p>Cantidad<span> * </span></p>
-                <input type="number" name="quantity" placeholder="Ej. 500" required >
+                <p>Nombre del producto</p>
+                <% if (locals.errors && errors.name) { %>   
+                <span class="error-msg"><%= errors.name.msg %> </span>
+                <% } %> 
+                <input type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %> ">
+                <p>Descripción</p>
+                <textarea class="description"  name="description" value="<%=locals.oldData ? oldData.description : null %> " placeholder="Agregue una descripción" ></textarea>
+                <p>Precio</p>
+                <% if (locals.errors && errors.price) { %>   
+                    <span class="error-msg"><%= errors.price.msg %> </span>
+                    <% } %> 
+                <input type="number" name="price" placeholder="Ej. $ 1,500" value="<%=locals.oldData ? oldData.price : null %> " >
+                <p>Cantidad</p>
+                 <% if (locals.errors && errors.quantity) { %>   
+                <span class="error-msg"><%= errors.quantity.msg %> </span>
+                <% } %> 
+                <input type="number" name="quantity" placeholder="Ej. 500" value="<%=locals.oldData ? oldData.quantity : null %> " >
                 <p>Talle</p>
-                <input type="text" name="size" placeholder="" >
+                <input type="text" name="size" placeholder=""value="<%=locals.oldData ? oldData.size : null %> " >
                 <p>Color</p>
-                <input type="color" name="color" placeholder="" >
+                <input type="text" name="color" placeholder="" value="<%=locals.oldData ? oldData.color : null %> ">
                 <p>Marca</p>
-                <input type="text" name="brand" placeholder="" >
+                <input type="text" name="brand" placeholder="" value="<%=locals.oldData ? oldData.brand : null %> ">
                 </div>
 
            
@@ -78,7 +87,7 @@
         <div class="img-section">
             <h2> Agrega la imagen del producto</h2>
            
-                <input type="file" required name="productimg">
+                <input type="file" name="productimg">
            
         </div>
         <div class="buttons">
