@@ -1535,13 +1535,6 @@ footer {
   font-style: italic;
 }
 
-.item-name span {
-  color: red;
-  background: none;
-  margin-bottom: 1vw;
-  font-size: 2rem;
-}
-
 .item-name .description {
   margin: 1vw 0 1vw 0;
   height: 10vw;

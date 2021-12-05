@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models');
+const { Op } = require('sequelize');
+const { validationResult } = require("express-validator")
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
 let productos = JSON.parse(archivoProductos)
@@ -86,6 +89,20 @@ let productsController = {
         }
         res.redirect('/')
     },
+    store2: function (req, res) {
+            let validations = validationResult(req);
+            if(validations.errors.length > 0) {
+                return res.render("products/create", {
+                    errors: validations.mapped(),
+                    oldData: req.body
+                });
+            } else {
+            db.Product.create(req.body).then((resultado) => {
+                return res.render("products/product", {product: resultado})
+            })
+        }
+    },
+
     update: function (req, res) {
       
       productos.forEach(product => {
