@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
-const { Op } = require('sequelize');
 const { validationResult } = require("express-validator")
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
@@ -97,6 +96,7 @@ let productsController = {
                     oldData: req.body
                 });
             } else {
+                console.log(req.body)
             db.Product.create(req.body).then((resultado) => {
                 return res.render("products/product", {product: resultado})
             })

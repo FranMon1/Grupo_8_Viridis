@@ -19,11 +19,11 @@ module.exports = (sequelize, dataTypes) => {
     const Brand = sequelize.define(alias, cols, config)
 
     Brand.associate = function (models) {
-        Brand.belongsTo(models.Product, {
+        Brand.hasMany(models.Product, {
             as: "products",
             foreignKey: "product_id"
         })
     }
 
-    return Brand
+    return Brand;
 }
