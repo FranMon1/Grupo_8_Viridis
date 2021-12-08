@@ -38,10 +38,10 @@ DROP TABLE IF EXISTS `cart`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `users_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `users_id_idx` (`users_id`),
-  CONSTRAINT `users_id` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `users_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`users_id`),
+  KEY `fk_cart_users1_idx` (`users_id`),
+  CONSTRAINT `fk_cart_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -69,10 +69,10 @@ DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `product_id_idx` (`product_id`),
-  CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `products_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`products_id`),
+  KEY `fk_images_products1_idx` (`products_id`),
+  CONSTRAINT `fk_images_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -87,11 +87,11 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `products_id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `cart_id_idx` (`cart_id`),
-  KEY `product_id_idx` (`products_id`),
-  CONSTRAINT `cart_id` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `products_id` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`,`products_id`,`cart_id`),
+  KEY `fk_orders_products1_idx` (`products_id`),
+  KEY `fk_orders_cart1_idx` (`cart_id`),
+  CONSTRAINT `fk_orders_cart1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_orders_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -110,13 +110,13 @@ CREATE TABLE `products` (
   `quantity` int(11) NOT NULL,
   `color` varchar(45) DEFAULT NULL,
   `sizes` varchar(45) DEFAULT NULL,
-  `brand_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `brand_id_idx` (`brand_id`),
-  KEY `category_id_idx` (`category_id`),
-  CONSTRAINT `brand_id` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `categories_id` int(11) NOT NULL,
+  `brands_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`categories_id`,`brands_id`),
+  KEY `fk_products_categories1_idx` (`categories_id`),
+  KEY `fk_products_brands1_idx` (`brands_id`),
+  CONSTRAINT `fk_products_brands1` FOREIGN KEY (`brands_id`) REFERENCES `brands` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_products_categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -148,10 +148,10 @@ CREATE TABLE `users` (
   `password` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `user_image` varchar(45) DEFAULT NULL,
-  `roles_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `roles_id_idx` (`roles_id`),
-  CONSTRAINT `roles_id` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `roles_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`roles_id`),
+  KEY `fk_users_roles1_idx` (`roles_id`),
+  CONSTRAINT `fk_users_roles1` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -164,4 +164,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-07 18:36:10
+-- Dump completed on 2021-12-08 19:30:43
