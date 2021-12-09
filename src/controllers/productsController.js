@@ -97,7 +97,21 @@ let productsController = {
                 });
             } else {
                 console.log(req.body)
-            db.Product.create(req.body).then((resultado) => {
+                db.Brand.create({
+                    name: req.body.brand
+                });
+                db.Category.create({
+                    name: req.body.category
+                });
+                db.Product.create({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                quantity: req.body.quantity,
+                color: req.body.color,
+                sizes: req.body.sizes,
+              
+            }).then((resultado) => {
                 return res.render("products/product", {product: resultado})
             })
         }
