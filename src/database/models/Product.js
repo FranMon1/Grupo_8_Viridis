@@ -52,6 +52,10 @@ let config = {
         Product.belongsTo(models.Category,{
             as: "categories",
             foreignKey:"categories_id"
+        });
+        Product.hasMany(models.Image, {
+            as: "images",
+            foreignKey: "products_id"
         })
     }
 

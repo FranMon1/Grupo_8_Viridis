@@ -3,6 +3,7 @@ const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require("express-validator");
 
+
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
 let productos = JSON.parse(archivoProductos)
 
@@ -52,7 +53,10 @@ let productsController = {
     },
 
     create: (req, res) =>{
-        return res.render('products/create');
+        db.Brand.findAll().then(brands => {
+            return res.render('products/create',{brands});
+        })
+      
     },
 
     edit: (req, res) =>{
@@ -88,7 +92,7 @@ let productsController = {
         }
         res.redirect('/')
     },
-    store2: function (req, res) {
+    store2: async function (req, res) {
             let validations = validationResult(req);
             if(validations.errors.length > 0) {
                 return res.render("products/create", {
@@ -96,12 +100,13 @@ let productsController = {
                     oldData: req.body
                 });
             } else {
+               
                 console.log(req.body)
-                db.Brand.create({
-                    name: req.body.brand
-                });
-                db.Category.create({
+                 await db.Category.create({
                     name: req.body.category
+                });
+                 await db.Image.create({
+                    name: req.body.productimg = req.file.filename
                 });
                 db.Product.create({
                 name: req.body.name,
@@ -109,7 +114,8 @@ let productsController = {
                 price: req.body.price,
                 quantity: req.body.quantity,
                 color: req.body.color,
-                sizes: req.body.sizes,
+                sizes: req.body.sizes
+               
               
             }).then((resultado) => {
                 return res.render("products/product", {product: resultado})
