@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
-const { validationResult } = require("express-validator")
+const { validationResult } = require("express-validator");
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
 let productos = JSON.parse(archivoProductos)

@@ -1,4 +1,4 @@
-const User = require("../../models/User");
+
 
 module.exports = function (sequelize, dataTypes) {
     let alias = 'User';
@@ -35,25 +35,13 @@ module.exports = function (sequelize, dataTypes) {
     };
 
     let config = {
-        tableName : "Users",
+        tableName : "users",
         timestamps: false
     }
 
     const User = sequelize.define(alias,cols,config);
 
-    User.associate = function (models) {
-        User.belongsToMany(models.Product, {
-            as: "User_products",
-            through: "productos_a_comprar",
-            foreignKey: "products_id",
-            otherKey: "image_id",
-            timestamps: false
-        });
-        Product.belongsTo(models.Brand, {
-            as: "brands",
-            foreignKey: "brand_id"
-        })
-    }
+
     return User;
 }
 
