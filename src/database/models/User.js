@@ -1,4 +1,4 @@
-const User = require("../../models/User");
+
 
 module.exports = function (sequelize, dataTypes) {
     let alias = 'User';
@@ -35,7 +35,7 @@ module.exports = function (sequelize, dataTypes) {
     };
 
     let config = {
-        tableName : "Users",
+        tableName : "users",
         timestamps: false
     }
 

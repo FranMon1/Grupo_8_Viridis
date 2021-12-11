@@ -28,7 +28,7 @@ let cols = {
         sizes: {
             type: dataTypes.STRING(45)
         },
-        brand_id: {
+        brands_id: {
             type: dataTypes.INTEGER(11)
         },
         categories_id: {
@@ -47,11 +47,15 @@ let config = {
     
         Product.belongsTo(models.Brand, {
             as: "brands",
-            foreignKey: "brand_id"
+            foreignKey: "brands_id"
         });
         Product.belongsTo(models.Category,{
             as: "categories",
             foreignKey:"categories_id"
+        });
+        Product.hasMany(models.Image, {
+            as: "images",
+            foreignKey: "products_id"
         })
     }
 

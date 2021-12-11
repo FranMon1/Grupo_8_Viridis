@@ -74,7 +74,14 @@
                 <p>Color</p>
                 <input type="text" name="color" placeholder="" value="<%=locals.oldData ? oldData.color : null %> ">
                 <p>Marca</p>
-                <input type="text" name="brand" placeholder="" value="<%=locals.oldData ? oldData.brand : null %> ">
+                
+                <select id="">
+                    <% brands.forEach(brand => { %> 
+                    <option name="brand" value="<%=locals.oldData ? oldData.brands : null %>"><%=brand.name%></option>
+                    <%  }) %> 
+                </select>
+               
+                <!-- <input type="text" name="brand" placeholder="" value="<%=locals.oldData ? oldData.brand : null %> "> -->
                 </div>
 
            
