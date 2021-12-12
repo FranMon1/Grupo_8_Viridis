@@ -67,5 +67,13 @@
         "password": "$2a$10$JxwqciO/sMVFA0GpTxLlnuS7NQsaL9Rpk1YFfvG1BgO.iKUyuCgOC",
         "email": "bruno@gmail.com",
         "imagenUsuario": "default-placeholder.png"
+    },
+    {
+        "id": 10,
+        "nombre": "Francisco",
+        "usuario": "hola",
+        "password": "$2a$10$z5rkPV64QbfW903EygSY1.QURiarymZXyhPCgvSLLYsdptHUm2MFO",
+        "email": "holaquetalcomova@gmail.com",
+        "imagenUsuario": "default-placeholder.png"
     }
 ]

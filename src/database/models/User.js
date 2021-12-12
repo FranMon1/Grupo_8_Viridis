@@ -1,5 +1,3 @@
-
-
 module.exports = function (sequelize, dataTypes) {
     let alias = 'User';
     let cols = {
@@ -8,11 +6,11 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             autoincrement: true
         },
-        nombre: {
+        name: {
             type: dataTypes.STRING(45),
             notNull: true
         },
-        usuario: {
+        user: {
             type: dataTypes.STRING(45),
             notNull: true
         },
@@ -24,7 +22,7 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING(45),
             notNull: true
         },
-        imagen_usuario: {
+        user_image: {
             type: dataTypes.STRING(45),
             notNull: true
         },
@@ -42,9 +40,14 @@ module.exports = function (sequelize, dataTypes) {
     const User = sequelize.define(alias,cols,config);
 
 
+    User.associate = function (models) {
+        User.belongsTo(models.Role, {
+            as: "roles",
+            foreignKey: "roles_id"
+        });
+
+
+    
+    }   
     return User;
 }
-
-
-
-

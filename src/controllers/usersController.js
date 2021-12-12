@@ -4,11 +4,14 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
+const db = require('../database/models');
+
+
 
 
 // Base de datos
-const jsonDeUsuarios = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), 'utf-8')
-const usuarios = JSON.parse(jsonDeUsuarios);
+/* const jsonDeUsuarios = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), 'utf-8')
+const usuarios = JSON.parse(jsonDeUsuarios); */
 
 let usersController = {
     login: (req, res) =>{
@@ -27,20 +30,18 @@ let usersController = {
                oldData: req.body
             });
          }else{ 
-             let usuario = {
-               id: User.newId(),
-               ...req.body,
-                password: bcrypt.hashSync(req.body.password, 10), 
-                imagenUsuario: req.file ? req.file.filename : "default-placeholder.png"
-                
+            db.User.create({
+               name: req.body.nombre,
+               user: req.body.usuario,
+               password: bcrypt.hashSync(req.body.password, 10),
+               email: req.body.email,
+               user_image: req.file ? req.file.filename : "default-placeholder.png"
                
-            }                
-            usuarios.push(usuario);
-           let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
-   
-           fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), nuevoUsuarioJson)
-         } res.redirect("/users/login");
-      },
+            }).then((resultado) =>{
+               return res.redirect("users/login", {User:resultado})
+            })
+         }
+      },           
 
     loginProcess: function(req, res){
       
@@ -78,7 +79,7 @@ let usersController = {
    },
     profile: function (req, res){
       // console.log(req.cookies.userEmail)
-       return res.render("users/profile", {usuario: req.session.userLogged});
+       return res.render("users/profile", {User: req.session.userLogged});
     },
     logout: function (req,res) {
          res.clearCookie('userEmail')
@@ -89,3 +90,32 @@ let usersController = {
 
 
 module.exports = usersController;
+
+
+
+
+
+
+/* create : function (req, res) {
+   var registerErrors = validationResult(req);
+
+   if (registerErrors.errors.length > 0) {
+      return res.render('users/register', {
+         errors: registerErrors.mapped(),
+         oldData: req.body
+      });
+   }else{ 
+       let usuario = {
+         id: User.newId(),
+         ...req.body,
+          password: bcrypt.hashSync(req.body.password, 10), 
+          imagenUsuario: req.file ? req.file.filename : "default-placeholder.png"
+          
+         
+      }                
+      usuarios.push(usuario);
+     let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
+
+     fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), nuevoUsuarioJson)
+   } res.redirect("/users/login");
+}, */

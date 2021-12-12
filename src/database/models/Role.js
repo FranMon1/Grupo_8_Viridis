@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "role";
+    let alias = "Role";
     let cols = { 
         id: {
             type: dataTypes.INTEGER,
@@ -20,10 +20,10 @@ module.exports = (sequelize, dataTypes) => {
 
     Role.associate = function (models) {
         Role.hasMany(models.User, {
-            as: "roles",
-            foreignKey: "users_id"
+            as: "users",
+            foreignKey: "roles_id"
         })
-    }
+    } 
 
     return Role;
 }
