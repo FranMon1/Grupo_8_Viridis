@@ -18,27 +18,27 @@
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golf-ball-with-dents.png" alt=""></a>
                     <p>Accesories</p>
-                <input type="radio" name="category" value="accesories" value="<%=locals.oldData ? oldData.category : null %> ">
+                <input type="radio" name="category"value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/caddy.png" alt=""></a>
                     <p>Bags</p>
-                <input type="radio" name="category" value="bags" value="<%=locals.oldData ? oldData.category : null %> ">
+                <input type="radio" name="category"  value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golfing.png" alt=""></a>
                     <p>Clubs</p>
-                <input type="radio" name="category" value="clubs" value="<%=locals.oldData ? oldData.category : null %> ">
+                <input type="radio" name="category" value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/smart-shoe.png" alt=""></a>
                     <p>Shoes</p>
-                <input type="radio" name="category" value="shoes" value="<%=locals.oldData ? oldData.category : null %> ">
+                <input type="radio" name="category"value="<%=locals.oldData ? oldData.category : null %> ">
                 </div>
                 <div class="selection-inputs" >
                     <a class="icon-properties" ><img src="/images/golf-sets.png" alt=""></a>
                     <p>Sets</p>
-                <input type="radio" name="category" value="sets" value="<%=locals.oldData ? oldData.category : null %> ">
+                <input type="radio" name="category" value="">
                 </div>
                 
               
@@ -75,9 +75,9 @@
                 <input type="text" name="color" placeholder="" value="<%=locals.oldData ? oldData.color : null %> ">
                 <p>Marca</p>
                 
-                <select id="">
+                <select name="brand" id="">
                     <% brands.forEach(brand => { %> 
-                    <option name="brand" value="<%=locals.oldData ? oldData.brands : null %>"><%=brand.name%></option>
+                    <option value="<%=brand.id%>"><%=locals.oldData ? oldData.brands : brand.name %></option>
                     <%  }) %> 
                 </select>
                
@@ -94,7 +94,7 @@
         <div class="img-section">
             <h2> Agrega la imagen del producto</h2>
            
-                <input type="file" name="productimg">
+                <input type="file" name="image">
            
         </div>
         <div class="buttons">

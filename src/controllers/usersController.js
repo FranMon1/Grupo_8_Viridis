@@ -38,16 +38,19 @@ let usersController = {
                user_image: req.file ? req.file.filename : "default-placeholder.png"
                
             }).then((resultado) =>{
-               return res.redirect("users/login", {User:resultado})
+               return res.redirect("users/login")
             })
          }
       },           
 
     loginProcess: function(req, res){
       
+   //   let usuarioAIngresar = db.User.findAll({ where: {email: req.body.email}}).then(resultado =>  { console.log(resultado)})
+      
       let usuarioAIngresar = User.findByMail(req.body.email)
+   
+     
       if(usuarioAIngresar){
-         
          let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
          if(usuarioIsOk){
 

@@ -59,17 +59,24 @@ let productsController = {
       
     },
 
-    edit: (req, res) =>{
-        let productoEditar = productos.find(product => {
-            return product.id == req.params.id;
+    edit: async function (req, res) {
+        // let productoEditar = productos.find(product => {
+        //     return product.id == req.params.id;
+        // })
+        await db.Product.findOne({ where: { id: req.params.id}})
+        .then(producto => { db.Image.findOne({where: {products_id: producto.id}})
+        .then(imagen => {
+            return res.render("products/edit",{product: producto, image: imagen})
         })
-      res.render('products/edit', {product: productoEditar})
+
+        
+    })
     },
     inventory: function (req,res) {
 
-     
-
+        db.Product.findAll().then(productos => {
         return res.render('products/inventory', {product: productos})
+    });
     },
     store: function (req, res, next) {
 
@@ -99,27 +106,29 @@ let productsController = {
                     errors: validations.mapped(),
                     oldData: req.body
                 });
-            } else {
-               
-                console.log(req.body)
-                 await db.Category.create({
-                    name: req.body.category
-                });
-                 await db.Image.create({
-                    name: req.body.productimg = req.file.filename
-                });
+            } else{
+                //   await db.Category.create({
+                //      name: req.body.categories
+                //  });
+                 
                 db.Product.create({
                 name: req.body.name,
                 description: req.body.description,
                 price: req.body.price,
                 quantity: req.body.quantity,
                 color: req.body.color,
-                sizes: req.body.sizes
+                sizes: req.body.sizes,
+                brands_id: req.body.brand
                
-              
-            }).then((resultado) => {
-                return res.render("products/product", {product: resultado})
-            })
+             
+            }).then((resultado) => {db.Image.create({
+                name: (req.body.image = req.file.filename),
+                products_id: resultado.id
+           })}).then(productoCreado => {
+            return res.render("products/product", {product: productoCreado})
+           })
+           
+         
         }
     },
 
