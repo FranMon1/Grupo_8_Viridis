@@ -29,7 +29,8 @@ let cols = {
             type: dataTypes.STRING(45)
         },
         brands_id: {
-            type: dataTypes.INTEGER(11)
+            type: dataTypes.INTEGER(11),
+            
         },
         categories_id: {
             type: dataTypes.INTEGER(11)

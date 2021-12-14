@@ -38,18 +38,30 @@ let usersController = {
                user_image: req.file ? req.file.filename : "default-placeholder.png"
                
             }).then((resultado) =>{
+<<<<<<< HEAD
                return res.redirect("login")
+=======
+               return res.redirect("users/login")
+>>>>>>> 3670e4747e7a64c2db72663d4e822efef2f7f29d
             })
          }
       },           
 
     loginProcess: function(req, res){
+<<<<<<< HEAD
       let usuarioAIngresar = db.User.findOne({
          where: {email: req.body.email}})
             .then(resultado => 
                { return resultado})
+=======
+      
+   //   let usuarioAIngresar = db.User.findAll({ where: {email: req.body.email}}).then(resultado =>  { console.log(resultado)})
+      
+      let usuarioAIngresar = User.findByMail(req.body.email)
+   
+     
+>>>>>>> 3670e4747e7a64c2db72663d4e822efef2f7f29d
       if(usuarioAIngresar){
-         
          let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
          if(usuarioIsOk){
 
