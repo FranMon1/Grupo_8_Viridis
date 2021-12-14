@@ -2,7 +2,7 @@ const fs = require('fs')
 const express = require('express');
 const path = require('path');
 const { validationResult } = require('express-validator');
-const User = require('../models/User.js');
+//const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 
@@ -38,14 +38,16 @@ let usersController = {
                user_image: req.file ? req.file.filename : "default-placeholder.png"
                
             }).then((resultado) =>{
-               return res.redirect("users/login", {User:resultado})
+               return res.redirect("login")
             })
          }
       },           
 
     loginProcess: function(req, res){
-      
-      let usuarioAIngresar = User.findByMail(req.body.email)
+      let usuarioAIngresar = db.User.findOne({
+         where: {email: req.body.email}})
+            .then(resultado => 
+               { return resultado})
       if(usuarioAIngresar){
          
          let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
@@ -79,7 +81,7 @@ let usersController = {
    },
     profile: function (req, res){
       // console.log(req.cookies.userEmail)
-       return res.render("users/profile", {User: req.session.userLogged});
+       return res.render("users/profile", {user: req.session.userLogged});
     },
     logout: function (req,res) {
          res.clearCookie('userEmail')
