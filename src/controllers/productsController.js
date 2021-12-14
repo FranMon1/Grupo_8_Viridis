@@ -60,9 +60,6 @@ let productsController = {
     },
 
     edit: async function (req, res) {
-        // let productoEditar = productos.find(product => {
-        //     return product.id == req.params.id;
-        // })
         await db.Product.findOne({ where: { id: req.params.id}})
         .then(producto => { db.Image.findOne({where: {products_id: producto.id}})
         .then(imagen => {
@@ -78,28 +75,7 @@ let productsController = {
         return res.render('products/inventory', {product: productos})
     });
     },
-    store: function (req, res, next) {
-
-        if (req.file !== undefined) {
-
-            let newProduct = {
-
-               id: newProductId(),
-                ...req.body,
-            }
-
-            newProduct.productimg = req.file.filename
-
-            productos.push(newProduct);
-
-            let JsonDeProductos = JSON.stringify(productos, null, 4);
-            fs.writeFileSync(path.resolve(__dirname, "../data/products.json"), JsonDeProductos)
-        } else {
-            return
-        }
-        res.redirect('/')
-    },
-    store2: async function (req, res) {
+     store: async function (req, res) {
             let validations = validationResult(req);
             if(validations.errors.length > 0) {
                 return res.render("products/create", {
@@ -124,52 +100,63 @@ let productsController = {
             }).then((resultado) => {db.Image.create({
                 name: (req.body.image = req.file.filename),
                 products_id: resultado.id
-           })}).then(productoCreado => {
-            return res.render("products/product", {product: productoCreado})
+           }).then(images => {
+            return res.render("products/product", {images: images, product: resultado})
            })
-           
+        })
          
         }
     },
 
     update: function (req, res) {
-      
-      productos.forEach(product => {
-          if(product.id == req.params.id){
-           
-            
-              product.category = req.body.category
-              product.name = req.body.name
-              product.description = req.body.description
-              product.price = req.body.price
-              product.quantity = req.body.quantity
-              product.size = req.body.size
-              product.color = req.body.color
-              product.brand = req.body.brand
-              product.productimg = req.file.filename 
+        db.Product.findOne({where: {id: req.params.id}}).then(product => {
 
-              
-          }
-         
-      })
-       
-      
-        let jsonDeProducts = JSON.stringify(productos, null, 4);
-        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), jsonDeProducts)
-
-        res.redirect(`/`)
+        product.name = req.body.name,
+        product.description = req.body.description,
+        product.price = req.body.price,
+        product.quantity = req.body.quantity,
+        product.size = req.body.size,
+        product.color = req.body.color
+        product.save()
+        return res.redirect(`/`)
+})  
+        
+        
     },
-    delete: function(req, res) {
-        let productosQueQuedan = productos.filter(product => {
-            return product.id != req.params.id;
-
+    delete: async function(req, res) {
+       
+       db.Image.findOne({ where: {products_id: req.params.id}})
+        .then(image => { db.Product.findOne({ where: {id: req.params.id}})
+        .then(product => {
+            product.destroy()
+        })
+            image.destroy()
+            return res.redirect('/')
         })
       
-        jsonDeProductos = JSON.stringify(productosQueQuedan,null, 4);
-        fs.writeFileSync(path.resolve(__dirname, "../data/products.json"), jsonDeProductos)
-        res.redirect('/')
-        
     }
 };
 
 module.exports = productsController;
+
+// store: function (req, res, next) {
+
+    //     if (req.file !== undefined) {
+
+    //         let newProduct = {
+
+    //            id: newProductId(),
+    //             ...req.body,
+    //         }
+
+    //         newProduct.productimg = req.file.filename
+
+    //         productos.push(newProduct);
+
+    //         let JsonDeProductos = JSON.stringify(productos, null, 4);
+    //         fs.writeFileSync(path.resolve(__dirname, "../data/products.json"), JsonDeProductos)
+    //     } else {
+    //         return
+    //     }
+    //     res.redirect('/')
+    // },
