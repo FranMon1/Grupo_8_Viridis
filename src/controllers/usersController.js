@@ -14,81 +14,81 @@ const db = require('../database/models');
 const usuarios = JSON.parse(jsonDeUsuarios); */
 
 let usersController = {
-    login: (req, res) =>{
-       return res.render("users/login");
-    },
+   login: (req, res) => {
+      return res.render("users/login");
+   },
 
-    register: (req, res) =>{
-       return res.render("users/register");
-    },   
-      create : function (req, res) {
-         var registerErrors = validationResult(req);
+   register: (req, res) => {
+      return res.render("users/register");
+   },
+   create: function (req, res) {
+      var registerErrors = validationResult(req);
 
-         if (registerErrors.errors.length > 0) {
-            return res.render('users/register', {
-               errors: registerErrors.mapped(),
-               oldData: req.body
-            });
-         }else{ 
-            db.User.create({
-               name: req.body.nombre,
-               user: req.body.usuario,
-               password: bcrypt.hashSync(req.body.password, 10),
-               email: req.body.email,
-               user_image: req.file ? req.file.filename : "default-placeholder.png"
-               
-            }).then((resultado) =>{
-               return res.redirect("users/login")
-            })
-         }
-      },           
-
-    loginProcess: function(req, res){
-      
-   //   let usuarioAIngresar = db.User.findAll({ where: {email: req.body.email}}).then(resultado =>  { console.log(resultado)})
-      
-      let usuarioAIngresar = User.findByMail(req.body.email)
-   
-     
-      if(usuarioAIngresar){
-         let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
-         if(usuarioIsOk){
-
-            delete usuarioAIngresar.password;
-            req.session.userLogged = usuarioAIngresar;
-
-            if(req.body.remember_user){
-                res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 2})
-                } 
-            return res.redirect('profile');
-
-       } res.render('users/login',{
-            errors: {
-               password: {
-                  msg: "Contraseña inválida"
-               }
-            },
+      if (registerErrors.errors.length > 0) {
+         return res.render('users/register', {
+            errors: registerErrors.mapped(),
             oldData: req.body
          });
       } else {
-         let validations = validationResult(req);
-      if(validations.errors.length > 0){
-         return res.render('users/login',{
-            errors: validations.mapped(),
-            oldData: req.body
-         });
+         db.User.create({
+            name: req.body.nombre,
+            user: req.body.usuario,
+            password: bcrypt.hashSync(req.body.password, 10),
+            email: req.body.email,
+            user_image: req.file ? req.file.filename : "default-placeholder.png"
+
+         }).then((resultado) => {
+            return res.redirect("/users/login")
+         })
       }
-    }
    },
-    profile: function (req, res){
+
+   loginProcess: function (req, res) {
+      db.User.findOne({ where: { email: req.body.email } }).then(usuarioAIngresar => {
+         if (usuarioAIngresar) {
+            console.log(bcrypt.compareSync(usuarioAIngresar.password, req.body.password ))
+            let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
+            if (usuarioIsOk) {
+               delete usuarioAIngresar.password;
+               req.session.userLogged = usuarioAIngresar;
+
+               if (req.body.remember_user) {
+                  res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
+               }
+               return res.redirect('/users/profile');
+
+            } res.render('users/login', {
+               errors: {
+                  password: {
+                     msg: "Contraseña inválida"
+                  }
+               },
+               oldData: req.body
+            });
+         } else {
+            let validations = validationResult(req);
+            if (validations.errors.length > 0) {
+               return res.render('users/login', {
+                  errors: validations.mapped(),
+                  oldData: req.body
+               });
+            }
+         }
+      })
+      //    let usuarioAIngresar = User.findByMail(req.body.email)
+
+
+
+   },
+   profile: function (req, res) {
       // console.log(req.cookies.userEmail)
-       return res.render("users/profile", {user: req.session.userLogged});
-    },
-    logout: function (req,res) {
-         res.clearCookie('userEmail')
-         req.session.destroy();
-         res.redirect('/')
-     }
+      return res.render("users/profile", { user: req.session.userLogged });
+   },
+   logout: function (req, res) {
+      res.clearCookie('userEmail')
+      req.session.destroy();
+      res.redirect('/')
+   }
 };
 
 
