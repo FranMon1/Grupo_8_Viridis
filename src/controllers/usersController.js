@@ -46,7 +46,6 @@ let usersController = {
    loginProcess: function (req, res) {
       db.User.findOne({ where: { email: req.body.email } }).then(usuarioAIngresar => {
          if (usuarioAIngresar) {
-            console.log(bcrypt.compareSync(usuarioAIngresar.password, req.body.password ))
             let usuarioIsOk = bcrypt.compareSync(req.body.password, usuarioAIngresar.password)
             if (usuarioIsOk) {
                delete usuarioAIngresar.password;
@@ -75,10 +74,6 @@ let usersController = {
             }
          }
       })
-      //    let usuarioAIngresar = User.findByMail(req.body.email)
-
-
-
    },
    profile: function (req, res) {
       // console.log(req.cookies.userEmail)

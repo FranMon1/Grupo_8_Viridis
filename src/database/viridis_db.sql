@@ -145,7 +145,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `user` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `email` varchar(45) NOT NULL,
   `user_image` varchar(45) DEFAULT NULL,
   `roles_id` int(11) DEFAULT NULL,
