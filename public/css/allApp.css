@@ -1823,6 +1823,14 @@ footer {
   color: white
   
 }
+.search_button{
+  position: absolute;
+  top: 19.5%;
+  left: 45%;
+  padding: 4px;
+  border-radius: 3px;
+  background-color: lightseagreen;
+}
 
 .category-section {
   display: grid;

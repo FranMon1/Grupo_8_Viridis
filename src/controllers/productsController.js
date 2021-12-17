@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require("express-validator");
-const Op = require("sequelize")
+const{ Op }= require("sequelize")
 
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
@@ -135,15 +135,20 @@ let productsController = {
       
     },
     search: function (req, res) {
-        db.Product.findOne({where: {
-            name: {[Op.like] : '%' + req.query.search_query + '%'}
-        }}).then(resultado => { db.Image.findOne({
-            where:{ products_id: resultado.id}
-        }).then(image => {
-            return res.render("products/edit", {image: image, product: resultado})
-        })
+        db.Product.findOne({
+            where: {
+                name: {[Op.like] : "%" + req.query.keyword + "%"}
+        }}).then(resultado => { 
+            db.Image.findOne({
+                where: {
+                    products_id: resultado.id
+                }
+            }).then (images => {
+
            
+            return res.render("products/product", {images: images, product: resultado})
         })
+        }).catch(err => { return res.send("error")})
     }
 };
 
