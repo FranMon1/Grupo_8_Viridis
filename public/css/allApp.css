@@ -1796,6 +1796,34 @@ footer {
   cursor: pointer;
 }
 
+.buscador_inventario {
+  position: absolute;
+  top: 19.5%;
+  left: 20%;
+  margin-left: 2vw;
+  width: 17.5vw;
+  background-color: grey;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.buscador_inventario i {
+  background: none;
+}
+
+.buscador_inventario input {
+  background: none;
+  outline: none;
+  border: none;
+  margin-left: 5px;
+  color: white
+  
+}
+
 .category-section {
   display: grid;
   grid-template-rows: 1;

@@ -10,8 +10,14 @@
         <div class="title"> Inventory</div>
         
             <a href="/products/create"><button class="create-button"> Agregar producto</button></a>
+            <form action="/products/inventory" method="POST">
+                <div class='buscador_inventario'>
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="search_query" placeholder="Barra de busqueda">
+
+                </div>
+            </form>
         
-           
             <div class="category-section"> 
                 <div style="color:rgba(255, 137, 58, 0.815)">ID</div>
                 <div>Nombre</div>

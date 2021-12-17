@@ -47,6 +47,7 @@ router.put ('/edit/:id',uploadProductImg.single('productimg'), productsControlle
 // Inventario
 router.get ('/inventory',adminMw, productsController.inventory);
 router.delete ('/inventory/:id', productsController.delete);
+router.post("/inventory", productsController.search)
 
 
 
