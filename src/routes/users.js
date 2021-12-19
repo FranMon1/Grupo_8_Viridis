@@ -41,7 +41,7 @@ router.get('/logout', usersController.logout)
 
 //Editar
 
-router.get('/editprofile/:id', usersController.edit);
+router.get('/editprofile/:id',guestMw, usersController.edit);
 router.put('/editprofile/:id',uploadUserImg.single ("imagenUsuario"), usersController.update)
 
 
