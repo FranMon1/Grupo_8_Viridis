@@ -55,7 +55,10 @@ let productsController = {
 
     create: (req, res) =>{
         db.Brand.findAll().then(brands => {
-            return res.render('products/create',{brands});
+            db.Category.findAll().then(categories => {
+return res.render('products/create',{brands: brands, categories: categories});
+            })
+            
         })
       
     },
@@ -149,7 +152,26 @@ let productsController = {
             return res.render("products/product", {images: images, product: resultado})
         })
         }).catch(err => { return res.send("error")})
+    },
+    category: function(req, res){
+        db.Category.findAll().then(resultado =>{
+            return res.render("products/preferences", {categories: resultado})
+        })
+        
+    },
+    categoryAdd: function (req, res){
+        if(req.body.categories){
+            db.Category.create({
+                name: req.body.categories
+            })
+        } else if (req.body.brands){
+            db.Brand.create({
+                name: req.body.brands
+            })
+        }
+        res.redirect("create")
     }
+          
 };
 
 module.exports = productsController;
