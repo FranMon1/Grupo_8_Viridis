@@ -1,0 +1,48 @@
+
+    <%- include('../partials/head.ejs') %>
+
+    <body>
+        <!--Header-->
+        <%- include('../partials/header.ejs') %>
+        <!--Main-->
+        <main>
+           <section class="edit-page-section">
+               <div class="bgeditpanel01">
+                   <p class="edit-title"> Edición del Usuario</p>
+               </div>
+               <form action="/users/editprofile/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+               <div class="edit_contents">
+                       <div class="item-edit-properties">
+                        <p name="id"style="color:rgba(255, 137, 58, 0.815); font-size: 2rem"></p>                       
+                        </select>
+                        <p>Nombre y Apellido</p>  
+                        <input type="text" name="nombre" id="name" placeholder="Nombre" value="<%=user.name %>">
+                        <p>Nombre del Usuario</p>
+                        <input type="text" name="usuario" id="name" value="<%=user.user%>" placeholder="Ej. Francisco">
+                        <p>Contraseña</p>
+                        <input type="password" name="password" id="name" value="<%= user.password%>">
+                        <p>Email</p>
+                        <input type="text" name="email" id="name" value="<%=user.email%>" placeholder="" >
+                    </div>
+                      
+                    <div class="second_panel_img_edit">
+                        
+                        <div class="profile_image"><img src="/images/users/<%=user.user_image%>"></div>
+                        <label for="">Insertar la imagen nueva</label>
+                        <input type="file" name="productimg" value="">
+                        
+                        <button type="submit" class="save-changes-button">Guardar Cambios</button>
+                    </div>
+                </div>
+            </form>
+                
+               
+           </section>
+          
+        </main>
+    
+        <!--footer-->
+    
+        <%-include('../partials/footer.ejs') %>
+    </body>
+    

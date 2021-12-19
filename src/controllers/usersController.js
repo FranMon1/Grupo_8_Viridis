@@ -79,6 +79,43 @@ let usersController = {
       // console.log(req.cookies.userEmail)
       return res.render("users/profile", { user: req.session.userLogged });
    },
+   edit: function (req, res) {
+     let usuarioId =  db.User.findByPk(req.params.id)
+      
+      return res.render('users/editprofile', {user: usuarioId})
+      
+   },
+   update: function (req, res) {
+      db.User.findOne({where: {id: req.params.id}}).then(user => {
+
+      user.name = req.body.nombre,
+      user.user =  req.body.usuario,
+      user.password = bcrypt.hashSync(req.body.password, 10),
+      user.email = req.body.email,
+      user.user_image = req.file ? req.file.filename : "default-placeholder.png",
+      user.save()
+      return res.redirect(`/users/profile`)
+})  
+      
+      
+  },
+   /* update: function (req, res) {
+      db.User.update({
+         name: req.body.nombre,
+         user: req.body.usuario,
+         password: bcrypt.hashSync(req.body.password, 10),
+         email: req.body.email,
+         user_image: req.file ? req.file.filename : "default-placeholder.png"
+},
+   {
+      where: {
+         id: req.params.id
+      }
+   });
+      res.redirect('/users/profile')
+   }, */
+
+
    logout: function (req, res) {
       res.clearCookie('userEmail')
       req.session.destroy();

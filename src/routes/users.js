@@ -39,6 +39,11 @@ router.post('/register', uploadUserImg.single ("imagenUsuario"), registerValidat
 router.get('/profile', authMw, usersController.profile);
 router.get('/logout', usersController.logout)
 
+//Editar
+
+router.get('/editprofile/:id', usersController.edit);
+router.put('/editprofile/:id',uploadUserImg.single ("imagenUsuario"), usersController.update)
+
 
 module.exports = router;
 

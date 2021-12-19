@@ -8,9 +8,15 @@
                 <div class="profile_data">
                     
                     <div class="profile_user_name"> <p><%=user.name%></p></div>
+                    <div class="profile_user_name"> <p><%=user.user%></p></div>
+                    <div class="profile_user_name"> <p><%=user.email%></p></div>
                     
-                    <button class="edit_profile_button"> Edit Profile</button>
-                </div>
+                    <div class="edit_profile_button">
+                        <a href="/users/editprofile/<%=user.id%>" >Edit</a>
+                        </div>
+
+
+
         </div>
         <div class="profile_products">
             <img src="/images/profile_empty2.png" alt="">
