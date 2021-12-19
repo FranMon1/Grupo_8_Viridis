@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require("express-validator");
+const{ Op }= require("sequelize")
 
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
@@ -54,7 +55,10 @@ let productsController = {
 
     create: (req, res) =>{
         db.Brand.findAll().then(brands => {
-            return res.render('products/create',{brands});
+            db.Category.findAll().then(categories => {
+return res.render('products/create',{brands: brands, categories: categories});
+            })
+            
         })
       
     },
@@ -120,8 +124,6 @@ let productsController = {
         product.save()
         return res.redirect(`/`)
 })  
-        
-        
     },
     delete: async function(req, res) {
        
@@ -134,7 +136,42 @@ let productsController = {
             return res.redirect('/')
         })
       
+    },
+    search: function (req, res) {
+        db.Product.findOne({
+            where: {
+                name: {[Op.like] : "%" + req.query.keyword + "%"}
+        }}).then(resultado => { 
+            db.Image.findOne({
+                where: {
+                    products_id: resultado.id
+                }
+            }).then (images => {
+
+           
+            return res.render("products/product", {images: images, product: resultado})
+        })
+        }).catch(err => { return res.send("error")})
+    },
+    category: function(req, res){
+        db.Category.findAll().then(resultado =>{
+            return res.render("products/preferences", {categories: resultado})
+        })
+        
+    },
+    categoryAdd: function (req, res){
+        if(req.body.categories){
+            db.Category.create({
+                name: req.body.categories
+            })
+        } else if (req.body.brands){
+            db.Brand.create({
+                name: req.body.brands
+            })
+        }
+        res.redirect("create")
     }
+          
 };
 
 module.exports = productsController;

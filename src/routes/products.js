@@ -37,7 +37,8 @@ router.get('/detail', productsController.detail);
 // Creación 
 router.get('/create',adminMw, productsController.create);
 router.post('/create',uploadProductImg.single('image'),validationsCreate, productsController.store);
-
+router.get("/preferences", adminMw, productsController.category)
+router.post("/preferences", adminMw, productsController.categoryAdd)
 
 // Edición
 router.get ('/edit/:id', adminMw, productsController.edit);
@@ -47,6 +48,7 @@ router.put ('/edit/:id',uploadProductImg.single('productimg'), productsControlle
 // Inventario
 router.get ('/inventory',adminMw, productsController.inventory);
 router.delete ('/inventory/:id', productsController.delete);
+router.get("/inventory/search", productsController.search)
 
 
 
