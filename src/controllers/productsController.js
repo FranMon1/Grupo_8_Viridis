@@ -23,26 +23,32 @@ return ultimo + 1;
 
 let productsController = {
     index: function (req, res){
-        let mostStocked = [];
-        productos.forEach( product => {
-            
-            if(product.quantity >= 1000){
-                return mostStocked.push(product)
-            }
+         db.Product.findAll().then(productos => {
+            db.Image.findAll()
+            .then(image =>{
+        return res.render("products/products", {productos: productos, image: image});
+           })
         })
-        return res.render('products/products', {product: mostStocked})
+            
+    
     },
     product: (req, res) =>{
-        
-        let productDetail = productos.find(product => {
-            return product.id == req.params.id
+        db.Product.findOne({
+            where:{
+                id: req.params.id
+            }
         })
-       productos;
-      return res.render("products/product", {
-
-          product: productDetail
-          
-        },);
+        .then(product => {
+            db.Image.findOne({
+                where: {
+                    products_id: product.id
+                }
+            }).then(image => {
+        return res.render("products/product", {product: product, images: image});
+            })
+        })
+      
+      
     },
 
     cart: (req, res) =>{
@@ -56,7 +62,7 @@ let productsController = {
     create: (req, res) =>{
         db.Brand.findAll().then(brands => {
             db.Category.findAll().then(categories => {
-return res.render('products/create',{brands: brands, categories: categories});
+        return res.render('products/create',{brands: brands, categories: categories});
             })
             
         })
@@ -79,17 +85,21 @@ return res.render('products/create',{brands: brands, categories: categories});
         return res.render('products/inventory', {product: productos})
     });
     },
-     store: async function (req, res) {
+     store: function (req, res) {
             let validations = validationResult(req);
+           
             if(validations.errors.length > 0) {
-                return res.render("products/create", {
+                 db.Category.findAll().then(categories => {
+                db.Brand.findAll().then(brands =>{
+                return res.render("products/create",{
+                   brands: brands, 
+                   categories: categories,
                     errors: validations.mapped(),
                     oldData: req.body
-                });
+                })
+                 })
+            });
             } else{
-                //   await db.Category.create({
-                //      name: req.body.categories
-                //  });
                  
                 db.Product.create({
                 name: req.body.name,
@@ -98,7 +108,8 @@ return res.render('products/create',{brands: brands, categories: categories});
                 quantity: req.body.quantity,
                 color: req.body.color,
                 sizes: req.body.sizes,
-                brands_id: req.body.brand
+                brands_id: req.body.brand,
+                categories_id: req.body.categories
                
              
             }).then((resultado) => {db.Image.create({
@@ -110,6 +121,7 @@ return res.render('products/create',{brands: brands, categories: categories});
         })
          
         }
+           
     },
 
     update: function (req, res) {

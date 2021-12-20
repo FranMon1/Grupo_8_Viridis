@@ -1,21 +1,18 @@
 const fs = require('fs');
 const path = require('path');
-
-let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
-let productos = JSON.parse(archivoProductos)
+const db = require('../database/models');
+const { product } = require('./productsController');
 
 
 const controller = {
-    index: (req, res) =>{
-        let porVender = [];
-        productos.forEach(product => {
-            
-            if(product.quantity >= 1000){
-                 porVender.push(product)
-            }
-            
+    index: (req, res) => {
+        db.Product.findAll().then(productos => {
+            db.Image.findAll()
+            .then(image =>{
+        return res.render("index", {productos: productos, image: image});
+           })
         })
-        res.render("index", {product: porVender});
+            
     }
 };
 

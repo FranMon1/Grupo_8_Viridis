@@ -96,22 +96,27 @@
         </div>
        
         <div class="main-images">
-            <% product.forEach(product => { %>
+            <% productos.forEach(product => { %>
             
             <section class='img-container'>
             <a href="/products/product/<%=product.id%>" >
-                <img src="/images/products/<%=product.productimg%>" alt="">
-
+                <% image.forEach(img=> { %>
+               <% if (product.id == img.products_id) { %>
+                <img src="/images/products/<%=img.name%>" alt="">
+               <% } %>
+            <% }) %>
+                
+                      
                     <div class="img-container-data">
                     <h4><%=product.name%></h4>
-                    <span><%= product.price%></span>
+                    <span>$ <%= product.price%></span>
                     <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
                     </div>       
             </a>
             </section>
         
-            
             <% }) %>
+            
         </div>
        
     </section>

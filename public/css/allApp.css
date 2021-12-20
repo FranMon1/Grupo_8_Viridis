@@ -719,7 +719,7 @@
 .main-bottom-section {
   background: none;
   padding-bottom: 40px;
-  height: 800px;
+  height: 80vw;
 }
 
 .main-categorias {
@@ -729,8 +729,8 @@
   flex-direction: column;
   background: none;
   color: white;
-  padding: 20px 20px 20px 20px;
-  margin: 100px 10px 10px 10px;
+  padding: 0px 20px 20px 20px;
+  margin: 50px 10px 10px 10px;
   border-bottom: solid #63a4ff 1px;
   padding-bottom: 2vw;
   letter-spacing: 0.1ch;
@@ -1497,7 +1497,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 35%;
+  top: 25%;
   background: none;
   width: 100%;
   flex-wrap: wrap;
@@ -1510,6 +1510,7 @@ footer {
   font-weight: 300;
   font-size: 1.5rem;
   color: white;
+  margin-bottom: 30px;
 }
 
 .detailed-description input,
@@ -1574,6 +1575,34 @@ footer {
   margin-top: 10vw;
   font-style: italic;
   color: rgba(0, 0, 0, 0.8);
+}
+
+.brands {
+  padding-left: 1vw;
+  margin: 1vw 0 1vw 0;
+  height: 30px;
+  outline: none;
+  text-indent: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  width: 100%;
+  text-align: start;
+  color: black;
+}
+
+.categories {
+  padding-left: 1vw;
+  margin: 1vw 0 1vw 0;
+  height: 30px;
+  outline: none;
+  text-indent: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  width: 10vw;
+  text-align: start;
+  color: black;
 }
 
 /* ---------------Final Section-------------------*/
@@ -1938,7 +1967,6 @@ footer {
   background: none;
   color: white;
   text-decoration: none;
-  
 }
 
 /* --------------------------- LOGIN --------------------------*/
@@ -2208,7 +2236,7 @@ footer {
   outline: none;
 }
 
-.edit_profile_button a{
+.edit_profile_button a {
   background: none;
   color: black;
   text-decoration: none;

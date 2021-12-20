@@ -15,12 +15,12 @@
         <a href="/products/preferences"> Agregar más!</a>
         </div>
         
-        <form action="/products/create" method="post" enctype="multipart/form-data">
+        <form action="/products/create" method="POST" enctype="multipart/form-data">
             <div class="icon-category">
-                <select name="category" id="">
-                    <% categories.forEach(category=> { %>
+                <select class="categories" name="categories" id="">
+                    <% categories.forEach(category => { %> 
                         <option value="<%=category.id%>">
-                            <%=locals.oldData ? oldData.brands : category.name %>
+                            <%=category.name %> 
                         </option>
                         <% }) %>
                 </select>
@@ -40,7 +40,7 @@
                 <% if (locals.errors && errors.name) { %>   
                 <span class="error-msg"><%= errors.name.msg %> </span>
                 <% } %> 
-                <input type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %> ">
+                <input type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %>">
                 <p>Descripción</p>
                 <textarea class="description"  name="description" value="<%=locals.oldData ? oldData.description : null %> " placeholder="Agregue una descripción" ></textarea>
                 <p>Precio</p>
@@ -59,13 +59,12 @@
                 <input type="text" name="color" placeholder="" value="<%=locals.oldData ? oldData.color : null %> ">
                 <p>Marca</p>
                 
-                <select name="brand" id="">
+                <select class="brands" name="brand" id="">
                     <% brands.forEach(brand => { %> 
-                    <option value="<%=brand.id%>"><%=locals.oldData ? oldData.brands : brand.name %></option>
+                    <option value="<%=brand.id%> "><%=brand.name%></option>
                     <%  }) %> 
                 </select>
                
-                <!-- <input type="text" name="brand" placeholder="" value="<%=locals.oldData ? oldData.brand : null %> "> -->
                 </div>
 
            
@@ -77,9 +76,8 @@
         
         <div class="img-section">
             <h2> Agrega la imagen del producto</h2>
-           
                 <input type="file" name="image">
-           
+                    
         </div>
         <div class="buttons">
         <button class="erase-button" type="reset">
