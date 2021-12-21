@@ -75,10 +75,15 @@
     <section>
         
         <div class="img-section">
+            <% if (locals.errors && errors.image) { %>
+                <span class="error-msg">
+                    <%= errors.image.msg %>
+                </span>
+                <% } %>
             <h2> Agrega la imagen del producto</h2>
                 <input type="file" name="image">
-                    
         </div>
+        
         <div class="buttons">
         <button class="erase-button" type="reset">
             Borrar

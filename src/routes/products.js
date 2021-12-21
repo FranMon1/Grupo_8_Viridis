@@ -36,7 +36,7 @@ router.get('/detail', productsController.detail);
 
 // Creación 
 router.get('/create',adminMw, productsController.create);
-router.post('/create',uploadProductImg.single('image'),validationsCreate, productsController.store);
+router.post('/create',uploadProductImg.single('image'), validationsCreate, productsController.store);
 router.get("/preferences", adminMw, productsController.category)
 router.post("/preferences", adminMw, productsController.categoryAdd)
 
