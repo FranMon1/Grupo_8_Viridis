@@ -41,8 +41,8 @@ router.get('/logout', usersController.logout)
 
 //Editar
 
-router.get('/editprofile/:id',guestMw, usersController.edit);
-router.put('/editprofile/:id',uploadUserImg.single ("imagenUsuario"), usersController.update)
+router.get('/editprofile/:id', authMw, usersController.edit);
+router.put('/editprofile/:id',uploadUserImg.single ("productimg"),  usersController.update)
 
 
 module.exports = router;

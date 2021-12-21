@@ -5,7 +5,7 @@ _Trello: https://trello.com/b/Y81DpC0W/proyectointegrador_
 _Repositorio: https://github.com/FranMon1/Grupo_8_Viridis_
 
 Usuario administrador : admin@admin.com
-Contraseña administrador :  1234567890
+Contraseña administrador :  admin123123
 
 ## ¿Qué productos o servicios brindará nuestro sitio?
 
