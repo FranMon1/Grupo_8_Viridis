@@ -4,7 +4,12 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 const multer = require('multer');
 const adminMw = require('../middlewares/adminMw.js');
-const validationsCreate = require("../middlewares/validationsProductMw.js")
+const validationsCreate = require("../middlewares/validationsProductMw.js");
+
+
+// Validacion de Imagen
+
+const { check } = require("express-validator")
 /* Config of multer */
 
 const storage = multer.diskStorage({
@@ -36,7 +41,15 @@ router.get('/detail', productsController.detail);
 
 // Creación 
 router.get('/create',adminMw, productsController.create);
-router.post('/create',uploadProductImg.single('image'), validationsCreate, productsController.store);
+router.post('/create',uploadProductImg.single('image'), (req, res, next) => {
+    const file = req.file;
+    if(!file){
+        const error = new Error("Por favor ingrese una imagen")
+        error.httpStatusCode = 400;
+        return next(error)
+    }
+    res.send(file)
+}, validationsCreate, productsController.store);
 router.get("/preferences", adminMw, productsController.category)
 router.post("/preferences", adminMw, productsController.categoryAdd)
 

@@ -87,7 +87,7 @@ let productsController = {
     },
      store: function (req, res) {
             let validations = validationResult(req);
-          
+            
             if(validations.errors.length > 0) {
                  db.Category.findAll().then(categories => {
                 db.Brand.findAll().then(brands =>{
