@@ -20,7 +20,7 @@
                 </section>
                 <section class="contenedor-main-product2">
                     <div class="columna2">
-                        <img class="i-principal" src="/images/products/<%=images.name%>">
+                        <img class="i-principal" src="/images/products/<%=image.name%>">
                     </div>
                 </section>
                 <section class="contenedor-main-product3">
@@ -51,13 +51,28 @@
 
             <div class="contenedor-padre2">
                 <h2>Más Productos</h2>
-                <section class="mas-productos">
-                    <% for (let i = 0; i < 5; i++) {%> 
-                        <div class="relacionados">
-                    <img src="/images/products/<%=product.productimg%>">
-                </div>
-                    <% }%> 
+        <div class="main-images">
+                <% productos.forEach(product=> { %>
+                <section style="flex-wrap: wrap; flex-direction: row;"class='img-container'>
+                    <a href="/products/product/<%=product.id%>">
+                        <% imagenes.forEach(img=> { %>
+                            <% if (product.id==img.products_id) { %>
+                                <img src="/images/products/<%=img.name%>" alt="">
+                                <% } %>
+                                    <% }) %>
+                
+                
+                                        <div class="img-container-data">
+                                            <h4>
+                                                <%=product.name%>
+                                            </h4>
+                                            <span>$ <%= product.price%></span>
+                                            <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
+                                        </div>
+                    </a>
                 </section>
+                <% }) %>
+                </div>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam
                     perferendis facilis voluptatem quaerat debitis eos? Magni pariatur dolor vitae ratione similique
                     sint facere voluptate temporibus?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in

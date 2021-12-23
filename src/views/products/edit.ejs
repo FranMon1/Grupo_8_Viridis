@@ -15,13 +15,15 @@
                    <div class="item-edit-properties">
                     <p name="id"style="color:rgba(255, 137, 58, 0.815); font-size: 2rem">ID:<%= product.id%></p> 
                     <p>Categorias</p>
-                    <select class="categories" name="category" id="category" id="" value="<%=product.category%>">
-                        <option value="accesories" <%= product.category == 'accesories'? 'selected': null %>>Accesories</option>
-                        <option value="bags" <%= product.category == 'bags'? 'selected': null %>>Bags</option>
-                        <option value="clubs" <%= product.category == 'clubs'? 'selected': null %>>Clubs</option>
-                        <option value="shoes" <%= product.category == 'shoes'? 'selected': null %>>Shoes</option>
-                        <option value="sets" <%= product.category == 'sets'? 'selected': null %>>Sets</option>
+                    
+                    <select class="categories" name="categories" id="categories" id="" value="<%=product.categories_id%>">
+                        <% categories.forEach(category=> { %>
+                        <option value="<%=category.id%>">
+                        <%=category.name%> 
+                        </option>
+                        <% }) %>
                     </select>
+                    
                     <p>Nombre del producto</p>  
                     <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name %>">
                     <p>Descripción</p>
@@ -35,7 +37,13 @@
                     <p>Color</p>
                     <input type="text" name="color" id="color" value="<%= product.color%>" placeholder="" >
                     <p>Marca</p>
-                    <input type="text" name="brand" id="brand" value="<%= product.brand%>"placeholder="" >
+                    <select class="brands" name="brands" id="">
+                    <% brands.forEach(brand=> { %>
+                        <option value="<%=brand.id%>">
+                            <%=brand.name%>
+                        </option>
+                        <% }) %>
+                    </select>
                 </div>
                   
 

@@ -44,7 +44,15 @@ let productsController = {
                     products_id: product.id
                 }
             }).then(image => {
-        return res.render("products/product", {product: product, images: image});
+                db.Product.findAll()
+                .then(productos => {
+                    db.Image.findAll()
+                .then(imagenes => {
+        return res.render("products/product", {product: product, image: image, productos: productos, imagenes: imagenes});
+
+                    })
+
+                })
             })
         })
       
@@ -73,11 +81,15 @@ let productsController = {
         await db.Product.findOne({ where: { id: req.params.id}})
         .then(producto => { db.Image.findOne({where: {products_id: producto.id}})
         .then(imagen => {
-            return res.render("products/edit",{product: producto, image: imagen})
+            db.Category.findAll()
+        .then(categories => {
+            db.Brand.findAll()
+        .then(brands => {
+        return res.render("products/edit",{product: producto, image: imagen, brands: brands, categories: categories});
         })
-
-        
-    })
+        })
+        })
+        })
     },
     inventory: function (req,res) {
 
@@ -140,13 +152,15 @@ let productsController = {
         price: req.body.price,
         quantity: req.body.quantity,
         size: req.body.size,
+        brands_id: req.body.brands,
+        categories_id: req.body.categories,
         color:  req.body.color}, {where: {id: req.params.id}})
-        .then(product => {
+        .then(resultado => {
             db.Image.findOne({where: {
                 products_id: req.params.id
             }})
         .then(images => {
-        return res.render(`products/product`, { images: images, product: product})
+        return res.render('products/product', {images: images, product: resultado})
         })
         })  
     },
