@@ -1,5 +1,30 @@
 # Daily 
 
+## SPRINT 6
+
+```diff
++ Bruno:
+```
+#### - 3/12 - Instalada Base de datos y Sequelize en el proyecto
+#### - 5/12 - Estructura de base de datos
+#### - 8/12 - Modelo de productos
+#### - 10/12 - Asociaciones en el modelo de productos
+#### - 14/12 - Finalizado el CRUD de productos - falta Buscador 
+#### - 17/12 - Buscador de producto en ruta /inventory funcional
+#### - 21/12 - Validación de imagen del producto
+
+
+```diff
++ Fran:
+```
+#### -  5/12 - Modelo de Users
+#### -  8/12 - Modelo de Users y Roles
+#### -  11/12 - CRUD de Usuarios
+#### -  13/12 - Resuelto el problema con el login del usuario
+#### -  15/12 - Edición de Usuario
+#### -  21/12 - Corrección del CRUD de usuario
+
+
 ## SPRINT 5
 
 ```diff
