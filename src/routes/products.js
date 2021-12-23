@@ -48,7 +48,7 @@ router.post('/create',uploadProductImg.single('image'), (req, res, next) => {
         error.httpStatusCode = 400;
         return next(error)
     }
-    res.send(file)
+    next();
 }, validationsCreate, productsController.store);
 router.get("/preferences", adminMw, productsController.category)
 router.post("/preferences", adminMw, productsController.categoryAdd)

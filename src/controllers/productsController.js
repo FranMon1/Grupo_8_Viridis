@@ -82,7 +82,15 @@ let productsController = {
     inventory: function (req,res) {
 
         db.Product.findAll().then(productos => {
-        return res.render('products/inventory', {product: productos})
+        db.Category.findAll().then(category => {
+        db.Brand.findAll().then(brand => {
+        return res.render('products/inventory', {
+            product: productos, 
+            category: category, 
+            brand: brand
+        })
+        })
+        })
     });
     },
      store: function (req, res) {
@@ -126,26 +134,31 @@ let productsController = {
     },
 
     update: function (req, res) {
-        db.Product.findOne({where: {id: req.params.id}}).then(product => {
-
-        product.name = req.body.name,
-        product.description = req.body.description,
-        product.price = req.body.price,
-        product.quantity = req.body.quantity,
-        product.size = req.body.size,
-        product.color = req.body.color
-        product.save()
-        return res.redirect(`/`)
-})  
+        db.Product.update({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        size: req.body.size,
+        color:  req.body.color}, {where: {id: req.params.id}})
+        .then(product => {
+            db.Image.findOne({where: {
+                products_id: req.params.id
+            }})
+        .then(images => {
+        return res.render(`products/product`, { images: images, product: product})
+        })
+        })  
     },
     delete: async function(req, res) {
        
        db.Image.findOne({ where: {products_id: req.params.id}})
-        .then(image => { db.Product.findOne({ where: {id: req.params.id}})
+        .then(image => { 
+            image ? image.destroy() : null;
+            db.Product.findOne({ where: {id: req.params.id}})
         .then(product => {
             product.destroy()
-        })
-            image.destroy()
+            })
             return res.redirect('/')
         })
       
@@ -160,8 +173,6 @@ let productsController = {
                     products_id: resultado.id
                 }
             }).then (images => {
-
-           
             return res.render("products/product", {images: images, product: resultado})
         })
         }).catch(err => { return res.send("error")})
@@ -188,25 +199,3 @@ let productsController = {
 };
 
 module.exports = productsController;
-
-// store: function (req, res, next) {
-
-    //     if (req.file !== undefined) {
-
-    //         let newProduct = {
-
-    //            id: newProductId(),
-    //             ...req.body,
-    //         }
-
-    //         newProduct.productimg = req.file.filename
-
-    //         productos.push(newProduct);
-
-    //         let JsonDeProductos = JSON.stringify(productos, null, 4);
-    //         fs.writeFileSync(path.resolve(__dirname, "../data/products.json"), JsonDeProductos)
-    //     } else {
-    //         return
-    //     }
-    //     res.redirect('/')
-    // },
