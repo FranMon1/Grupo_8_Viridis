@@ -1,3 +1,7 @@
-const qs = document.querySelector();
-const qsa = document.querySelectorAll();
+const qs = (element) => {
+    return document.querySelector(element);
+}
 
+const qsa = (element) => {
+    return document.querySelectorAll(element)
+}

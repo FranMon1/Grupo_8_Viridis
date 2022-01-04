@@ -15,7 +15,7 @@
         <a href="/products/preferences"> Agregar más!</a>
         </div>
         
-        <form action="/products/create" method="POST" enctype="multipart/form-data">
+        <form id="form" action="/products/create" method="POST" enctype="multipart/form-data">
             <div class="icon-category">
                 <select class="categories" name="categories" id="">
                     <% categories.forEach(category => { %> 
@@ -26,10 +26,6 @@
                 </select>
               
             </div>
-            
-
-           
-
     </section>
     <section>
         <div class="detailed-description">
@@ -39,8 +35,10 @@
                 <p>Nombre del producto</p>
                 <% if (locals.errors && errors.name) { %>   
                 <span class="error-msg"><%= errors.name.msg %> </span>
-                <% } %> 
-                <input type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %>">
+                <% } %>
+                 
+                <input id="name" type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %>">
+                <span class="error-msg" id="nameError"></span>
                 <p>Descripción</p>
                 <textarea class="description"  name="description" value="<%=locals.oldData ? oldData.description : null %> " placeholder="Agregue una descripción" ></textarea>
                 <p>Precio</p>
@@ -95,6 +93,8 @@
     </form>
     </section>
 </main>
+<script src="/javascripts/createProduct.js" defer></script>
     <!--Footer-->
     <%- include('../partials/footer.ejs') %>
+    
 </body>
