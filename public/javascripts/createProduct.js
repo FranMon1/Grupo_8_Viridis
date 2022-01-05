@@ -1,24 +1,119 @@
 window.addEventListener("load", function() {
-const nameError = qs("#nameError");
+    // Form
 const form = qs("#form");
-const name = qs("#name")
+    // Input validations
+const name = qs("#name");
+const description = qs("#description");
+const price = qs("#price");
+const quantity = qs("#quantity")
+
+// Error spans
+const nameError = qs("#nameError");
+const descriptionError = qs("#descriptionError");
+const priceError = qs("#priceError");
+const quantityError = qs("#quantityError")
+
 
 form.addEventListener("submit", function(e) {
     e.preventDefault()
     let errores = {}
     
+    // Name Error
+
     if(form.name.value.length <= 0){
         errores.name = "Debe ingresar un nombre para el producto";
-        nameError.innerText = errores.name
+        nameError.innerText = errores.name;
+        name.style = "border: 2px solid red";
+        nameError.style = "margin-bottom: 15px"
         window.scrollTo({
             top: 520,
             behavior: 'smooth'
-        })
+        });
+    } else if (form.name.value.length < 5 ){
+        errores.name = "El nombre del producto debe tener al menos 5 caracteres";
+        nameError.innerText = errores.name;
+        name.style = "border: 2px solid red";
+        nameError.style = "margin-bottom: 15px"
+        window.scrollTo({
+            top: 520,
+            behavior: 'smooth'
+        });
     } else {
-        delete errores.name
+        delete errores.name;
+        nameError.innerText = "";
+        nameError.style = "margin-bottom: 0px"
+        name.style = "border: none";
+
     }
 
-    if(Object.keys(errores).length < 0){
+    // Description Error
+
+    if(form.description.value.length <= 0){
+        errores.description = "Debe ingresar una descripción para el producto";
+        descriptionError.innerText = errores.description;
+        description.style = "border: 2px solid red";
+        descriptionError.style = "margin-bottom: 15px"
+        window.scrollTo({
+            top: 520,
+            behavior: 'smooth'
+        });
+    } else if (form.description.value.length < 20 ){
+        errores.description = "La descripción debe tener al menos 20 caracteres";
+        descriptionError.innerText = errores.description;
+        description.style = "border: 2px solid red";
+        descriptionError.style = "margin-bottom: 15px"
+        window.scrollTo({
+            top: 520,
+            behavior: 'smooth'
+        });
+    } else {
+        delete errores.description;
+        descriptionError.innerText = ""
+        description.style = "border: none";
+        descriptionError.style = "margin-bottom: 0px"
+    }
+
+    // Price Error
+
+    if(form.price.value.length <= 0){
+        errores.price = "Debe ingresar un precio";
+        priceError.innerText = errores.price;
+        price.style = "border: 2px solid red";
+        priceError.style = "margin-bottom: 15px"
+        window.scrollTo({
+            top: 520,
+            behavior: 'smooth'
+        });
+        console.log(priceError)
+    }  else {
+        delete errores.price;
+        priceError.innerText = ""
+        price.style = "border: none";
+        priceError.style = "margin-bottom: 0px"
+
+    }
+
+    // Quantity Error
+
+    if(form.quantity.value.length <= 0){
+        errores.quantity = "Debe ingresar una cantidad";
+        quantityError.innerText = errores.quantity;
+        quantity.style = "border: 2px solid red";
+        quantityError.style = "margin-bottom: 15px";
+        window.scrollTo({
+            top: 520,
+            behavior: 'smooth'
+        });
+        console.log(priceError)
+    }  else {
+        delete errores.quantity;
+        quantityError.innerText = ""
+        quantity.style = "border: none";
+        quantityError.style = "margin-bottom: 0px"
+
+    }
+
+    if(Object.keys(errores).length <= 0){
         form.submit()
     }
 

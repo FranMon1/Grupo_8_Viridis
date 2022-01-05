@@ -40,17 +40,20 @@
                 <input id="name" type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %>">
                 <span class="error-msg" id="nameError"></span>
                 <p>Descripción</p>
-                <textarea class="description"  name="description" value="<%=locals.oldData ? oldData.description : null %> " placeholder="Agregue una descripción" ></textarea>
+                <textarea class="description" id="description" name="description" value="<%=locals.oldData ? oldData.description : null %> " placeholder="Agregue una descripción" ></textarea>
+                <span class="error-msg" id="descriptionError"></span>
                 <p>Precio</p>
                 <% if (locals.errors && errors.price) { %>   
                     <span class="error-msg"><%= errors.price.msg %> </span>
                     <% } %> 
-                <input type="number" name="price" placeholder="Ej. $ 1,500" value="<%=locals.oldData ? oldData.price : null %> " >
+                <input type="number" id="price" name="price" placeholder="Ej. $ 1,500" value="<%=locals.oldData ? oldData.price : null %> " >
+                <span class="error-msg" id="priceError"></span>
                 <p>Cantidad</p>
                  <% if (locals.errors && errors.quantity) { %>   
                 <span class="error-msg"><%= errors.quantity.msg %> </span>
-                <% } %> 
-                <input type="number" name="quantity" placeholder="Ej. 500" value="<%=locals.oldData ? oldData.quantity : null %> " >
+                <% } %>
+                <input type="number" id="quantity" name="quantity" placeholder="Ej. 500" value="<%=locals.oldData ? oldData.quantity : null %> " >
+                <span class="error-msg" id="quantityError"></span>
                 <p>Talle</p>
                 <input type="text" name="size" placeholder=""value="<%=locals.oldData ? oldData.size : null %> " >
                 <p>Color</p>

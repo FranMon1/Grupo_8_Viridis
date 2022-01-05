@@ -1533,13 +1533,13 @@ footer {
 
 .item-name input {
   padding-left: 1vw;
-  margin: 1vw 0 1vw 0;
+  margin: 15px 0 15px 0;
   height: 30px;
   outline: none;
   text-indent: 10px;
   border: none;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+  border-radius: 5px;
   width: 100%;
   text-align: start;
   color: black;
@@ -1558,7 +1558,7 @@ footer {
   text-indent: 10px;
   border: none;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+  border-radius: 5px;
   width: 100%;
   text-align: start;
   box-sizing: border-box;

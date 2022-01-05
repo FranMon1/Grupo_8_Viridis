@@ -24,7 +24,17 @@ const storage = multer.diskStorage({
     }
 })
 
-const uploadProductImg = multer({ storage });
+const uploadProductImg = multer({ 
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+          cb(null, true);
+        } else {
+          cb(null, false);
+          return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+      }
+    });
 
 
 //-------------------------- Rutas
@@ -44,11 +54,12 @@ router.get('/create',adminMw, productsController.create);
 router.post('/create',uploadProductImg.single('image'), (req, res, next) => {
     const file = req.file;
     if(!file){
-        const error = new Error("Por favor ingrese una imagen")
+        const error = new Error("Por favor ingrese una imagen");
         error.httpStatusCode = 400;
         return next(error)
+    } else {
+        next();
     }
-    next();
 }, validationsCreate, productsController.store);
 router.get("/preferences", adminMw, productsController.category)
 router.post("/preferences", adminMw, productsController.categoryAdd)
