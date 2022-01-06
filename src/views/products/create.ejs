@@ -74,7 +74,7 @@
 
     </section>
     <section>
-        
+       
         <div class="img-section">
             <% if (locals.errors && errors.image) { %>
                 <span class="error-msg">
@@ -82,9 +82,12 @@
                 </span>
                 <% } %>
             <h2> Agrega la imagen del producto</h2>
-                <input type="file" name="image">
-        </div>
+                <input id="image" type="file" name="image">
+                <span class="error-image-msg" id="imageError"></span>
+                
+                
         
+      
         <div class="buttons">
         <button class="erase-button" type="reset">
             Borrar
@@ -93,8 +96,9 @@
             Confirmar
         </button>
         </div>
+    </div>
     </form>
-    </section>
+</section>
 </main>
 <script src="/javascripts/createProduct.js" defer></script>
     <!--Footer-->

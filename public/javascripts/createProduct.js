@@ -1,23 +1,34 @@
 window.addEventListener("load", function() {
     // Form
 const form = qs("#form");
+
     // Input validations
+
 const name = qs("#name");
 const description = qs("#description");
 const price = qs("#price");
-const quantity = qs("#quantity")
+const quantity = qs("#quantity");
+const image = qs("#image")
+
+const allowedExtensions = ['.jpeg', '.jpg', '.png']
+
+
 
 // Error spans
+
 const nameError = qs("#nameError");
 const descriptionError = qs("#descriptionError");
 const priceError = qs("#priceError");
-const quantityError = qs("#quantityError")
+const quantityError = qs("#quantityError");
+const imageError = qs("#imageError");
+
 
 
 form.addEventListener("submit", function(e) {
     e.preventDefault()
     let errores = {}
     
+
     // Name Error
 
     if(form.name.value.length <= 0){
@@ -104,7 +115,7 @@ form.addEventListener("submit", function(e) {
             top: 520,
             behavior: 'smooth'
         });
-        console.log(priceError)
+        
     }  else {
         delete errores.quantity;
         quantityError.innerText = ""
@@ -113,6 +124,31 @@ form.addEventListener("submit", function(e) {
 
     }
 
+    // Image Error
+
+    if(form.image.value.length <= 0){
+        errores.image = "Debe ingresar al menos una imagen";
+        imageError.innerText = errores.image;
+      
+    } 
+    
+    else if(
+        allowedExtensions.forEach(element => {
+            form.image.value.includes(element) == false
+           console.log(form.image.value)
+    })) {
+        errores.image = "Debe ingresar una imagen de format jpg, jpeg o png";
+        imageError.innerText = errores.image;
+        
+        console.log(extension)
+    } else {
+        delete errores.image;
+        imageError.innerText = ""
+        image.style = "border: none";
+     
+
+    }
+console.log(errores)
     if(Object.keys(errores).length <= 0){
         form.submit()
     }

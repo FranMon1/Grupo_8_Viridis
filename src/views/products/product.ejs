@@ -52,11 +52,11 @@
             <div class="contenedor-padre2">
                 <h2>Más Productos</h2>
         <div class="main-images">
-                <% productos.forEach(product=> { %>
+                <% productos.forEach(one => { %>
                 <section style="flex-wrap: wrap; flex-direction: row;"class='img-container'>
-                    <a href="/products/product/<%=product.id%>">
+                    <a href="/products/product/<%=one.id%>">
                         <% imagenes.forEach(img=> { %>
-                            <% if (product.id==img.products_id) { %>
+                            <% if (one.id==img.products_id) { %>
                                 <img src="/images/products/<%=img.name%>" alt="">
                                 <% } %>
                                     <% }) %>
@@ -64,9 +64,9 @@
                 
                                         <div class="img-container-data">
                                             <h4>
-                                                <%=product.name%>
+                                                <%=one.name%>
                                             </h4>
-                                            <span>$ <%= product.price%></span>
+                                            <span>$ <%= one.price%></span>
                                             <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
                                         </div>
                     </a>

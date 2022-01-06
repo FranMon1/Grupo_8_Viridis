@@ -107,6 +107,7 @@ let productsController = {
     },
      store: function (req, res) {
             let validations = validationResult(req);
+           
             
             if(validations.errors.length > 0) {
                  db.Category.findAll().then(categories => {
@@ -137,10 +138,13 @@ let productsController = {
                 name: req.file.filename,
                 products_id: resultado.id
            }).then(images => {
-            return res.render("products/product", {images: images, product: resultado})
-           })
+            db.Product.findAll().then(allProducts => {
+            db.Image.findAll().then(allImages => { 
+            return res.render("products/product", {image: images, product: resultado, productos: allProducts, imagenes: allImages})
         })
-         
+        })
+        })
+        })
         }
            
     },

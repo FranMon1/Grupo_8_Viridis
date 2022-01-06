@@ -1502,7 +1502,7 @@ footer {
   width: 100%;
   flex-wrap: wrap;
   padding-bottom: 3vw;
-  border-bottom: 1px #9ccc65 solid;
+ 
 }
 
 .description-title {
@@ -1608,17 +1608,21 @@ footer {
 /* ---------------Final Section-------------------*/
 
 .img-section {
+ 
+  border-top: 1px #9ccc65 solid;
+  position: absolute;
+  top: 82%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: none;
 }
 
 .img-section h2 {
-  position: absolute;
-  top: 82%;
-  margin: 0vw 0 4vw 0;
+
+  margin: 2vw 0 4vw 0;
   background: none;
   font-weight: 300;
   font-size: 1.5rem;
@@ -1626,16 +1630,15 @@ footer {
 }
 
 .img-section input {
-  position: absolute;
-  top: 87%;
+  
   background: none;
   color: rgba(255, 255, 255, 0.8);
   left: 40%;
+  margin-bottom: 10px
 }
 
 .buttons {
-  position: absolute;
-  top: 90%;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -2156,6 +2159,12 @@ footer {
 }
 
 .error-msg {
+  font-size: 1rem;
+  color: red;
+  background: none;
+}
+.error-image-msg {
+
   font-size: 1rem;
   color: red;
   background: none;
