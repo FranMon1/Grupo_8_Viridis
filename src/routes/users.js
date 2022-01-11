@@ -41,7 +41,7 @@ router.post('/login', validationsLoginMw, usersController.loginProcess)
 // Registro
 
 router.get('/register',  guestMw, usersController.register);
-router.post('/register', uploadUserImg.single ("imagenUsuario"), (req, res, next) => {
+router.post('/register', uploadUserImg.single("image"), (req, res, next) => {
     const file = req.file;
     if(!file){
         const error = new Error("Por favor ingrese una imagen");
