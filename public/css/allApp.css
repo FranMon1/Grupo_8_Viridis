@@ -199,6 +199,7 @@
   transform: scale(1.1);
 }
 
+
 @keyframes change {
   0% {
     margin-left: 0;
@@ -228,6 +229,7 @@
     margin-left: -300%;
   }
 }
+
 
 /* ----- Middle Section -----*/
 

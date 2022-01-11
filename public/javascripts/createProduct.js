@@ -8,7 +8,7 @@ const name = qs("#name");
 const description = qs("#description");
 const price = qs("#price");
 const quantity = qs("#quantity");
-const image = qs("#image")
+const image = qs("#image");
 
 const allowedExtensions = ['.jpeg', '.jpg', '.png']
 
