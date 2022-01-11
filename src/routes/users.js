@@ -20,7 +20,17 @@ const storageUsers = multer.diskStorage({
         cb(null, newUserImg )
     }
 })
-const uploadUserImg = multer({ storage : storageUsers });
+const uploadUserImg = multer({ 
+    storage : storageUsers,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+          cb(null, true);
+        } else {
+          cb(null, false);
+          return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+      }
+    });
 
 // Login
 
@@ -31,7 +41,16 @@ router.post('/login', validationsLoginMw, usersController.loginProcess)
 // Registro
 
 router.get('/register',  guestMw, usersController.register);
-router.post('/register', uploadUserImg.single ("imagenUsuario"), registerValidationMw, usersController.create);
+router.post('/register', uploadUserImg.single ("imagenUsuario"), (req, res, next) => {
+    const file = req.file;
+    if(!file){
+        const error = new Error("Por favor ingrese una imagen");
+        error.httpStatusCode = 400;
+        return next(error)
+    } else {
+        next();
+    }
+},  registerValidationMw, usersController.create);
 
 
 // Perfil
