@@ -2599,6 +2599,7 @@ h4 {
   background: none;
 }
 #nombre,
+#usuario,
 #password,
 #email {
   border: none;
@@ -2615,7 +2616,8 @@ h4 {
 
 #nombre::placeholder,
 #password::placeholder,
-#email::placeholder {
+#email::placeholder,
+#usuario::placeholder {
   color: white;
 }
 
