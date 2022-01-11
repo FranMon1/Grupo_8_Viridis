@@ -39,7 +39,7 @@
                             </div>
                             <div>
                                 <label for="email"> </label>
-                                <input type="email" name="email" id="email" placeholder="Email" value="<%=locals.oldData ? oldData.email : null %>" >
+                                <input type="text" name="email" id="email" placeholder="Email" value="<%=locals.oldData ? oldData.email : null %>" >
                                 <% if (locals.errors && errors.email) { %>
                                     <span class="error-msg"><%=errors.email.msg%></span>
                                 <% } %>
