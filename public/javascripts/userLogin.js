@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
         } else {
             delete errores.email;
             emailError.innerText = ""
-            email.style = "border: none";
+            email.style = "border-bottom: 1px solid black";
             emailError.style = "margin-bottom: 0px"
 
         }
@@ -61,7 +61,7 @@ window.addEventListener("load", function () {
         
         console.log(errores)
         if (Object.keys(errores).length <= 0) {
-            userForm.submit()
+            form.submit()
         }
 
     })
