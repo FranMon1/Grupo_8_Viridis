@@ -61,7 +61,7 @@ window.addEventListener("load", function () {
         
         console.log(errores)
         if (Object.keys(errores).length <= 0) {
-            userForm.submit()
+            form.submit()
         }
 
     })

@@ -80,8 +80,9 @@ let usersController = {
       return res.render("users/profile", { user: req.session.userLogged });
    },
    edit: function (req, res) {
-     db.User.findByPk(req.params.id).then(user => 
-      {return res.render("users/editprofile", {user: user})}) 
+     db.User.findByPk(req.params.id).then(user => {
+         console.log(user)  
+      return res.render("users/editprofile", {user: user})}) 
    },
    update: function (req, res) {
       db.User.update({

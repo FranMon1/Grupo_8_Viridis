@@ -9,7 +9,7 @@
                     <div class="bgeditpanel01">
                         <p class="edit-title"> Edición del Usuario</p>
                     </div>
-                    <form id=#userForm action="/users/editprofile/<%=user.id%>?_method=PUT" method="POST"
+                    <form id="userForm" action="/users/editprofile/<%=user.id%>?_method=PUT" method="POST"
                         enctype="multipart/form-data">
                         <div class="edit_contents">
                             <div class="item-edit-properties">
@@ -43,5 +43,5 @@
 
             <!--footer-->
 
-            <%-include('.. /partials/footer.ejs') %>
+            <%-include('../partials/footer.ejs') %>
     </body>
