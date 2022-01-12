@@ -5,6 +5,7 @@ const productsController = require('../controllers/productsController');
 const multer = require('multer');
 const adminMw = require('../middlewares/adminMw.js');
 const validationsCreate = require("../middlewares/validationsProductMw.js");
+const validationsEdit = require("../middlewares/editProductMw.js");
 
 
 // Validacion de Imagen
@@ -66,7 +67,7 @@ router.post("/preferences", adminMw, productsController.categoryAdd)
 
 // Edición
 router.get ('/edit/:id', adminMw, productsController.edit);
-router.put ('/edit/:id',uploadProductImg.single('productimg'), productsController.update);
+router.put ('/edit/:id',uploadProductImg.single('productimg'), validationsEdit, productsController.update);
 
 
 // Inventario

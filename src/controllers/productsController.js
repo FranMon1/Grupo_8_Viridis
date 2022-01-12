@@ -78,6 +78,9 @@ let productsController = {
     },
 
     edit: async function (req, res) {
+
+      
+        
         await db.Product.findOne({ where: { id: req.params.id}})
         .then(producto => { db.Image.findOne({where: {products_id: producto.id}})
         .then(imagen => {
@@ -150,6 +153,26 @@ let productsController = {
     },
 
     update: function (req, res) {
+
+        let validations = validationResult(req);
+        if(validations.errors.length > 0) {
+            db.Product.findOne({ where: {id: req.params.id}}).then (product => {
+            db.Image.findOne({ where: { products_id: req.params.id}}).then(image => { 
+            db.Category.findAll().then(categories => {
+           db.Brand.findAll().then(brands =>{
+           return res.render("products/edit", {
+              image: image,
+              product: product,
+              brands: brands, 
+              categories: categories,
+              errors: validations.mapped(),
+              oldData: req.body
+            })
+            })
+            })
+            })
+       });
+       } else{
         db.Product.update({
         name: req.body.name,
         description: req.body.description,
@@ -167,6 +190,7 @@ let productsController = {
         return res.render('products/product', {images: images, product: resultado})
         })
         })  
+    }
     },
     delete: async function(req, res) {
        
