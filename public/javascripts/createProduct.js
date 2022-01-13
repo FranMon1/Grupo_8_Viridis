@@ -133,14 +133,13 @@ form.addEventListener("submit", function(e) {
     } 
     
     else if(
-        !allowedExtensions.forEach(element => {
-            form.image.value.includes(element) == true
-           console.log(form.image.value)
+        !allowedExtensions.map(element => {
+            form.image.value.includes(element) == false
+         console.log(form.image.value)
     })) {
         errores.image = "Debe ingresar una imagen de format jpg, jpeg o png";
         imageError.innerText = errores.image;
         
-        console.log(extension)
     } else {
         delete errores.image;
         imageError.innerText = ""

@@ -1,6 +1,6 @@
 # RETRO 
 
-## SPRINT 5
+## SPRINT 6
 
 ```diff
 + Comenzar a hacer: 

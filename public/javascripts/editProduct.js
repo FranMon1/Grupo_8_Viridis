@@ -103,7 +103,7 @@ form.addEventListener("submit", function(e) {
     } 
     
     else if(
-        !allowedExtensions.forEach(element => {
+        !allowedExtensions.map(element => {
             form.image.value.includes(element) == false
            console.log(form.image.value)
     })) {
