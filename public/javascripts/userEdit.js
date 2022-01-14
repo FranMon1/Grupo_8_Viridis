@@ -1,13 +1,13 @@
 window.addEventListener("load", function () {
     // Form
-    const form = qs("#userForm");
+    let form = qs("#userEditForm");
 
     // Input validations
 
-    const nombre = qs("#nombre");
+    const name = qs("#name");
     const usuario = qs("#usuario");
     const email = qs("#email");
-    const password = qs("#password");
+    const password = qs("#editPassword");
     const image = qs("#image");
 
     const allowedExtensions = ['.jpeg', '.jpg', '.png'];
@@ -31,7 +31,7 @@ window.addEventListener("load", function () {
 
         // Name Error
 
-        if (form.nombre.value.length <= 0) {
+        if (form.nombre.value.length == 0) {
             errores.nombre = "Debe ingresar un nombre";
             nameError.innerText = errores.nombre;
             nombre.style = "border: 2px solid red";

@@ -24,13 +24,33 @@ let usersController = {
    create: function (req, res) {
       var registerErrors = validationResult(req);
 
+    
       if (registerErrors.errors.length > 0) {
          return res.render('users/register', {
             errors: registerErrors.mapped(),
             oldData: req.body
          });
-      } else {
-         db.User.create({
+      }
+
+         db.User.findOne({where: 
+            
+            {email:req.body.email}})
+     
+            .then((userInDB) => {
+                if (userInDB) {
+                   return res.render("users/register", {
+                       errors: {
+                           email: {
+                           msg: "Este email ya esta registrado"
+                               }
+                   },
+                   oldData:req.body
+                   });            
+                }
+               })
+             
+            
+            db.User.create({
             name: req.body.nombre,
             user: req.body.usuario,
             password: bcrypt.hashSync(req.body.password, 10),
@@ -40,8 +60,7 @@ let usersController = {
          }).then((resultado) => {
             return res.redirect("/users/login")
          })
-      }
-   },
+      },
 
    loginProcess: function (req, res) {
       db.User.findOne({ where: { email: req.body.email } }).then(usuarioAIngresar => {

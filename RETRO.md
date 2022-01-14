@@ -1,5 +1,36 @@
 # RETRO 
 
+## SPRINT 7
+
+```diff
++ Comenzar a hacer: 
+```
+#### - Repensar los tiempos de trabajo y la división de tareas
+#### - Corregir detalles pendientes de frontend 
+
+```diff
++ Hacer menos:
+```
+#### - No priorizar el frontend debido al tiempo que necesitamos para las tareas del sprint
+
+```diff
++ Hacer mas:
+```
+#### - Actualizar el trello día a día
+#### - Añadir los avances del proyecto a medida que pusheamos o que tenemos algún problema para adelantar.
+
+```diff
++ Continuar haciendo:
+```
+#### - Resolución de problemas entre todos. 
+#### - No dejar de lado el diseño de la página.
+#### - Establecer deadlines antes de la fecha final del sprint
+#### - Todos los días dedicarle un tiempo a la cursada.
+
+```diff
++ Dejar de hacer: 
+```
+
 ## SPRINT 6
 
 ```diff

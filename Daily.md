@@ -5,6 +5,28 @@
 ```diff
 + Bruno:
 ```
+#### - 4/01 - Validación del back de productos
+#### - 7/01 - Validación del front de crear productos
+
+
+```diff
++ Fran:
+```
+#### - 10/01 - Validacion de Editar Usuario
+#### - 13/01 - Validación Back del register
+
+```diff
++ Todos:
+```
+#### - 29/12 - Reunión para definir las tareas a realizar cada uno
+#### - 5/01 - Daily y Retro
+#### - 9/01 - Reivisón del Sprint
+
+## SPRINT 6
+
+```diff
++ Bruno:
+```
 #### - 3/12 - Instalada Base de datos y Sequelize en el proyecto
 #### - 5/12 - Estructura de base de datos
 #### - 8/12 - Modelo de productos
