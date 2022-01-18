@@ -1527,7 +1527,6 @@ footer {
 .item-name {
   display: flex;
   flex-direction: column;
-
   background: none;
   font-size: 1vw;
   width: 45vw;
@@ -1613,7 +1612,7 @@ footer {
  
   border-top: 1px #9ccc65 solid;
   position: absolute;
-  top: 82%;
+  bottom: 20%;
   width: 100%;
   display: flex;
   flex-direction: column;

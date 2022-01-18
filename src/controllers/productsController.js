@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require("express-validator");
-const{ Op }= require("sequelize")
+const{ Op }= require("sequelize");
+const { render } = require('express/lib/response');
 
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
@@ -152,7 +153,7 @@ let productsController = {
            
     },
 
-    update: function (req, res) {
+    update: async function (req, res) {
 
         let validations = validationResult(req);
         if(validations.errors.length > 0) {
@@ -173,6 +174,8 @@ let productsController = {
             })
        });
        } else{
+        db.Product.findAll().then (producto => {
+        db.Image.findAll().then(img => {
         db.Product.update({
         name: req.body.name,
         description: req.body.description,
@@ -183,13 +186,21 @@ let productsController = {
         categories_id: req.body.categories,
         color:  req.body.color}, {where: {id: req.params.id}})
         .then(resultado => {
-            db.Image.findOne({where: {
+            db.Image.update({
+                name: req.file.filename
+            },{where: {
                 products_id: req.params.id
             }})
         .then(images => {
-        return res.render('products/product', {images: images, product: resultado})
+        return res.status(200).render('products/product', {
+            image: images, 
+            product: resultado, 
+            productos: producto, 
+            imagenes: img})
         })
         })  
+        })
+        })
     }
     },
     delete: async function(req, res) {
