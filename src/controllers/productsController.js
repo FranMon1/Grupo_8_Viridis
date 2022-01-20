@@ -247,6 +247,13 @@ let productsController = {
             })
         }
         res.redirect("create")
+    },
+    bringApi: function (req, res) {
+        db.Product.findAll().then(product => {
+                res.status(200).json(product);
+            
+           
+        })
     }
           
 };

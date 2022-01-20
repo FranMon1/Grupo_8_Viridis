@@ -75,7 +75,8 @@ router.get ('/inventory',adminMw, productsController.inventory);
 router.delete ('/inventory/:id', productsController.delete);
 router.get("/inventory/search", productsController.search)
 
-
+// API
+router.get('/api', productsController.bringApi)
 
 module.exports = router;
 
