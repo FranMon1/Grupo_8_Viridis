@@ -251,28 +251,23 @@ let productsController = {
         res.redirect("create")
     },
     bringApi: function (req, res) {
+        
         db.Product.findAll()
         .then(product => {
-            db.Category.findAll()
+            console.log(product[2])
+            db.Category.findAndCountAll()
             .then(category => {
-
+                
                 res.status(200).json({
                     status: 200,
                     product: product,
                     productCount: product.length,
-                    categories: {
-                        category: category
-                        
-                    }
-   
+                    category: category
                 });
-            
             });
         })
     },
     bringSingleApi: function (req, res) {
-        let imagePath = path.resolve(__dirname, '/images/products')
-        
         db.Product.findOne({
             where: {
                 id: req.params.id
