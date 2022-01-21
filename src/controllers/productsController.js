@@ -4,6 +4,8 @@ const db = require('../database/models');
 const { validationResult } = require("express-validator");
 const{ Op }= require("sequelize");
 const { render } = require('express/lib/response');
+const { count } = require('console');
+const { url } = require('inspector');
 
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
@@ -249,11 +251,53 @@ let productsController = {
         res.redirect("create")
     },
     bringApi: function (req, res) {
-        db.Product.findAll().then(product => {
-                res.status(200).json(product);
+        db.Product.findAll()
+        .then(product => {
+            db.Category.findAll()
+            .then(category => {
+
+                res.status(200).json({
+                    status: 200,
+                    product: product,
+                    productCount: product.length,
+                    categories: {
+                        category: category
+                        
+                    }
+   
+                });
             
-           
+            });
         })
+    },
+    bringSingleApi: function (req, res) {
+        let imagePath = path.resolve(__dirname, '/images/products')
+        
+        db.Product.findOne({
+            where: {
+                id: req.params.id
+            }})
+        .then(product => {
+        db.Image.findOne({
+            where: {
+                products_id: product.id
+            }})
+        .then(image => {
+            res.status(200).json({
+                status: 200,
+                product: product,
+                image: `http://localhost:3000/products/api/${req.params.id}/image`
+            })
+        })
+    })
+    },
+    image: function (req, res) {
+        db.Image.findOne({where: {
+            products_id: req.params.id
+        }})
+        .then(image => {
+        res.render('products/image', {image: image});
+    })
     }
           
 };
