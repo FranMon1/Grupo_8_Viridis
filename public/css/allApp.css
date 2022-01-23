@@ -256,13 +256,69 @@
   background: none;
 }
 .middle_section_main_img {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 60vw;
+  width: 50vw;
   background: none;
 }
 .middle_section_main_img img {
+  z-index: 4;
+  position: absolute;
+  left: -10%;
   background: none;
   width: 60vw;
-  transition: 0.5s;
+
 }
+
+
+.noImg {
+  display: none
+}
+/* Image classes */ 
+
+.outStyle {
+ 
+  animation-name: fadeOutLeft;
+  animation-fill-mode: both;
+  animation-duration: 100ms;
+
+ 
+}
+
+.inStyle {
+  display: flex;
+  animation-name: fadeInLeft;
+  animation-fill-mode: both;
+  animation-duration: 100ms;
+ 
+}
+
+@keyframes fadeOutLeft {
+  0% {
+     opacity: 1;
+     transform: translateX(0);
+  }
+  100% {
+     opacity: 0;
+     transform: translateX(-10px);
+     display: none;
+     visibility: hidden;
+  }
+} 
+
+@keyframes fadeInLeft {
+  0% {
+     opacity: 0;
+     transform: translateX(20px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0px);
+  }
+} 
 
 .selected-images {
   margin-top: 5vw;

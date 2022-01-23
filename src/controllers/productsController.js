@@ -3,9 +3,7 @@ const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require("express-validator");
 const{ Op }= require("sequelize");
-const { render } = require('express/lib/response');
-const { count } = require('console');
-const { url } = require('inspector');
+
 
 
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
