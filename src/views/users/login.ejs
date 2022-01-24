@@ -11,17 +11,19 @@
                     <p>Inicia Sesión</p>
                 </div>
                 <div class="form-login">
-                    <form action="/users/login" method="post">
-                        <label for="nombre"> </label>
+                    <form id="userLogin" action="/users/login" method="post">
                         <input type="text" name="email" id="email" value="<%=locals.oldData ? oldData.email : null %>" placeholder="Email">
-                        <% if (locals.errors && errors.email) { %>
+                         <% if (locals.errors && errors.email) { %>
                             <span class="error-msg"><%=errors.email.msg%></span>
                         <% } %>
+                        <span class="error-msg" id="emailError"></span>
                         <label for="password"></label>
                         <input type="password" name="password" id="password" placeholder="Contraseña">
                         <% if (locals.errors && errors.password) { %>
                             <span class="error-msg"><%=errors.password.msg%></span>
                         <% } %>
+                        <span class="error-msg" id="passwordError"></span>
+
                         <label class="rememberpass">
                             <input type="checkbox" name="remember_user" value="ok" class="checkbox">Recordame
                         </label>
@@ -47,10 +49,10 @@
             </div>
         </section>
     </main>
+<script src="/javascripts/userLogin.js"></script>
 
 
     <!--------FOOTER-->
-    <%- include("../partials/footer.ejs")  %>  
-
+    <%-include("../partials/footer.ejs") %>  
 </body>
 

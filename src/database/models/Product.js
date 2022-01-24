@@ -28,8 +28,9 @@ let cols = {
         sizes: {
             type: dataTypes.STRING(45)
         },
-        brand_id: {
-            type: dataTypes.INTEGER(11)
+        brands_id: {
+            type: dataTypes.INTEGER(11),
+            
         },
         categories_id: {
             type: dataTypes.INTEGER(11)
@@ -44,16 +45,18 @@ let config = {
     const Product = sequelize.define(alias, cols, config)
 
     Product.associate = function (models) {
-        Product.belongsToMany(models.Image, {
-            as: "products",
-            through: "product_images",
-            foreignKey: "products_id",
-            otherKey: "image_id",
-            timestamps: false
-        });
+    
         Product.belongsTo(models.Brand, {
             as: "brands",
-            foreignKey: "brand_id"
+            foreignKey: "brands_id"
+        });
+        Product.belongsTo(models.Category,{
+            as: "categories",
+            foreignKey:"categories_id"
+        });
+        Product.hasMany(models.Image, {
+            as: "images",
+            foreignKey: "products_id"
         })
     }
 

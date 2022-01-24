@@ -11,55 +11,65 @@
             <div class="contenedor-padre1">
                 <section class="contenedor-main-product1">
                     <div class="columna1">
-                        <img class="detalles" src="/images/default-placeholder.png">
-                        <img class="detalles" src="/images/default-placeholder.png">
-                        <img class="detalles" src="/images/default-placeholder.png">
-                      
-                      
+                        
+                        <img class="detalles" src="/images/products/<%=image.name%>">
+
                     </div>
                 </section>
                 <section class="contenedor-main-product2">
                     <div class="columna2">
-                        <img class="i-principal" src="/images/products/<%=product.productimg%>">
+                        <img class="i-principal" src="/images/products/<%=image.name%>">
                     </div>
                 </section>
                 <section class="contenedor-main-product3">
                     <div class="columna3">
                         <h2><%=product.name%> </h2>
-                        <h4><%=product.price%></h4>
+                        <p>$ <%=product.price%></p>
                         <p><%=product.description%></p>
-                        <p><%=product.category%></p>
                         <p><%=product.color%></p>
-                        <p><%=product.brand%></p>
                         <p><%=product.size%></p>
                     </div>
-                    <div class="more-less-products">
-                        <a class="boxminus" href=""> - </a>
-                        <a class="box2" href=""> 2 </a>
-                        <a class="boxplus" href=""> + </a>
-                    </div>
-                    <div class="anadirCart"><a href="/products/cart"> <i class="fas fa-shopping-cart"></i></a></div>
                     <div class="buttons_detail_product">
+                        <% if ((locals.userLogged != null) && (locals.userLogged.email == "admin@admin.com")) { %>
                     <form method="POST" action="/products/product/<%=product.id%>?_method=DELETE" style="margin:10px"class="inventory-buttons">
+                        
                     <button  type="submit">
                         Del
-                    </button></form>
+                    </button>
+                </form>
+             
                     <a href="/products/edit/<%=product.id%>" class="edit_button_inventory" style="margin:10px">
                             Edit
                     </a>
+                    <% } %>
                 </div>
                 </section>
             </div>
 
             <div class="contenedor-padre2">
                 <h2>Más Productos</h2>
-                <section class="mas-productos">
-                    <% for (let i = 0; i < 5; i++) {%> 
-                        <div class="relacionados">
-                    <img src="/images/products/<%=product.productimg%>">
-                </div>
-                    <% }%> 
+        <div class="main-images">
+                <% productos.forEach(one => { %>
+                <section style="flex-wrap: wrap; flex-direction: row;"class='img-container'>
+                    <a href="/products/product/<%=one.id%>">
+                        <% imagenes.forEach(img=> { %>
+                            <% if (one.id==img.products_id) { %>
+                                <img src="/images/products/<%=img.name%>" alt="">
+                                <% } %>
+                                    <% }) %>
+                
+                
+                                        <div class="img-container-data">
+                                            <h4>
+                                                <%=one.name%>
+                                            </h4>
+                                            <span>$ <%= one.price%></span>
+                                            <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
+                                        </div>
+                    </a>
                 </section>
+                <% }) %>
+                </div>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in molestiae officia unde totam
                     perferendis facilis voluptatem quaerat debitis eos? Magni pariatur dolor vitae ratione similique
                     sint facere voluptate temporibus?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia in

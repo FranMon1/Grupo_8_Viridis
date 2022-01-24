@@ -12,20 +12,22 @@
                         <p>Formulario de Registro</p>
                     </div>
                     <div class="form-register">
-                        <form action="/users/register" method="POST" enctype="multipart/form-data">
+                        <form id="userForm" action="/users/register" method="POST" enctype="multipart/form-data">
                             <div>
                                 <label for="nombre"> </label>
                                 <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" value="<%=locals.oldData ? oldData.nombre : null %>">
+                                <span class="error-msg" id="nameError"></span>
                                 <% if (locals.errors && errors.nombre) { %>
                                     <span class="error-msg"><%=errors.nombre.msg%></span>
                                 <% } %>
                             </div>
                             <div>
                                 <label for="usuario"> </label>
-                                <input type="text" name="usuario" id="nombre" placeholder="Usuario" value="<%=locals.oldData ? oldData.usuario : null %>" >
+                                <input type="text" name="usuario" id="usuario" placeholder="Usuario" value="<%=locals.oldData ? oldData.usuario : null %>" >
                                 <% if (locals.errors && errors.usuario) { %>
                                     <span class="error-msg"><%=errors.usuario.msg%></span>
                                 <% } %>
+                                <span class="error-msg" id="userError"></span>
                             </div>
                             <div>
                                 <label for="password"></label>
@@ -33,6 +35,7 @@
                                 <% if (locals.errors && errors.password) { %>
                                     <span class="error-msg"><%=errors.password.msg%></span>
                                 <% } %>
+                                <span class="error-msg" id="passwordError"></span>
                             </div>
                             <div>
                                 <label for="email"> </label>
@@ -40,11 +43,13 @@
                                 <% if (locals.errors && errors.email) { %>
                                     <span class="error-msg"><%=errors.email.msg%></span>
                                 <% } %>
+                                <span class="error-msg" id="emailError"></span>
                             </div>
                             <div class="avatarImage">
                                 <p>Selecciona tu imagen de perfil</p>
                                 <label for="Image"></label>
-                                <input type="file" name="imagenUsuario">
+                                <input id="image" type="file" name="image">
+                                <span class="error-image-msg" id="imageError"></span>
                             </div>
 
                             <div class="botones">
@@ -52,7 +57,7 @@
                                     <button type="button"><a href="/users/login">Iniciar Sesión</a></button id="submit"></button>
                                 </div>
                                 <div class="boton-confirmar">
-                                    <button type="submit">Confirmar</button id="submit"></button>
+                                    <button type="submit">Confirmar</button>
                                 </div>
                             </div>
 
@@ -64,8 +69,7 @@
             </div>
         </section>
     </main>
-
-
+<script src="/javascripts/createrUser.js"></script>
     <!--FOOTER-->
 <%- include("../partials/footer.ejs")  %>  
 </body>

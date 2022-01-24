@@ -4,7 +4,13 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 const multer = require('multer');
 const adminMw = require('../middlewares/adminMw.js');
-const validationsCreate = require("../middlewares/validationsProductMw.js")
+const validationsCreate = require("../middlewares/validationsProductMw.js");
+const validationsEdit = require("../middlewares/editProductMw.js");
+
+
+// Validacion de Imagen
+
+const { check } = require("express-validator")
 /* Config of multer */
 
 const storage = multer.diskStorage({
@@ -19,7 +25,17 @@ const storage = multer.diskStorage({
     }
 })
 
-const uploadProductImg = multer({ storage });
+const uploadProductImg = multer({ 
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+          cb(null, true);
+        } else {
+          cb(null, false);
+          return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+      }
+    });
 
 
 //-------------------------- Rutas
@@ -36,19 +52,33 @@ router.get('/detail', productsController.detail);
 
 // Creación 
 router.get('/create',adminMw, productsController.create);
-router.post('/create',uploadProductImg.single('productimg'),validationsCreate, productsController.store2);
-
+router.post('/create',uploadProductImg.single('image'), (req, res, next) => {
+    const file = req.file;
+    if(!file){
+        const error = new Error("Por favor ingrese una imagen");
+        error.httpStatusCode = 400;
+        return next(error)
+    } else {
+        next();
+    }
+}, validationsCreate, productsController.store);
+router.get("/preferences", adminMw, productsController.category)
+router.post("/preferences", adminMw, productsController.categoryAdd)
 
 // Edición
 router.get ('/edit/:id', adminMw, productsController.edit);
-router.put ('/edit/:id',uploadProductImg.single('productimg'), productsController.update);
+router.put ('/edit/:id',uploadProductImg.single('productimg'), validationsEdit, productsController.update);
 
 
 // Inventario
 router.get ('/inventory',adminMw, productsController.inventory);
 router.delete ('/inventory/:id', productsController.delete);
+router.get("/inventory/search", productsController.search)
 
-
+// API
+router.get('/api', productsController.bringApi)
+router.get('/api/:id', productsController.bringSingleApi)
+router.get('/api/:id/image', productsController.image)
 
 module.exports = router;
 

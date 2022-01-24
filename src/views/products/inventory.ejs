@@ -10,8 +10,14 @@
         <div class="title"> Inventory</div>
         
             <a href="/products/create"><button class="create-button"> Agregar producto</button></a>
+            <form action="/products/inventory/search" method="GET">
+                <div class='buscador_inventario'>
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="keyword" name="keyword" placeholder="Barra de busqueda">
+                </div>
+                <button class="search_button" type="submit">Search</button>
+            </form>
         
-           
             <div class="category-section"> 
                 <div style="color:rgba(255, 137, 58, 0.815)">ID</div>
                 <div>Nombre</div>
@@ -30,13 +36,13 @@
               <div class="productItems">
                 <div class="inventory-productid"><%=product.id%></div>
                 <div class="inventory-productid"><%=product.name%></div>
-                <div class="inventory-productid"><%=product.category%></div>
+                <div class="inventory-productid"><%=product.categories_id%></div>
                 <div class="inventory-productid"><%=product.price%></div>
                 <div class="inventory-productid"><%=product.quantity%></div>
                 <div class="inventory-productid"><%=product.id%></div>
                 <div class="inventory-productid"><%=product.size%></div>
                 <div class="inventory-productid"><%=product.color%></div>
-                <div class="inventory-productid"><%=product.brand%></div>
+                <div class="inventory-productid"><%=product.brands_id%></div>
                 <form action="/products/inventory/<%=product.id%>?_method=DELETE" method="POST">
                 <div class="inventory-buttons">
                     <button type="submit">Del</button>

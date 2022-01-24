@@ -20,8 +20,14 @@
      <!---Middle Main Section-->
     <section class="middle-section">
         <div class="middle-section-img">
-           <div class="middle_section_main_img"> 
-               <img src="/images/Homepage-Thumb-Clubs.png" alt="">
+           <div id="container" class="middle_section_main_img"> 
+               <img id="promoImg" class="inStyle" src="/images/Homepage-Thumb-Clubs.png" alt="">
+               <img id="promoImg2" class="outStyle" src="/images/home_img_club.png" alt="">
+               <img id="promoImg3" class="outStyle" src="/images/home_img_bags.png" alt="">
+               <img id="promoImg4" class="outStyle" src="/images/home_img_shoes3.png" alt="">
+               <img id="promoImg5" class="outStyle" src="/images/home_img_accesories.png" alt="">
+               <img id="promoImg6" class="outStyle" src="/images/home_img_sets.png" alt="">
+
             </div>
             <div class="selected-images">
             <!-- <ul>
@@ -38,30 +44,30 @@
         <div class="main-section-buttons">
             
             <div class="button-clubs">
-                    <a href="#"><img src="/images/golfing.png"></a>
+                    <a href="#"><img id="clubImg" src="/images/golfing.png"></a>
                     <p class="section-clubs"> Clubs </p>
             </div>
             <div class="button-bags">
-                <a href="#"><img src="/images/caddy.png" alt=""></a>
+                <a href="#"><img id="bagsImg" src="/images/caddy.png" alt=""></a>
                 <p class="section-bags"> Bags </p>
             </div>
             <div class="button-shoes">
-                <a href="#"><img src="/images/smart-shoe.png" alt=""></a>
+                <a href="#"><img id="shoesImg" src="/images/smart-shoe.png" alt=""></a>
                 <p class="section-shoes"> Shoes </p>
             </div>
             <div class="button-golfballs">
-                <a href="#"><img src="/images/golf-ball-with-dents.png" alt=""></a>
+                <a href="#"><img id="golfballsImg" src="/images/golf-ball-with-dents.png" alt=""></a>
                 <p class="section-golfballs"> Accesories </p>
             </div>
             <div class="button-sets">
-                <a href="#"><img src="/images/golf-sets.png" alt=""></a>
+                <a href="#"><img id="setsImg" src="/images/golf-sets.png" alt=""></a>
                 <p class="section-sets"> Sets </p>
             </div>
-            <div class="membership-discounts"> 
+            <!-- <div class="membership-discounts"> 
                 <a class="membership-icon"><i class="fas fa-id-card"></i></a>
                 <a class="membership-txt" href=""> Take a look at our membership discounts for this selected clubs</a>
                 
-            </div>
+            </div> -->
             </div>
         
         
@@ -96,28 +102,33 @@
         </div>
        
         <div class="main-images">
-            <% product.forEach(product => { %>
-            
+           
+            <% for(let i = 0; i < 5; i++) { %> 
             <section class='img-container'>
-            <a href="/products/product/<%=product.id%>" >
-                <img src="/images/products/<%=product.productimg%>" alt="">
-
+            <a href="/products/product/<%=productos[i].id%>" >
+                <% image.forEach(img=> { %>
+               <% if (productos[i].id == img.products_id) { %>
+                <img src="/images/products/<%=img.name%>" alt="">
+               <% } %>
+            <% }) %>
+                
+                      
                     <div class="img-container-data">
-                    <h4><%=product.name%></h4>
-                    <span><%= product.price%></span>
-                    <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
+                    <h4><%=productos[i].name%></h4>
+                    <span>$ <%= productos[i].price%></span>
+                    <p> Agregar a Carrito <button class="add-to-cart" value="<%=productos[i].id%>"><i class="fas fa-shopping-cart"></i></button></p>
                     </div>       
             </a>
             </section>
         
+            <% } %>
             
-            <% }) %>
         </div>
        
     </section>
        
     </main>
-
+<script src="/javascripts/home.js"></script>
 <!--FOOTER-->
 <%- include("./partials/footer.ejs")  %>    
     

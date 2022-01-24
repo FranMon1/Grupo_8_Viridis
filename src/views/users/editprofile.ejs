@@ -1,0 +1,53 @@
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <!--Header-->
+        <%- include('../partials/header.ejs') %>
+            <!--Main-->
+            <main>
+                <section class="edit-page-section">
+                    <div class="bgeditpanel01">
+                        <p class="edit-title"> Edición del Usuario</p>
+                    </div>
+                    <form id="userEditForm" action="/users/editprofile/<%=user.id%>?_method=PUT" method="POST"
+                        enctype="multipart/form-data">
+                        <div class="edit_contents">
+                            <div class="item-edit-properties">
+                                <p name="id" style="color:rgba(255, 137, 58, 0.815); font-size: 2rem"></p>
+                                </select>
+                                <p>Nombre y Apellido</p>
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<%=user.name %>">
+                                <span class="error-msg" id="nameError"></span>
+                                <p>Nombre del Usuario</p>
+                                <input type="text" name="usuario" id="usuario" value="<%=user.user%>"
+                                    placeholder="Ej. Francisco">
+                                <span class="error-msg" id="userError"></span>
+                                <p>Contraseña</p>
+                                <input type="password" name="password" id="editPassword" placeholder="Nueva Contraseña">
+                                <span class="error-msg" id="passwordError"></span>
+                                <p>Email</p>
+                                <input type="text" name="email" id="email" value="<%=user.email%>" placeholder="">
+                                <span class="error-msg" id="emailError"></span>
+                            </div>
+
+                            <div class="second_panel_img_edit">
+
+                                <div class="profile_image"><img src="/images/users/<%=user.user_image%>"></div>
+                                <label for="">Insertar la imagen nueva</label>
+                                <input id="image"        type="file" name="productimg" value="">
+                                <span class="error-image-msg" id="imageError"></span>
+                                <button type="submit" class="save-changes-button">Guardar Cambios</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </section>
+
+            </main>
+<script src="/javascripts/userEdit.js"></script>
+
+            <!--footer-->
+
+            <%-include('../partials/footer.ejs') %>
+    </body>

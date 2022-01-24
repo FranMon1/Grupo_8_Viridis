@@ -12,40 +12,20 @@
         </div> 
 
         <div class="select-category-txt">Selecciona la categoria correspondiente
+        <a href="/products/preferences"> Agregar más!</a>
         </div>
-        <form action="/products/create" method="post" enctype="multipart/form-data">
+        
+        <form id="form" action="/products/create" method="POST" enctype="multipart/form-data">
             <div class="icon-category">
-                <div class="selection-inputs" >
-                    <a class="icon-properties" ><img src="/images/golf-ball-with-dents.png" alt=""></a>
-                    <p>Accesories</p>
-                <input type="radio" name="category" value="accesories" value="<%=locals.oldData ? oldData.category : null %> ">
-                </div>
-                <div class="selection-inputs" >
-                    <a class="icon-properties" ><img src="/images/caddy.png" alt=""></a>
-                    <p>Bags</p>
-                <input type="radio" name="category" value="bags" value="<%=locals.oldData ? oldData.category : null %> ">
-                </div>
-                <div class="selection-inputs" >
-                    <a class="icon-properties" ><img src="/images/golfing.png" alt=""></a>
-                    <p>Clubs</p>
-                <input type="radio" name="category" value="clubs" value="<%=locals.oldData ? oldData.category : null %> ">
-                </div>
-                <div class="selection-inputs" >
-                    <a class="icon-properties" ><img src="/images/smart-shoe.png" alt=""></a>
-                    <p>Shoes</p>
-                <input type="radio" name="category" value="shoes" value="<%=locals.oldData ? oldData.category : null %> ">
-                </div>
-                <div class="selection-inputs" >
-                    <a class="icon-properties" ><img src="/images/golf-sets.png" alt=""></a>
-                    <p>Sets</p>
-                <input type="radio" name="category" value="sets" value="<%=locals.oldData ? oldData.category : null %> ">
-                </div>
-                
+                <select class="categories" name="categories" id="">
+                    <% categories.forEach(category => { %> 
+                        <option value="<%=category.id%>">
+                            <%=category.name %> 
+                        </option>
+                        <% }) %>
+                </select>
               
             </div>
-
-           
-
     </section>
     <section>
         <div class="detailed-description">
@@ -55,26 +35,37 @@
                 <p>Nombre del producto</p>
                 <% if (locals.errors && errors.name) { %>   
                 <span class="error-msg"><%= errors.name.msg %> </span>
-                <% } %> 
-                <input type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %> ">
+                <% } %>
+                 
+                <input id="name" type="text" name="name" placeholder="Nombre" value="<%=locals.oldData ? oldData.name : null %>">
+                <span class="error-msg" id="nameError"></span>
                 <p>Descripción</p>
-                <textarea class="description"  name="description" value="<%=locals.oldData ? oldData.description : null %> " placeholder="Agregue una descripción" ></textarea>
+                <textarea class="description" id="description" name="description" value="<%=locals.oldData ? oldData.description : null %> " placeholder="Agregue una descripción" ></textarea>
+                <span class="error-msg" id="descriptionError"></span>
                 <p>Precio</p>
                 <% if (locals.errors && errors.price) { %>   
                     <span class="error-msg"><%= errors.price.msg %> </span>
                     <% } %> 
-                <input type="number" name="price" placeholder="Ej. $ 1,500" value="<%=locals.oldData ? oldData.price : null %> " >
+                <input type="number" id="price" name="price" placeholder="Ej. $ 1,500" value="<%=locals.oldData ? oldData.price : null %> " >
+                <span class="error-msg" id="priceError"></span>
                 <p>Cantidad</p>
                  <% if (locals.errors && errors.quantity) { %>   
                 <span class="error-msg"><%= errors.quantity.msg %> </span>
-                <% } %> 
-                <input type="number" name="quantity" placeholder="Ej. 500" value="<%=locals.oldData ? oldData.quantity : null %> " >
+                <% } %>
+                <input type="number" id="quantity" name="quantity" placeholder="Ej. 500" value="<%=locals.oldData ? oldData.quantity : null %> " >
+                <span class="error-msg" id="quantityError"></span>
                 <p>Talle</p>
                 <input type="text" name="size" placeholder=""value="<%=locals.oldData ? oldData.size : null %> " >
                 <p>Color</p>
                 <input type="text" name="color" placeholder="" value="<%=locals.oldData ? oldData.color : null %> ">
                 <p>Marca</p>
-                <input type="text" name="brand" placeholder="" value="<%=locals.oldData ? oldData.brand : null %> ">
+                
+                <select class="brands" name="brand" id="">
+                    <% brands.forEach(brand => { %> 
+                    <option value="<%=brand.id%> "><%=brand.name%></option>
+                    <%  }) %> 
+                </select>
+               
                 </div>
 
            
@@ -83,13 +74,20 @@
 
     </section>
     <section>
-        
+       
         <div class="img-section">
+            <% if (locals.errors && errors.image) { %>
+                <span class="error-msg">
+                    <%= errors.image.msg %>
+                </span>
+                <% } %>
             <h2> Agrega la imagen del producto</h2>
-           
-                <input type="file" name="productimg">
-           
-        </div>
+                <input id="image" type="file" name="image">
+                <span class="error-image-msg" id="imageError"></span>
+                
+                
+        
+      
         <div class="buttons">
         <button class="erase-button" type="reset">
             Borrar
@@ -98,9 +96,12 @@
             Confirmar
         </button>
         </div>
+    </div>
     </form>
-    </section>
+</section>
 </main>
+<script src="/javascripts/createProduct.js" defer></script>
     <!--Footer-->
     <%- include('../partials/footer.ejs') %>
+    
 </body>

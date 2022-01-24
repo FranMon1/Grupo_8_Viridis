@@ -7,7 +7,7 @@
 
     <main class="main-cart">
         
-        <div class="contenedor-main-cart">
+        <!-- <div class="contenedor-main-cart">
             <div class="item01">
                 <img src="/images/G425Iron_7cavityRender.png" alt="">
                 <a class="name-product" href="">Nombre del Producto</a>
@@ -20,46 +20,14 @@
                     <a class="box2" href=""> 2 </a>
                     <a class="boxplus" href=""> +</a>
                 </div>
-
-            </div>
-        
-        
-            <div class="item01">
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <a class="name-product" href="">Nombre del Producto</a>
-                <div class="delete-button"><i class="fas fa-times"></i></div>
-                
-                <a class="product-price" href="">$ 4,500</a>
-                <a class="more-products" href="/">Ver más productos..</a>
-                <div class="more-less-products">
-                    <a class="boxminus" href=""> - </a>
-                    <a class="box2" href=""> 2 </a>
-                    <a class="boxplus" href=""> +</a>
-                </div>
-
-
-            </div>
-            <div class="item01">
-                <img src="/images/G425Iron_7cavityRender.png" alt="">
-                <a class="name-product" href="">Nombre del Producto</a>
-                <div class="delete-button"><i class="fas fa-times"></i></div>
-                
-                <a class="product-price" href="">$ 4,500</a>
-                <a class="more-products" href="/">Ver más productos..</a>
-                <div class="more-less-products">
-                    <a class="boxminus" href=""> - </a>
-                    <a class="box2" href=""> 2 </a>
-                    <a class="boxplus" href=""> +</a>
-                </div>
-
-            </div>
-            <div class="Subtotal">
-                $ 15,750
-            </div>
+          -->
+        <div class="cartProduct" id="cartProduct">
+        <p class="productName" id="productName"></p>
+            <img id="productImg" src="" alt="">
         </div>
-
-
+        <div id="subtotal" class="subtotal"></div>
     </main>
+    <script src="/javascripts/cartList.js"></script>
         <!--------FOOTER-->
     <%- include("../partials/footer.ejs")  %>  
 

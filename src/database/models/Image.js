@@ -8,7 +8,12 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            notNull: true
+        },
+        products_id: {
+            type: dataTypes.INTEGER,
+            notNull: true
         }
     }
 
@@ -20,13 +25,9 @@ module.exports = (sequelize, dataTypes) => {
     const Image = sequelize.define(alias, cols, config);
 
     Image.associate = function (models) {
-
-        Image.belongsToMany(models.Product, {
-            as: "images",
-            through: "product_images",
-            foreignKey: "images_id",
-            otherKey: "products_id",
-            timestamps: false
+        Image.belongsTo(models.Product, {
+            as: "products",
+            foreignKey: "products_id"
         })
     }
 

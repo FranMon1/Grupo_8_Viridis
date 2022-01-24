@@ -9,6 +9,7 @@ const productRouter = require('./routes/products.js');
 const cookieParser = require('cookie-parser')
 const userLoggedMw = require("./middlewares/userLoggedMw.js")
 
+
 // Session
 app.use(session({
     secret: 'Secreto',
@@ -17,6 +18,7 @@ app.use(session({
 }));
 app.use(cookieParser())
 app.use(userLoggedMw);
+
 
 app.use(methodOverride('_method'))
 
