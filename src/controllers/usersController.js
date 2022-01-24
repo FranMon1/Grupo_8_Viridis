@@ -5,6 +5,7 @@ const { validationResult } = require('express-validator');
 //const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
+const res = require('express/lib/response');
 
 
 
@@ -119,8 +120,41 @@ let usersController = {
       res.clearCookie('userEmail')
       req.session.destroy();
       res.redirect('/')
-   }
-};
+   },
+
+   apiList: (req, res)=> {
+      db.User.findAll({attributes:{exclude:['password', 'roles_id']}})
+   .then(users =>{
+      return res.status(200).json({
+         total: users.length,
+         data: users,
+         status: 200
+      })
+   })
+},
+
+apiDetail: function (req, res) {
+   db.User.findOne({attributes:{exclude:['password', 'roles_id','user_image']}},{
+       where: {
+           id: req.params.id
+       }})
+   .then(user => {
+      res.status(200).json({
+           status: 200,
+           user: user,
+           image: `http://localhost:3000/users/api/${req.params.id}/image`
+       })
+   })
+},
+image: function (req, res) {
+   db.User.findOne({where: {
+       id: req.params.id
+   }})
+   .then(user => {
+      res.render('users/image', {user:user});
+})
+}
+}  
 
 
 module.exports = usersController;
@@ -128,28 +162,3 @@ module.exports = usersController;
 
 
 
-
-
-/* create : function (req, res) {
-   var registerErrors = validationResult(req);
-
-   if (registerErrors.errors.length > 0) {
-      return res.render('users/register', {
-         errors: registerErrors.mapped(),
-         oldData: req.body
-      });
-   }else{ 
-       let usuario = {
-         id: User.newId(),
-         ...req.body,
-          password: bcrypt.hashSync(req.body.password, 10), 
-          imagenUsuario: req.file ? req.file.filename : "default-placeholder.png"
-          
-         
-      }                
-      usuarios.push(usuario);
-     let nuevoUsuarioJson = JSON.stringify(usuarios, null, 4);
-
-     fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), nuevoUsuarioJson)
-   } res.redirect("/users/login");
-}, */

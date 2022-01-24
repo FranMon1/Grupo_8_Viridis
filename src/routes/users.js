@@ -63,6 +63,13 @@ router.get('/logout', usersController.logout)
 router.get('/editprofile/:id', authMw, usersController.edit);
 router.put('/editprofile/:id',uploadUserImg.single ("productimg"),  usersController.update)
 
+//Api 
+
+router.get('/api', usersController.apiList);
+router.get('/api/:id', usersController.apiDetail);
+router.get('/api/:id/image', usersController.image);
+
+
 
 module.exports = router;
 
