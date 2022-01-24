@@ -249,7 +249,8 @@ let productsController = {
         res.redirect("create")
     },
     bringApi: function (req, res) {
-        
+        db.Image.findAll()
+        .then(image => {
         db.Product.findAll()
         .then(product => {
             console.log(product[2])
@@ -260,10 +261,12 @@ let productsController = {
                     status: 200,
                     product: product,
                     productCount: product.length,
-                    category: category
+                    category: category,
+                    image: image
                 });
             });
         })
+    })
     },
     bringSingleApi: function (req, res) {
         db.Product.findOne({
