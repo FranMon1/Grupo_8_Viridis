@@ -7,8 +7,8 @@
     const numbers = data.map(Number) // Recibe todos los parametros de la variable string, solo deja los numeros pero queda todo el resto como NaN
     const carrito = numbers.filter(n =>
         !Number.isNaN(n));
-      console.log(carrito) 
-console.log(data);
+      console.log(carrito);
+      console.log(data);
 
 
     
@@ -45,6 +45,7 @@ console.log(data);
             } 
            }
           }
+
         });
 
 

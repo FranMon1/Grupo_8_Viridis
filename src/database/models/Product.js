@@ -34,8 +34,19 @@ let cols = {
         },
         categories_id: {
             type: dataTypes.INTEGER(11)
+        },
+        link: {
+            type: dataTypes.VIRTUAL,
+            get() {
+                return `http://localhost:3000/products/product/${this.id}`;
+              },
+              set() {
+                throw new Error('Do not try to set the `fullName` value!');
+              }
         }
+        
 }
+
 
 let config = {
     tableName: "products",

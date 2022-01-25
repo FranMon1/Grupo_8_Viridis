@@ -2889,8 +2889,8 @@ header a {
   width: 5vw;
   height: 5vw;
   position: fixed;
-  top: 5%;
-  right: 5%;
+  top: 5vw;
+  right: 5vw;
   z-index: 12;
   
 }
@@ -2901,7 +2901,7 @@ header a {
 .cart_icon i{
   background: none;
   color: #b2ff59;
-  font-size: 2rem;
+  font-size: 2vw;
 }
 
 .cart_icon .cart_number {
@@ -2915,8 +2915,8 @@ header a {
   width: 2vw;
   height: 2vw;
   position: fixed;
-  top: 10%;
-  right: 5%;
+  top: 8.5vw;
+  right: 5vw;
   z-index: 12;
   color:rgba(255, 255, 255, 1);
   font-size: 1.2rem

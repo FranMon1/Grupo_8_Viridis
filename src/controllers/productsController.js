@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require("express-validator");
-const{ Op }= require("sequelize");
+const{ Op } = require("sequelize");
+
 
 
 
@@ -216,19 +217,26 @@ let productsController = {
         })
       
     },
-    search: function (req, res) {
-        db.Product.findOne({
+    search: async function (req, res) {
+        try{
+            let productos = await db.Product.findAll();
+            let imagenes = await db.Image.findAll();
+        let resultado = await db.Product.findOne({
             where: {
                 name: {[Op.like] : "%" + req.query.keyword + "%"}
-        }}).then(resultado => { 
-            db.Image.findOne({
+        }}) 
+        let images = await db.Image.findOne({
                 where: {
                     products_id: resultado.id
                 }
-            }).then (images => {
-            return res.render("products/product", {images: images, product: resultado})
-        })
-        }).catch(err => { return res.send("error")})
+            })
+            return res.render("products/product", {
+                image: images,
+                product: resultado, 
+                productos: productos,
+                imagenes: imagenes})
+        
+        }catch(e) {return res.send("error")} 
     },
     category: function(req, res){
         db.Category.findAll().then(resultado =>{
@@ -247,45 +255,56 @@ let productsController = {
             })
         }
         res.redirect("create")
-    },
-    bringApi: function (req, res) {
-        db.Image.findAll()
-        .then(image => {
-        db.Product.findAll()
-        .then(product => {
-            console.log(product[2])
-            db.Category.findAndCountAll()
-            .then(category => {
-                
-                res.status(200).json({
-                    status: 200,
-                    product: product,
-                    productCount: product.length,
-                    category: category,
-                    image: image
-                });
+    }, bringApi: async function(req, res) {
+
+        try {
+
+            let product = await db.Product.findAll(
+                {
+                attributes: { 
+                    exclude: 
+                    [ "price", "quantity", "size", "color", "sizes", "brands_id", "categories_id"]},
+                include: {all: true}
             });
+           
+            let images = await db.Image.findAll()
+            let categories = await db.Category.findAll({
+                include: {
+                    all: true
+                }})
+        return res.status(200).json({
+            status: 200,
+            productsCount: product.length,
+            allCategoryProducts: categories,
+            products: product,
+            image: images
         })
-    })
+        } catch(e) {
+            res.json(e)
+        }
     },
-    bringSingleApi: function (req, res) {
-        db.Product.findOne({
-            where: {
-                id: req.params.id
-            }})
-        .then(product => {
-        db.Image.findOne({
-            where: {
-                products_id: product.id
-            }})
-        .then(image => {
-            res.status(200).json({
-                status: 200,
-                product: product,
-                image: `http://localhost:3000/products/api/${req.params.id}/image`
-            })
-        })
-    })
+    bringSingleApi: async function (req, res) {
+
+        try {
+            let product = await db.Product.findOne({
+                include: { all: true}
+            },{
+                where: {
+                    id: req.params.id
+                }});
+
+            let image = await db.Image.findOne({
+                    where: {
+                        products_id: req.params.id
+                    }})
+                  return  res.status(200).json({
+                        status: 200,
+                        product: product,
+                        image: `http://localhost:3000/products/api/${req.params.id}/image`
+                    })         
+        } catch(e){
+            return res.json(e)
+        }
     },
     image: function (req, res) {
         db.Image.findOne({where: {
