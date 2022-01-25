@@ -6,6 +6,7 @@ const multer = require('multer');
 const adminMw = require('../middlewares/adminMw.js');
 const validationsCreate = require("../middlewares/validationsProductMw.js");
 const validationsEdit = require("../middlewares/editProductMw.js");
+const cors = require('cors');
 
 
 // Validacion de Imagen
@@ -76,7 +77,7 @@ router.delete ('/inventory/:id', productsController.delete);
 router.get("/inventory/search", productsController.search)
 
 // API
-router.get('/api', productsController.bringApi)
+router.get('/api', cors(), productsController.bringApi)
 router.get('/api/:id', productsController.bringSingleApi)
 router.get('/api/:id/image', productsController.image)
 
