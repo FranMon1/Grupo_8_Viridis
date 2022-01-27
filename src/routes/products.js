@@ -78,8 +78,8 @@ router.get("/inventory/search", productsController.search)
 
 // API
 router.get('/api', cors(), productsController.bringApi)
-router.get('/api/:id', productsController.bringSingleApi)
-router.get('/api/:id/image', productsController.image)
+router.get('/api/:id', cors(), productsController.bringSingleApi)
+router.get('/api/:id/image', cors(), productsController.image)
 
 module.exports = router;
 

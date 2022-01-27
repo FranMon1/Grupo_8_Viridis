@@ -2,14 +2,15 @@
     <div class='header'>
         <div class="left-box">
         <a href="/" class="logo"><img src='/images/Logo-blanco.png' href=''></a>
-
+            <form class="form-buscador" action="/search" method="GET">
         <div class='buscador'>
 
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Barra de busqueda">
-            
-        
+            <i style="border-right: 1px white solid;" class="fas fa-search"></i>
+            <input type="text" id="keyword" name="keyword" placeholder="Barra de busqueda">
+            <button class="search-index-button" type="submit"><i style="justify-self: flex-end;"class="fas fa-arrow-circle-right"></i></button>
+
         </div>
+    </form>
     </div>
     <div class="right-box">
         <div class="nav-bar">

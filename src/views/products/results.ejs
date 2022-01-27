@@ -1,0 +1,30 @@
+<%- include("../partials/head.ejs") %>
+
+<body>
+    <!--Header-->
+    <head></head>
+    <%- include("../partials/header.ejs")  %> 
+    <section class="search_results">
+
+        <h3>Results for </h3>
+<%products.forEach(product => { %> 
+    <a href="/products/product/<%=product.id%>">
+    <div class="result_item">
+        <% for( let i = 0; i < images.length; i++ ) { %>
+            <% if (images[i].products_id === product.id) { %>
+            <img src="/images/products/<%=images[i].name%>" alt="">
+            <% } %>
+            <% } %>
+    <div class="results_item_data">
+        <p>$ <%=product.name%></p>
+        <p>$ <%=product.price%></p>
+   
+    </div>
+    </div>
+</a> 
+<% }) %> 
+
+    </section>
+    <%- include("../partials/footer.ejs")  %>    
+    
+</body>
