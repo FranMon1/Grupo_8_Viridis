@@ -361,6 +361,61 @@
   z-index: 2;
   margin-top: 5vw;
 }
+
+.bg-panel2 {
+  background: #e5fd0d;
+  width: 40vw;
+  height: 50vw;
+  position: absolute;
+  top: 8.5%;
+  right: 0%;
+  z-index: 2;
+  margin-top: 5vw;
+}
+
+.bg-panel3 {
+  background: #12c8ff;
+  width: 40vw;
+  height: 50vw;
+  position: absolute;
+  top: 8.5%;
+  right: 0%;
+  z-index: 2;
+  margin-top: 5vw;
+}
+
+.bg-panel4 {
+  background: #fcfcfc;
+  width: 40vw;
+  height: 50vw;
+  position: absolute;
+  top: 8.5%;
+  right: 0%;
+  z-index: 2;
+  margin-top: 5vw;
+}
+
+.bg-panel5 {
+  background: #111111;
+  width: 40vw;
+  height: 50vw;
+  position: absolute;
+  top: 8.5%;
+  right: 0%;
+  z-index: 2;
+  margin-top: 5vw;
+}
+
+.bg-panel6 {
+  background: #ff6868;
+  width: 40vw;
+  height: 50vw;
+  position: absolute;
+  top: 8.5%;
+  right: 0%;
+  z-index: 2;
+  margin-top: 5vw;
+}
 .main-section-buttons {
   display: flex;
   flex-direction: column;

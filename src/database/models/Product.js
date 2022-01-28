@@ -43,7 +43,16 @@ let cols = {
               set() {
                 throw new Error('Do not try to set the `fullName` value!');
               }
-        }
+        },
+        image: {
+            type: dataTypes.VIRTUAL,
+            get() {
+                return `http://localhost:3000/products/product/${this.id}`;
+              },
+              set() {
+                throw new Error('Do not try to set the `fullName` value!');
+              }
+        },
         
 }
 

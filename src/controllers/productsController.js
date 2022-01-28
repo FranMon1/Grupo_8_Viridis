@@ -263,7 +263,7 @@ let productsController = {
                 {
                 attributes: { 
                     exclude: 
-                    [ "price", "quantity", "size", "color", "sizes", "brands_id", "categories_id"]},
+                    ["quantity", "size", "color", "sizes", "brands_id", "categories_id"]},
                 include: {all: true}
             });
            
@@ -277,7 +277,8 @@ let productsController = {
             productsCount: product.length,
             allCategoryProducts: categories,
             products: product,
-            image: images
+            image: images,
+            image: `http://localhost:3001/products/api/${product.id}/image`
         })
         } catch(e) {
             res.json(e)
@@ -300,7 +301,7 @@ let productsController = {
                   return  res.status(200).json({
                         status: 200,
                         product: product,
-                        image: `http://localhost:3000/products/api/${req.params.id}/image`
+                        image: `http://localhost:3001/products/api/${req.params.id}/image`
                     })         
         } catch(e){
             return res.json(e)

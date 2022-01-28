@@ -15,15 +15,15 @@
     const subtotal = qs("#subtotal")
     let total = 0;
  
-    fetch("http://localhost:3000/products/api")
+    fetch("http://localhost:3001/products/api")
             .then(response =>  response.json())
             .then(prod =>  {
-                console.log(prod.product)
+                console.log(prod.images)
                
-           for(let i = 0; i < prod.product.length; i++) {
+           for(let i = 0; i < prod.products.length; i++) {
                for( let j = 0; j < carrito.length; j++) {
                 
-              if(prod.product[i].id === carrito[j]) {
+              if(prod.products[i].id === carrito[j]) {
               
                
                 const nombre = document.createElement("p");
@@ -31,15 +31,15 @@
                 const precio = document.createElement("h4");
                 
                
-              nombre.innerText =  prod.product[i].name;
-              precio.innerText =  "$ " + prod.product[i].price;
-              imagen.setAttribute('src', `/images/products/${prod.image[i].name}`); 
+              nombre.innerText =  prod.products[i].name;
+              precio.innerText =  "$ " + prod.products[i].price;
+              imagen.setAttribute('src', `/images/products/${prod.products[i].images[0].name}`); 
               console.log(imagen);
               cartProduct.innerHTML += "<div>" + imagen.outerHTML + nombre.outerHTML + precio.outerHTML +  "</div>" 
               console.log(cartProduct)
               
              
-               total += +prod.product[i].price
+               total += +prod.products[i].price
             console.log(total);
                 subtotal.innerText = "$ " + total
             } 
