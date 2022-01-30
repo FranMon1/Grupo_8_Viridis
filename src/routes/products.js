@@ -81,5 +81,13 @@ router.get('/api', cors(), productsController.bringApi)
 router.get('/api/:id', cors(), productsController.bringSingleApi)
 router.get('/api/:id/image', cors(), productsController.image)
 
+// Ruta Categorias
+
+router.get("/clubs", productsController.categoryClubs);
+router.get("/shoes", productsController.categoryShoes);
+router.get("/accesories", productsController.categoryAccesories);
+router.get("/bags", productsController.categoryBags);
+router.get("/sets", productsController.categorySets);
+
 module.exports = router;
 

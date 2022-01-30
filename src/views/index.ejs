@@ -51,23 +51,23 @@
         <div class="main-section-buttons">
             
             <div class="button-clubs">
-                    <a href="#"><img id="clubImg" src="/images/golfing.png"></a>
+                    <a href="/products/clubs"><img id="clubImg" src="/images/golfing.png"></a>
                     <p class="section-clubs"> Clubs </p>
             </div>
             <div class="button-bags">
-                <a href="#"><img id="bagsImg" src="/images/caddy.png" alt=""></a>
+                <a href="/products/bags"><img id="bagsImg" src="/images/caddy.png" alt=""></a>
                 <p class="section-bags"> Bags </p>
             </div>
             <div class="button-shoes">
-                <a href="#"><img id="shoesImg" src="/images/smart-shoe.png" alt=""></a>
+                <a href="/products/shoes"><img id="shoesImg" src="/images/smart-shoe.png" alt=""></a>
                 <p class="section-shoes"> Shoes </p>
             </div>
             <div class="button-golfballs">
-                <a href="#"><img id="golfballsImg" src="/images/golf-ball-with-dents.png" alt=""></a>
+                <a href="/products/accesories"><img id="golfballsImg" src="/images/golf-ball-with-dents.png" alt=""></a>
                 <p class="section-golfballs"> Accesories </p>
             </div>
             <div class="button-sets">
-                <a href="#"><img id="setsImg" src="/images/golf-sets.png" alt=""></a>
+                <a href="/products/sets"><img id="setsImg" src="/images/golf-sets.png" alt=""></a>
                 <p class="section-sets"> Sets </p>
             </div>
             <!-- <div class="membership-discounts"> 
@@ -117,9 +117,7 @@
                <% if (productos[i].id == img.products_id) { %>
                 <img src="/images/products/<%=img.name%>" alt="">
                <% } %>
-            <% }) %>
-                
-                      
+            <% }) %>       
                     <div class="img-container-data">
                     <h4><%=productos[i].name%></h4>
                     <span>$ <%= productos[i].price%></span>
@@ -127,11 +125,8 @@
                     </div>       
             </a>
             </section>
-        
             <% } %>
-            
         </div>
-       
     </section>
        
     </main>

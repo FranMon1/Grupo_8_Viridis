@@ -4,9 +4,6 @@ const db = require('../database/models');
 const { validationResult } = require("express-validator");
 const{ Op } = require("sequelize");
 
-
-
-
 let archivoProductos = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8');
 let productos = JSON.parse(archivoProductos)
 
@@ -21,18 +18,17 @@ return ultimo + 1;
 
 }
 
-
-
 let productsController = {
-    index: function (req, res){
-         db.Product.findAll().then(productos => {
-            db.Image.findAll()
-            .then(image =>{
-        return res.render("products/products", {productos: productos, image: image});
-           })
-        })
-            
-    
+    index: async function (req, res){
+        try {
+            let productos =  await db.Product.findAll()
+            let images = await db.Image.findAll()
+            return res.render("products/products", {productos: productos, image: images});
+           
+            } catch (e) {
+                res.json(e)
+            }
+        
     },
     product: (req, res) =>{
         db.Product.findOne({
@@ -314,7 +310,73 @@ let productsController = {
         .then(image => {
         res.render('products/image', {image: image});
     })
+    },
+    categoryClubs: async function (req, res) {
+        try {
+            let products = await db.Product.findAll({
+                where: {
+                    categories_id: 1
+                }
+            })
+            let images = await db.Image.findAll()
+            return res.render("products/products", {productos: products, image: images})
+        } catch(e) {
+        return res.json(e)
+        }
+    },
+    categoryShoes: async function (req, res) {
+        try {
+            let products = await db.Product.findAll({
+                where: {
+                    categories_id: 2
+                }
+            })
+            let images = await db.Image.findAll()
+            return res.render("products/products", {productos: products, image: images})
+        } catch(e) {
+        return res.json(e)
+        }
+    },
+    categoryAccesories: async function (req, res) {
+        try {
+            let products = await db.Product.findAll({
+                where: {
+                    categories_id: 3
+                }
+            })
+            let images = await db.Image.findAll()
+            return res.render("products/products", {productos: products, image: images})
+        } catch(e) {
+        return res.json(e)
+        }
+    },
+    categoryBags: async function (req, res) {
+        try {
+            let products = await db.Product.findAll({
+                where: {
+                    categories_id: 4
+                }
+            })
+            let images = await db.Image.findAll()
+            return res.render("products/products", {productos: products, image: images})
+        } catch(e) {
+        return res.json(e)
+        }
+    },
+    categorySets: async function (req, res) {
+        try {
+            let products = await db.Product.findAll({
+                where: {
+                    categories_id: 5
+                }
+            })
+            let images = await db.Image.findAll()
+            return res.render("products/products", {productos: products, image: images})
+        } catch(e) {
+        return res.json(e)
+        }
     }
+    
           
 };
 
