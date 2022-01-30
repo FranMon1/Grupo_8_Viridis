@@ -21,23 +21,24 @@
             </div>
         </div>
         <div class='selectedproducts-showing'>
-        <% productos.forEach(product => { %>
+       
         
-          <section class="img-container">
-                <a href="/products/product/<%=product.id%>" >
+            <% for(let i = 0; i < productos.length; i++) { %> 
+                <section class='img-container'>
+                <a href="/products/product/<%=productos[i].id%>" >
                     <% image.forEach(img=> { %>
-                        <% if (product.id==img.products_id) { %>
-                            <img src="/images/products/<%=img.name%>" alt="">
-                            <% } %>
-                                <% }) %>
-                    <div class="img-container-data">
-                        <h4><%=product.name%></h4>
-                        <span><%= product.price%></span>
-                        <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p> 
-                    </div>     
+                   <% if (productos[i].id == img.products_id) { %>
+                    <img src="/images/products/<%=img.name%>" alt="">
+                   <% } %>
+                <% }) %>       
+                        <div class="img-container-data">
+                        <h4><%=productos[i].name%></h4>
+                        <span>$ <%= productos[i].price%></span>
+                        <p> Agregar a Carrito <button class="add-to-cart" value="<%=productos[i].id%>"><i class="fas fa-shopping-cart"></i></button></p>
+                        </div>       
                 </a>
-            </section>
-        <% } ) %>
+                </section>
+                <% } %>
     </div>
     </main>
   <!--Footer-->
