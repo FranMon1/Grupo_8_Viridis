@@ -101,10 +101,11 @@
 
         <div class="main-sub-categorias">
 
-            <a h>Clubs</a>
-            <a>Indumentaria</a>
-            <a>Mochilas</a>
-            <a>Sets</a>
+            <a href="/products/clubs">Clubs</a>
+            <a href="/products/shoes">Shoes</a>
+            <a href="/products/bags">Bags</a>
+            <a href="/products/accesories">Accesories</a>
+            <a href="/products/sets">Sets</a>
 
         </div>
        
@@ -121,7 +122,7 @@
                     <div class="img-container-data">
                     <h4><%=productos[i].name%></h4>
                     <span>$ <%= productos[i].price%></span>
-                    <p> Agregar a Carrito <button class="add-to-cart" value="<%=productos[i].id%>"><i class="fas fa-shopping-cart"></i></button></p>
+                    <p> Agregar a Carrito </p><button class="add-to-cart" value="<%=productos[i].id%>"><i class="fas fa-shopping-cart"></i></button>
                     </div>       
             </a>
             </section>

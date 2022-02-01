@@ -1,13 +1,13 @@
 <header>
     <div class='header'>
         <div class="left-box">
-        <a href="/" class="logo"><img src='/images/Logo-blanco.png' href=''></a>
+        <a href="/" class="logo"><img src='/images/Logo-blanco-v.png' href=''></a>
             <form class="form-buscador" action="/search" method="GET">
         <div class='buscador'>
 
-            <i style="border-right: 1px white solid;" class="fas fa-search"></i>
-            <input type="text" id="keyword" name="keyword" placeholder="Barra de busqueda">
-            <button class="search-index-button" type="submit"><i style="justify-self: flex-end;"class="fas fa-arrow-circle-right"></i></button>
+            <i style="border-right: 1px white solid; width: 3vw" class="fas fa-search"></i>
+            <input type="text" id="keyword" name="keyword" placeholder="Search">
+            <button class="search-index-button" type="submit"><i class="fas fa-arrow-circle-right"></i></button>
 
         </div>
     </form>
@@ -18,7 +18,6 @@
             <a href="/products">Productos</a>
               <% if ((locals.userLogged != null) && (locals.userLogged.email == "admin@admin.com")) { %>
                 <a href="/products/inventory">Inventario</a>
-                <a href="/products/cart">Carrito</a>
                 <a href="/products/create">Crear Producto</a>
               
                 <% } %>
@@ -29,8 +28,8 @@
         <div class="hamburguer-menu"><i class="fas fa-bars"></i></div>
         <% if (locals.isLogged) { %>
             <div class="header_profile">
-            <a class="profile_access"href="/users/profile"><i class="fas fa-user-circle"></i>
-            <h3>Hola <%=locals.userLogged.nombre %>!</h3></a>
+            <a class="profile_access" href="/users/profile"><i class="fas fa-user-circle"></i>
+            <h3>Hola <%=locals.userLogged.name %>!</h3></a>
         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
         <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>

@@ -30,30 +30,27 @@ let productsController = {
             }
         
     },
-    product: (req, res) =>{
-        db.Product.findOne({
-            where:{
-                id: req.params.id
-            }
-        })
-        .then(product => {
-            db.Image.findOne({
-                where: {
-                    products_id: product.id
-                }
-            }).then(image => {
-                db.Product.findAll()
-                .then(productos => {
-                    db.Image.findAll()
-                .then(imagenes => {
-        return res.render("products/product", {product: product, image: image, productos: productos, imagenes: imagenes});
+    product: async function (req, res) {
+        try {
 
-                    })
+        let product = await db.Product.findOne({
+            where:{ id: req.params.id }})
 
-                })
-            })
-        })
-      
+        let image = await db.Image.findOne({
+            where: { products_id: product.id }})
+
+        let category = await db.Category.findOne({
+            where:{ id: product.categories_id }})
+            console.log(category);
+
+        let productos = await db.Product.findAll()
+        let imagenes = await db.Image.findAll()
+
+                
+        return res.render("products/product", {product: product, category: category, image: image, productos: productos, imagenes: imagenes});
+    } catch(e) {
+        res.json(e)
+    }
       
     },
 

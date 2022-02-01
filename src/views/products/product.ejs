@@ -10,24 +10,25 @@
          
             <div class="contenedor-padre1">
                 <section class="contenedor-main-product1">
-                    <div class="columna1">
-                        
-                        <img class="detalles" src="/images/products/<%=image.name%>">
-
-                    </div>
+                   <img src="/images/products/<%=image.name%>">
                 </section>
+
                 <section class="contenedor-main-product2">
                     <div class="columna2">
-                        <img class="i-principal" src="/images/products/<%=image.name%>">
+                        <img src="/images/products/<%=image.name%>">
                     </div>
                 </section>
                 <section class="contenedor-main-product3">
                     <div class="columna3">
-                        <h2><%=product.name%> </h2>
-                        <p>$ <%=product.price%></p>
+                        <h2><%=product.name%></h2>
+                        <h3>Categoría <%=category.name%></h3>
+                        <h4>$ <%=product.price%></h4>
                         <p><%=product.description%></p>
                         <p><%=product.color%></p>
                         <p><%=product.size%></p>
+                    </div>
+                    <div class="product_add_to_cart">
+                        <p>Agregar a Carrito <button class="add-to-cart" value="<%=product.id%>"><i class="fas fa-shopping-cart"></i></button></p>
                     </div>
                     <div class="buttons_detail_product">
                         <% if ((locals.userLogged != null) && (locals.userLogged.email == "admin@admin.com")) { %>
@@ -50,19 +51,15 @@
                 <h2>Más Productos</h2>
         <div class="main-images">
                 <% productos.forEach(one => { %>
-                <section style="flex-wrap: wrap; flex-direction: row;"class='img-container'>
+                <section style="flex-wrap: wrap; flex-direction: row;" class='img-container-product'>
                     <a href="/products/product/<%=one.id%>">
                         <% imagenes.forEach(img=> { %>
                             <% if (one.id==img.products_id) { %>
                                 <img src="/images/products/<%=img.name%>" alt="">
                                 <% } %>
                                     <% }) %>
-                
-                
-                                        <div class="img-container-data">
-                                            <h4>
-                                                <%=one.name%>
-                                            </h4>
+                                        <div class="img-container-data-product">
+                                            <h4><%=one.name%></h4>
                                             <span>$ <%= one.price%></span>
                                             <p> Agregar a Carrito <i class="fas fa-shopping-cart"></i></p>
                                         </div>

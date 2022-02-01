@@ -447,7 +447,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255);
+  background: none;
   width: 8vw;
   padding: 1.8vw;
   border-right: 0.5px solid rgba(0, 0, 0, 0.8);
@@ -509,7 +509,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255);
+  background: none;
   width: 8vw;
   padding: 1.8vw;
   border-right: 1px solid rgba(0, 0, 0, 0.8);
@@ -538,7 +538,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255);
+  background: none;
   width: 8vw;
   padding: 1.8vw;
   border-right: 1px solid rgba(0, 0, 0, 0.8);
@@ -567,7 +567,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255);
+  background: none;
   width: 8vw;
   padding: 1.8vw;
   float: left;
@@ -596,7 +596,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255);
+  background: none;
   width: 8vw;
   padding: 1.8vw;
   border-right: 1px solid rgba(0, 0, 0, 0.8);
@@ -631,44 +631,43 @@
 .button-clubs:hover > .section-clubs {
   opacity: 1;
   visibility: visible;
-  background-color: rgba(255, 255, 255);
+  background: none;
   width: 30vw;
-  color: black;
+  color: white;
 }
 
 .button-clubs:hover > .main_section_img1 {
   opacity: 1;
   visibility: visible;
+  
 }
 .button-bags:hover > .section-bags {
   opacity: 1;
   visibility: visible;
-  background-color: rgba(255, 255, 255);
+  background: none;
   width: 30vw;
-  color: black;
+  color: white;
 }
 .button-shoes:hover > .section-shoes {
   opacity: 1;
   visibility: visible;
-
-  background-color: rgba(255, 255, 255);
+  background: none;
   width: 30vw;
-  color: black;
+  color: white;
 }
 .button-golfballs:hover > .section-golfballs {
   opacity: 1;
   visibility: visible;
-  background-color: rgba(255, 255, 255);
+  background: none;
   width: 30vw;
-  color: black;
+  color: white;
 }
 .button-sets:hover > .section-sets {
   opacity: 1;
   visibility: visible;
-
-  background-color: rgba(255, 255, 255);
+  background: none;
   width: 30vw;
-  color: black;
+  color: white;
 }
 
 /* ------- Bottom Middle sectionn -------- */
@@ -862,10 +861,12 @@
 }
 
 .main-sub-categorias a {
-  font-size: 1.2rem;
-  font-weight: 200;
+  font-size: 1.5rem;
+  font-weight: 300;
   letter-spacing: 2px;
   background: none;
+  text-decoration: none;
+  outline: none;
   color: white;
   cursor: pointer;
 }
@@ -919,6 +920,8 @@
   justify-content: left;
   width: 100%;
 }
+
+
 
 .img-container-data p {
   color: rgba(0, 0, 0, 0.8);
@@ -2366,20 +2369,9 @@ footer {
 
 /* ------------------------- PRODUCT DETAIL -----------------------*/
 
-.main-productejs h2,
-h4 {
-  margin: 10px 10px;
-  background: none;
-}
-
-.main-productejs p {
-  width: 90%;
-  text-align: left;
-  margin: 10px;
-  background: none;
-}
 
 .main-productejs {
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -2388,47 +2380,36 @@ h4 {
 }
 
 .contenedor-padre1 {
-  display: flex;
-  flex-direction: row;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr;
   box-sizing: border-box;
-  width: 100%;
   background: none;
-  justify-content: space-evenly;
+  align-items: center;
+
 }
 
 .contenedor-main-product1 {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  width: 20%;
+  width: 20vw;
+  padding: 0px 50px;
   background: none;
+  align-self: flex-start;
 }
 
-.columna1 {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  flex-wrap: nowrap;
+.contenedor-main-product1  img {
   background: none;
-}
-
-.detalles {
-  margin: 10px;
-  border: solid 1px black;
-  margin-bottom: 15px;
-  align-items: flex-start;
-  box-sizing: border-box;
-  width: 8vw;
-  max-width: 85%;
-  overflow: hidden;
-  background: none;
+  width: 75%
 }
 
 .contenedor-main-product2 {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
+
   background: none;
+  align-self: flex-start;
+}
+
+.contenedor-main-product2 img {
+  width: 40vw
 }
 
 .columna2 {
@@ -2438,27 +2419,20 @@ h4 {
   align-items: center;
   background: none;
 }
-
-.i-principal {
-  width: 30vw;
-}
-
 .contenedor-main-product3 {
   box-sizing: border-box;
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  width: 25%;
-  align-items: flex-end;
+  align-self: flex-start;
   background: none;
+  width: 30vw;
+  padding-right: 100px
 }
 
 .columna3 {
-  display: block;
-  position: absolute;
-  top: 12%;
-  left: 65%;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   align-content: flex-end;
   flex-wrap: nowrap;
@@ -2486,6 +2460,62 @@ h4 {
   background: none;
 }
 
+.columna3 h2 {
+  background: none;
+  font-weight: 300;
+  font-size: 2rem;
+  padding-bottom: 50px;
+}
+
+
+
+.columna3 h3,
+.columna3 h4 {
+  background: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 5px 0px
+}
+
+.columna3 p {
+  padding: 10px 0;
+  background: none;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.contenedor-padre2 h2 {
+  background: none;
+  font-weight: 300;
+ 
+}
+
+.product_add_to_cart {
+  background: none;
+
+}
+.product_add_to_cart p{
+  background: none;
+  
+}
+.product_add_to_cart button {
+
+  outline: none;
+  background: none;
+  border: none;
+}
+
+.product_add_to_cart i:hover {
+  cursor: pointer;
+  color: greenyellow
+}
+
+.product_add_to_cart i {
+  background: none;
+  font-size: 2vw;
+  padding-left: 10px;
+  color: white
+}
 .buttons_detail_product a {
   text-decoration: none;
 }
@@ -2610,6 +2640,102 @@ h4 {
 }
 .relacionados img {
   width: 100%;
+}
+
+
+.img-container-product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: left;
+  background: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 0.5vw;
+  transition: 0.5s;
+  overflow: hidden;
+  width: 150px;
+  margin: 10px;
+}
+
+.img-container-product a {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  text-decoration: none;
+}
+
+.img-container-data-product {
+  background: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  width: 100%;
+}
+
+
+
+.img-container-data-product p {
+  color: rgba(0, 0, 0, 0.8);
+  background: none;
+  margin: 10px;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 300;
+  background: none;
+  text-decoration: none;
+  height: 0;
+  padding: 0;
+  width: 100%;
+  float: right;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.img-container-product img {
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background: none;
+  margin-top: 10px;
+  border-radius: 0.5vw;
+}
+
+.img-container-data-product h4 {
+  color: rgba(0, 0, 0, 0.8);
+  background: none;
+  margin: 10px;
+  overflow: hidden;
+  text-overflow: elipsis;
+  line-height: 2rem;
+  max-height: 2em;
+  -webkit-box-orient: vertical;
+  max-width: 15vw;
+  text-decoration: none;
+}
+
+.img-container-data-product button {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.img-container-data-product span {
+  color: rgba(0, 0, 0, 0.8);
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  background: none;
+  margin: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.img-container:hover .img-container-data p {
+  padding: 1vw 0 2vw 0;
 }
 
 /* ----------------------------- REGISTER ---------------------------*/
@@ -2833,41 +2959,28 @@ h4 {
 .buscador {
   margin-left: 2vw;
   width: 30vw;
-  height: 2.5vw;
-
   background-color: grey;
   padding: 5px;
   color: white;
   border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows:  1fr;
+  align-items: center
+
 }
 .buscador button {
-
-  outline: none;
-  background: grey;
-  border: none;
-}
-
-.search-index-button {
   justify-self: flex-end;
-
-}
-
-.search-index-button button{
   
-  justify-self: end;
   outline: none;
   background: grey;
   border: none;
 }
+
 
 
 .search-index-button button i{
-  display: grid;
-  justify-self: flex-end;
+  align-self: end;
   outline: none;
   background: grey;
   border: none;
@@ -2882,10 +2995,22 @@ h4 {
   color: white;
 }
 
+.buscador button:hover {
+  cursor: pointer;
+  color: greenyellow
+}
+
+.buscador button i:hover {
+  cursor: pointer;
+  color: greenyellow
+}
+
+
 .left-box .buscador input {
   margin-left: 10px;
   font-size: 0.8rem;
   font-weight: 300;
+  width: 20vw;
 }
 
 .nav-bar {
@@ -2930,6 +3055,10 @@ header a {
   background: none;
 }
 
+.header_profile i:hover{
+  cursor: pointer;
+  color: greenyellow
+}
 .buscador input {
   background: none;
   font-weight: 400;
@@ -2948,7 +3077,6 @@ header a {
 .header_profile {
   display: flex;
   flex-direction: row;
-
   align-items: center;
   background: none;
   width: 20vw;
@@ -2957,6 +3085,10 @@ header a {
 .profile_access {
   display: flex;
   flex-direction: row;
+}
+.profile_access:hover {
+  cursor: pointer;
+  color: greenyellow
 }
 .profile_access a {
   background: none;
