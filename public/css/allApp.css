@@ -1363,7 +1363,32 @@ footer {
 
 /* ----------------- CART -------------------*/
 
+.divImgnotFound {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  width: 100%
 
+}
+
+.divImgnotFound p {
+  margin-top: 50px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  background: none;
+  color: white
+}
+.notFound {
+  background: none;
+  width: 20vw;
+  
+}
+.notFound img{
+  background: none;
+
+}
 .header a img {
   background: none;
   width: 10rem;
@@ -1390,32 +1415,33 @@ footer {
   padding: 40px 50px;
 }
 
-.main-cart .cartProduct div {
+.main-cart .cartProduct .wholeProduct {
   
   background: none;
   color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr;
   padding: 50px;
   border-bottom: 1px yellow solid
   
 }
-.main-cart .cartProduct div p {
+.main-cart .cartProduct .wholeProduct p {
   font-size: 1.5rem;
-  margin: 20px;
+  margin-bottom: 20px;
   background: none;
 }
-.main-cart .cartProduct div h4 {
+.main-cart .cartProduct .wholeProduct h4 {
+  font-weight: 300;
   font-size: 2rem;
   margin: 20px;
   background: none;
 }
 
-.main-cart .cartProduct div img {
+.main-cart .cartProduct .wholeProduct img {
   width: 10vw;
 }
+
 .main-cart .subtotal{
   display: flex;
   flex-direction: row;
@@ -1425,7 +1451,27 @@ footer {
   margin: 20px;
   color: white;
   background: none;
- 
+}
+.product_data {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+}
+.removebtn {
+  border: none;
+  background: none;
+  font-weight: 300;
+  color: rgba(255, 0, 0, 0.432);
+  font-size: 1rem;
+}
+.removebtn i {
+  background: none;
+}
+.removebtn:hover {
+  cursor: pointer;
+  color: red
 }
 
 
