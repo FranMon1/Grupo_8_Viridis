@@ -121,10 +121,14 @@
             <% }) %>       
                     <div class="img-container-data">
                     <h4><%=productos[i].name%></h4>
-                    <span>$ <%= productos[i].price%></span>
-                    <p> Agregar a Carrito </p><button class="add-to-cart" value="<%=productos[i].id%>"><i class="fas fa-shopping-cart"></i></button>
-                    </div>       
-            </a>
+                    <span>$ <%=productos[i].price%></span>
+                    </div>
+                    <div class="img-container-data-moving">    
+                    <p> Agregar a Carrito</p>
+                    <button class="add-to-cart" value="<%=productos[i].id%>"><i class="fas fa-shopping-cart"></i></button>
+                    </div>  
+                </a>
+
             </section>
             <% } %>
         </div>
