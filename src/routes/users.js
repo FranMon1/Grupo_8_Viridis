@@ -59,7 +59,7 @@ router.post('/register', uploadUserImg.single("image"), (req, res, next) => {
 // Perfil
 
 router.get('/profile', authMw, usersController.profile);
-//router.get('/userDetail', usersController.detail);
+router.get('/userDetail/:id', usersController.detail);
 router.get('/logout', usersController.logout)
 
 //Editar

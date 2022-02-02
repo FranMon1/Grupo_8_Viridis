@@ -13,8 +13,13 @@
                     
                     <div class="edit_profile_button">
                         <a href="/users/editprofile/<%=user.id%>" >Editar</a>
+                    </div>
+                    <% if ((locals.userLogged != null) && (locals.userLogged.email == "admin@admin.com")) { %>
+                        <div class="edit_profile_button">
+                            <a href="http://localhost:3000" >Dashboard</a>
                         </div>
-
+                      
+                        <% } %>
 
 
         </div>

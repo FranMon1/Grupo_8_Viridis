@@ -6,7 +6,7 @@ window.addEventListener("load", function () {
 
     const email = qs("#email");
     const password = qs("#password");
-    const regexValidationEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    const regexEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 
 
@@ -26,8 +26,13 @@ window.addEventListener("load", function () {
 
         // Email Error
 
-        if (userLogin.email.value.length <= 0) {
+        if (form.email.value.length <= 0) {
             errores.email = "Debe ingresar un email valido";
+            emailError.innerText = errores.email;
+            email.style = "border: 2px solid red";
+            emailError.style = "margin-bottom: 15px";
+        } else if (!regexEmail.test(form.email.value)) {
+            errores.email = 'Debe ser un email valido';
             emailError.innerText = errores.email;
             email.style = "border: 2px solid red";
             emailError.style = "margin-bottom: 15px";
