@@ -10,8 +10,8 @@
                 <div class="titulo-login">
                     <p>Inicia Sesión</p>
                 </div>
-                <div class="form-login">
-                    <form id="userLogin" action="/users/login" method="post">
+                <div class="form-login position-re">
+                    <form id="userLogin" action="/users/login" method="post" >
                         <input type="text" name="email" id="email" value="<%=locals.oldData ? oldData.email : null %>" placeholder="Email">
                          <% if (locals.errors && errors.email) { %>
                             <span class="error-msg"><%=errors.email.msg%></span>
@@ -22,6 +22,7 @@
                         <% if (locals.errors && errors.password) { %>
                             <span class="error-msg"><%=errors.password.msg%></span>
                         <% } %>
+                        <span class="fas fa-eye-slash" id="ojito"></span>
                         <span class="error-msg" id="passwordError"></span>
 
                         <label class="rememberpass">
@@ -50,6 +51,7 @@
         </section>
     </main>
 <script src="/javascripts/userLogin.js"></script>
+<script src="/javascripts/passwordEye.js"></script>
 
 
     <!--------FOOTER-->

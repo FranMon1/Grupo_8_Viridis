@@ -5,8 +5,11 @@ const validationsLoginMw = require('../middlewares/validationsLoginMw.js');
 const registerValidationMw = require ('../middlewares/registerMw.js');
 const guestMw = require('../middlewares/guestMw');
 const authMw = require('../middlewares/authMW');
+const adminMw = require('../middlewares/adminMw.js');
 const path = require ('path');
 const multer = require('multer');
+const cors = require('cors');
+
 
 
 /* Configuración de Multer  */
@@ -56,6 +59,7 @@ router.post('/register', uploadUserImg.single("image"), (req, res, next) => {
 // Perfil
 
 router.get('/profile', authMw, usersController.profile);
+//router.get('/userDetail', usersController.detail);
 router.get('/logout', usersController.logout)
 
 //Editar
@@ -65,9 +69,9 @@ router.put('/editprofile/:id',uploadUserImg.single ("productimg"),  usersControl
 
 //Api 
 
-router.get('/api', usersController.apiList);
-router.get('/api/:id', usersController.apiDetail);
-router.get('/api/:id/image', usersController.image);
+router.get('/api',cors(), usersController.apiList);
+router.get('/api/:id',cors(), usersController.apiDetail);
+router.get('/api/:id/image',cors(), usersController.image);
 
 
 

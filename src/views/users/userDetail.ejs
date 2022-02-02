@@ -1,0 +1,30 @@
+<%- include("../partials/head.ejs") %> 
+<body>
+    <%- include("../partials/header.ejs")  %>
+    <main>
+        <section class="profile_page">
+            <div class="profile_section">
+            <div class="profile_image"><img src="/images/users/<%=user.user_image%>"></div>
+                <div class="profile_data">
+                    
+                    <div class="profile_user_name"> <p><%=user.name%></p></div>
+                    <div class="profile_user_name"> <p><%=user.user%></p></div>
+                    <div class="profile_user_name"> <p><%=user.email%></p></div>
+                    
+                    <div class="edit_profile_button">
+                        <a href="/users/editprofile/<%=user.id%>" >Editar</a>
+                        </div>
+
+
+
+        </div>
+        <div class="profile_products">
+            <img src="/images/profile_empty2.png" alt="">
+            <h3> No tienes ordenes ni historial, comienza tu experniencia en viridis <a href="/products"> Aquí</a></h3>
+        </div>
+        </section>
+         
+    </main>
+    <!--------FOOTER-->
+    <%- include("../partials/footer.ejs")  %> 
+</body>
