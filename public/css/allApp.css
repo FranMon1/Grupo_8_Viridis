@@ -2087,6 +2087,16 @@ footer {
   background: none;
 }
 
+#ojito {
+  position: absolute;
+  right: 31%;
+  top: 45.5%;
+  font-size: 15px;
+  background: none;
+  color: black;
+}
+
+
 #editPassword{
   border: none;
   border-bottom: solid 1px black;
@@ -2811,6 +2821,16 @@ footer {
   background: none;
   font-weight: 300;
 }
+
+#ojito1 {
+  position: absolute;
+  right: 32%;
+  top: 49%;
+  font-size: 15px;
+  background: none;
+  color: black;
+}
+
 
 #nombre::placeholder,
 #password::placeholder,

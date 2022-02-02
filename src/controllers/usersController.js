@@ -99,6 +99,9 @@ let usersController = {
       // console.log(req.cookies.userEmail)
       return res.render("users/profile", { user: req.session.userLogged });
    },
+   detail: function (req, res) {
+      return res.render("users/userDetail");
+   },
    edit: function (req, res) {
      db.User.findByPk(req.params.id).then(user => {
          console.log(user)  

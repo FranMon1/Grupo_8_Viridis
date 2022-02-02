@@ -35,6 +35,7 @@
                                 <% if (locals.errors && errors.password) { %>
                                     <span class="error-msg"><%=errors.password.msg%></span>
                                 <% } %>
+                                <span class="fas fa-eye-slash" id="ojito1"></span>
                                 <span class="error-msg" id="passwordError"></span>
                             </div>
                             <div>
@@ -70,6 +71,8 @@
         </section>
     </main>
 <script src="/javascripts/createrUser.js"></script>
+<script src="/javascripts/registerEye.js"></script>
+
     <!--FOOTER-->
 <%- include("../partials/footer.ejs")  %>  
 </body>
