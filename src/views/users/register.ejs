@@ -31,11 +31,14 @@
                             </div>
                             <div>
                                 <label for="password"></label>
+                                <div class="passwordDiv">
                                 <input type="password" name="password" id="password" placeholder="Contraseña" value="<%=locals.oldData ? oldData.password : null %>" >
+                                <span class="fas fa-eye-slash" id="ojito1"></span>
+                            </div>
                                 <% if (locals.errors && errors.password) { %>
                                     <span class="error-msg"><%=errors.password.msg%></span>
                                 <% } %>
-                                <span class="fas fa-eye-slash" id="ojito1"></span>
+                                
                                 <span class="error-msg" id="passwordError"></span>
                             </div>
                             <div>

@@ -2193,7 +2193,7 @@ footer {
   width: 100%;
   display: flex;
   margin-top: 15px;
-  margin-bottom: 25px;
+ 
   font-size: 20px;
   color: white;
   background: none;
@@ -2201,9 +2201,9 @@ footer {
 
 #ojito {
   position: absolute;
-  right: 31%;
-  top: 45.5%;
-  font-size: 15px;
+  right: 5%;
+  bottom: 50%;
+  font-size: 1vw;
   background: none;
   color: black;
 }
@@ -2225,6 +2225,14 @@ footer {
 #password::placeholder {
   color: white;
   font-weight: 300;
+}
+
+.passwordDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: none;
+  position: relative
 }
 
 .botones {
@@ -2862,6 +2870,7 @@ footer {
 
 .main-register {
   background: none;
+  
 }
 
 .contenedor-main-register {
@@ -2934,9 +2943,10 @@ footer {
 
 #ojito1 {
   position: absolute;
-  right: 32%;
-  top: 49%;
-  font-size: 15px;
+  right: 5%;
+  bottom: 50%;
+  font-size: 1vw;
+  
   background: none;
   color: black;
 }

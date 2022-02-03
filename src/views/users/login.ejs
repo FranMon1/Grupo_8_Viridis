@@ -17,12 +17,15 @@
                             <span class="error-msg"><%=errors.email.msg%></span>
                         <% } %>
                         <span class="error-msg" id="emailError"></span>
+                        <div class="passwordDiv">
                         <label for="password"></label>
                         <input type="password" name="password" id="password" placeholder="Contraseña">
+                        <span class="fas fa-eye-slash" id="ojito"></span>
+                    </div>
                         <% if (locals.errors && errors.password) { %>
                             <span class="error-msg"><%=errors.password.msg%></span>
                         <% } %>
-                        <span class="fas fa-eye-slash" id="ojito"></span>
+                        
                         <span class="error-msg" id="passwordError"></span>
 
                         <label class="rememberpass">
