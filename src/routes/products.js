@@ -68,7 +68,7 @@ router.post("/preferences", adminMw, productsController.categoryAdd)
 
 // Edición
 router.get ('/edit/:id', adminMw, productsController.edit);
-router.put ('/edit/:id',uploadProductImg.single('productimg'), validationsEdit, productsController.update);
+router.put ('/edit/:id',uploadProductImg.single('image'), validationsEdit, productsController.update);
 
 
 // Inventario

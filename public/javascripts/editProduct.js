@@ -7,7 +7,7 @@ const price = qs("#price");
 const quantity = qs("#quantity");
 const image = qs("#image");
 
-const allowedExtensions = ['.jpeg', '.jpg', '.png']
+
 
 
 // Error Variables
@@ -24,6 +24,7 @@ form.addEventListener("submit", function(e) {
     
     e.preventDefault();
     let errores ={}
+    const allowedExtensions = ['image/jpeg', 'image/jpg', 'image/png']
 
     if(form.name.value.length <= 0){
         errores.name = "Debe ingresar un nombre para el producto, o dejar el anterior";
@@ -96,21 +97,10 @@ form.addEventListener("submit", function(e) {
 
     // Image Error
 
-    if(form.image.value.length <= 0){
-        errores.image = "Debe ingresar al menos una imagen";
+   if(!allowedExtensions.includes(image.files[0].type)) {
+        errores.image = "Debe ingresar una imagen de formato .jpg, .jpeg o .png";
         imageError.innerText = errores.image;
-      
-    } 
-    
-    else if(
-        !allowedExtensions.map(element => {
-            form.image.value.includes(element) == false
-           console.log(form.image.value)
-    })) {
-        errores.image = "Debe ingresar una imagen de format jpg, jpeg o png";
-        imageError.innerText = errores.image;
-        console.log(errores.image)
-    
+
     } else {
         delete errores.image;
         imageError.innerText = ""

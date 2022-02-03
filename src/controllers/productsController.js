@@ -41,7 +41,7 @@ let productsController = {
 
         let category = await db.Category.findOne({
             where:{ id: product.categories_id }})
-            console.log(category);
+            
 
         let productos = await db.Product.findAll()
         let imagenes = await db.Image.findAll()
@@ -119,7 +119,6 @@ let productsController = {
                  })
             });
             } else{
-                 
                 db.Product.create({
                 name: req.body.name,
                 description: req.body.description,
@@ -129,16 +128,21 @@ let productsController = {
                 sizes: req.body.sizes,
                 brands_id: req.body.brand,
                 categories_id: req.body.categories
-               
-             
             }).then((resultado) => {
                 db.Image.create({
                 name: req.file.filename,
                 products_id: resultado.id
            }).then(images => {
             db.Product.findAll().then(allProducts => {
-            db.Image.findAll().then(allImages => { 
-            return res.render("products/product", {image: images, product: resultado, productos: allProducts, imagenes: allImages})
+            db.Image.findAll().then(allImages => {
+            db.Category.findAll().then(allCategories => {
+            return res.render("products/product", {
+                image: images, 
+                product: resultado, 
+                productos: allProducts, 
+                imagenes: allImages, 
+                category: allCategories})
+        }) 
         })
         })
         })
@@ -147,29 +151,36 @@ let productsController = {
            
     },
 
-    update: async function (req, res) {
-
+    update: function (req, res) {
+        
         let validations = validationResult(req);
         if(validations.errors.length > 0) {
             db.Product.findOne({ where: {id: req.params.id}}).then (product => {
-            db.Image.findOne({ where: { products_id: req.params.id}}).then(image => { 
+             db.Image.findOne({ where: { products_id: req.params.id}}).then(image => {
+                console.log(image) 
             db.Category.findAll().then(categories => {
-           db.Brand.findAll().then(brands =>{
-           return res.render("products/edit", {
+         db.Brand.findAll().then(brands =>{
+            
+           return res.render("products/edit",{
               image: image,
               product: product,
               brands: brands, 
               categories: categories,
               errors: validations.mapped(),
               oldData: req.body
+              
             })
             })
             })
             })
        });
+       
        } else{
         db.Product.findAll().then (producto => {
         db.Image.findAll().then(img => {
+        db.Category.findAll().then(category => {
+        db.Brand.findAll().then(allbrands => {
+        db.Image.findOne({where: {products_id: req.params.id}}).then(oneImg => {
         db.Product.update({
         name: req.body.name,
         description: req.body.description,
@@ -181,20 +192,23 @@ let productsController = {
         color:  req.body.color}, {where: {id: req.params.id}})
         .then(resultado => {
             db.Image.update({
-                name: req.file.filename
+                name: req.file ? req.file.filename : oneImg.name
             },{where: {
                 products_id: req.params.id
             }})
         .then(images => {
-        return res.status(200).render('products/product', {
-            image: images, 
-            product: resultado, 
-            productos: producto, 
-            imagenes: img})
+            
+        return res.render('index',{
+            image: img, 
+            productos: producto
+        })
+        })
+        })
         })
         })  
         })
         })
+    })
     }
     },
     delete: async function(req, res) {
@@ -211,26 +225,23 @@ let productsController = {
       
     },
     search: async function (req, res) {
-        try{
-            let productos = await db.Product.findAll();
-            let imagenes = await db.Image.findAll();
-        let resultado = await db.Product.findOne({
-            where: {
-                name: {[Op.like] : "%" + req.query.keyword + "%"}
-        }}) 
-        let images = await db.Image.findOne({
+        try {
+            let products = await db.Product.findAll({
                 where: {
-                    products_id: resultado.id
+                    id: {[Op.like] :  req.query.keyword }
                 }
             })
-            return res.render("products/product", {
-                image: images,
-                product: resultado, 
-                productos: productos,
-                imagenes: imagenes})
-        
-        }catch(e) {return res.send("error")} 
-    },
+            let category = await db.Category.findAll()
+            let brand = await db.Brand.findAll()
+    
+            console.log(products)
+            return res.render("products/inventory", {product: products, category: category, brand: brand})
+        }catch(e) {
+            return res.json(e)
+        }
+           
+    
+        },
     category: function(req, res){
         db.Category.findAll().then(resultado =>{
             return res.render("products/preferences", {categories: resultado})

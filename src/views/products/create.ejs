@@ -6,15 +6,14 @@
     <%- include('../partials/header.ejs') %>
     <!--Main-->
 <main class="main-create">
-    <section>
+   
         <div class="top-half">
-            <a>Agrega el producto que desees!</a>
-        </div> 
+            <p>Agrega el producto que desees!</p>
+            <div class="select-category-txt">Selecciona la categoria correspondiente
+                <a href="/products/preferences"> Agregar más!</a>
+                </div>
+       
 
-        <div class="select-category-txt">Selecciona la categoria correspondiente
-        <a href="/products/preferences"> Agregar más!</a>
-        </div>
-        
         <form id="form" action="/products/create" method="POST" enctype="multipart/form-data">
             <div class="icon-category">
                 <select class="categories" name="categories" id="">
@@ -24,10 +23,9 @@
                         </option>
                         <% }) %>
                 </select>
-              
             </div>
-    </section>
-    <section>
+        </div> 
+    
         <div class="detailed-description">
             <p class="description-title">Descripción y detalles del producto</p>
             
@@ -72,8 +70,7 @@
         
         </div>
 
-    </section>
-    <section>
+    
        
         <div class="img-section">
             <% if (locals.errors && errors.image) { %>
@@ -98,7 +95,7 @@
         </div>
     </div>
     </form>
-</section>
+
 </main>
 <script src="/javascripts/createProduct.js" defer></script>
     <!--Footer-->
