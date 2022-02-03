@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
     const password = qs("#password");
     const image = qs("#image");
 
-    const allowedExtensions = ['.jpeg', '.jpg', '.png'];
+   
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
@@ -27,7 +27,7 @@ window.addEventListener("load", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault()
         let errores = {}
-
+        const allowedExtensions = ['image/jpeg', 'image/jpg', 'image/png']
 
         // Name Error
 
@@ -116,16 +116,11 @@ window.addEventListener("load", function () {
 
         }
 
-        else if (
-            allowedExtensions.forEach(element => {
-                form.image.value.includes(element) == false
-                console.log(form.image.value)
-            })) {
+        else if(!allowedExtensions.includes(image.files[0].type)) {
             errores.image = "Debe ingresar una imagen de formato .jpg, .jpeg o .png";
             imageError.innerText = errores.image;
-
-            console.log(extension)
-        } else {
+    
+        }else {
             delete errores.image;
             imageError.innerText = ""
             image.style = "border-bottom: 1px solid black";

@@ -2448,9 +2448,12 @@ footer {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 1vw;
   outline: none;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .edit_profile_button a {
+  
   background: none;
   color: black;
   text-decoration: none;
