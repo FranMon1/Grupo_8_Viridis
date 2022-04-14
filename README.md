@@ -4,6 +4,8 @@ _Trello: https://trello.com/b/Y81DpC0W/proyectointegrador_
 
 _Repositorio: https://github.com/FranMon1/Grupo_8_Viridis_
 
+_Link: https://viridis-ecommerce.herokuapp.com/
+
 Usuario administrador : admin@admin.com
 Contraseña administrador :  admin123123
 
